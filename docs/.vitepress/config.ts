@@ -9,7 +9,7 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: 'computer', link: '/computer/computer' }
+      { text: 'Computer', link: '/computer/computer' }
     ],
 
     sidebar: [
@@ -19,7 +19,7 @@ export default defineConfig({
       },
       {
         text: 'Computer',
-        items: [{ text: 'Byte Order', link: '/computer/byte-order' }]
+        items: [{ text: '字节序', link: '/computer/byte-order' }]
       }
     ],
 
