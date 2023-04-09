@@ -19,7 +19,10 @@ export default defineConfig({
       },
       {
         text: 'Computer',
-        items: [{ text: '字节序', link: '/computer/byte-order' }]
+        items: [
+          { text: '字节序', link: '/computer/byte-order' },
+          { text: '位图', link: '/computer/bitmap' }
+        ]
       }
     ],
 
