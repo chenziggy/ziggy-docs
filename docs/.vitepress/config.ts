@@ -9,7 +9,8 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
-      { text: 'Computer', link: '/computer/computer' }
+      { text: 'Computer', link: '/computer/computer' },
+      { text: 'Node', link: '/node/node' }
     ],
 
     sidebar: [
@@ -22,6 +23,12 @@ export default defineConfig({
         items: [
           { text: '字节序', link: '/computer/byte-order' },
           { text: '位图', link: '/computer/bitmap' }
+        ]
+      },
+      {
+        text: 'Node',
+        items: [
+          { text: 'process.nextTick', link: '/node/nextTick' }
         ]
       }
     ],
