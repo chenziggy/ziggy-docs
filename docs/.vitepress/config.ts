@@ -10,6 +10,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Examples', link: '/markdown-examples' },
       { text: 'Computer', link: '/computer/computer' },
+      { text: 'C', link: '/c/c' },
       { text: 'Node', link: '/node/node' }
     ],
 
@@ -27,9 +28,11 @@ export default defineConfig({
       },
       {
         text: 'Node',
-        items: [
-          { text: 'process.nextTick', link: '/node/nextTick' }
-        ]
+        items: [{ text: 'process.nextTick', link: '/node/nextTick' }]
+      },
+      {
+        text: 'C',
+        items: [{ text: 'FFERRTAG', link: '/c/fferrtag' }]
       }
     ],
 
