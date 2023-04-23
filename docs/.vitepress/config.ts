@@ -8,17 +8,10 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
-      { text: 'Computer', link: '/computer/computer' },
-      { text: 'C', link: '/c/c' },
-      { text: 'Node', link: '/node/node' }
+      { text: 'Book', link: '/computer/byte-order' }
     ],
 
     sidebar: [
-      {
-        text: 'Examples',
-        items: [{ text: 'Runtime API Examples', link: '/api-examples' }]
-      },
       {
         text: 'Computer',
         items: [
@@ -33,6 +26,10 @@ export default defineConfig({
       {
         text: 'C',
         items: [{ text: 'FFERRTAG', link: '/c/fferrtag' }]
+      },
+      {
+        text: 'Examples',
+        items: [{ text: 'Runtime API Examples', link: '/api-examples' }]
       }
     ],
 
