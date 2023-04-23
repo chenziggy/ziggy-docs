@@ -21,9 +21,9 @@ B 站视频进度条，拖动可以显示时间轴上的画面，其原理是客
 ffmpeg 是一款开源免费跨平台的音视频处理工具和库，可以实现视频的解码、编码、转换、处理等功能
 
 ### 错误处理
-
-ffmpeg 的错误处理让人眼前一亮，以前我在开发嵌入式代码时，为什么就没想到呢。
-在调用 ffmpeg 函数过程中，如果报错，函数返回负数，那这个负数代表什么意思，它又从何而来呢？
+在调用`avcodec_send_packet()`函数时报错`-1094995529`  
+查找 ffmpeg 的错误处理时，让人眼前一亮，以前我在开发嵌入式代码时，为什么就没想到呢
+在调用 ffmpeg 函数过程中，如果报错，函数返回负数，那这个负数代表什么意思，它又从何而来呢
 
 ```C
 #define FFERRTAG(a, b, c, d) (-(int)MKTAG(a, b, c, d))
@@ -32,11 +32,19 @@ ffmpeg 的错误处理让人眼前一亮，以前我在开发嵌入式代码时�
                            ((uint32_t)(c) << 16) | ((uint32_t)(d) << 24))
 ```
 
-error.h 定义了这样两个宏`MKTAG` `FFERRTAG`
-`MKTAG`入参 a、b、c 和 d 是四个字符，MKTAG 将这些字符按照给定的顺序（a、b、c、d）组合成一个 32 位的整数值。
-`FFERRTAG` 转化为负数
+error.h 定义了这样两个宏`MKTAG` `FFERRTAG`  
+`MKTAG`入参 a、b、c 和 d 是四个字符，MKTAG 将这些字符按照给定的顺序（a、b、c、d）组合成一个 32 位的整数值  
+`FFERRTAG` 将其结果转化为负数
 
 ```C
 #define AVERROR_INVALIDDATA        FFERRTAG( 'I','N','D','A')
 ///< Invalid data found when processing input
+
+/*
+  计算过程如下
+  'I', 'N', 'D', 'A'
+  0x41 0x44 0x4E 0x49
+  MKTAG('I', 'N', 'D', 'A')  =>  0x41444E49 1094995529
+  FFERRTAG                   => -1094995529 0xBFBBB1B7
+*/
 ```
