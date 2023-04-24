@@ -20,6 +20,10 @@ export default defineConfig({
         ]
       },
       {
+        text: 'Frontend',
+        items: [{ text: 'keyboardEvent', link: '/frontend/keyboardEvent' }]
+      },
+      {
         text: 'Node',
         items: [{ text: 'process.nextTick', link: '/node/nextTick' }]
       },
