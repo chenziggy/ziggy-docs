@@ -45,6 +45,6 @@ error.h 定义了这样两个宏`MKTAG` `FFERRTAG`
   'I', 'N', 'D', 'A'
   0x41 0x44 0x4E 0x49
   MKTAG('I', 'N', 'D', 'A')  =>  0x41444E49 1094995529
-  FFERRTAG                   => -1094995529 0xBFBBB1B7
+  FFERRTAG                   => -1094995529 0xBEBBB1B7
 */
 ```
