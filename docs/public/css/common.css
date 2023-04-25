@@ -9,5 +9,16 @@
 .icon-deprecated {
   -webkit-mask-image: url(/img/deprecated.svg);
   mask-image: url(/img/deprecated.svg);
-  background-color: #ff707f;
+  background-color: var(--icon-critical);
+}
+
+.icon-experimental {
+  -webkit-mask-image: url(/img/experimental.svg);
+  mask-image: url(/img/experimental.svg);
+  background-color: var(--note-theme);
+}
+
+:root {
+  --icon-critical: #ff707f;
+  --note-theme: #5e9eff;
 }
