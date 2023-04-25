@@ -1,11 +1,13 @@
-.icon-deprecated {
-  -webkit-mask-image: url(/img/deprecated.svg);
-  mask-image: url(/img/deprecated.svg);
-  background-color: #ff707f;
-}
 .icon {
   display: inline-block;
   width: 15px;
   height: 15px;
   vertical-align: middle;
+}
+
+
+.icon-deprecated {
+  -webkit-mask-image: url(/img/deprecated.svg);
+  mask-image: url(/img/deprecated.svg);
+  background-color: #ff707f;
 }
