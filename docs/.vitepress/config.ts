@@ -24,6 +24,7 @@ export default defineConfig({
         text: "Frontend",
         items: [
           { text: "attrs-listeners-inheritAtrrs", link: "/frontend/attrsListenersInheritAtrrs" },
+          { text: "flex", link: "/frontend/flex" },
           { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
           { text: "keyof", link: "/frontend/keyof" },
           { text: "var()", link: "/frontend/var()" },
