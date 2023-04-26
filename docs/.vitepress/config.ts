@@ -17,6 +17,7 @@ export default defineConfig({
         items: [
           { text: "字节序", link: "/computer/byte-order" },
           { text: "位图", link: "/computer/bitmap" },
+          { text: "流程图", link: "/computer/flow-chart" },
         ],
       },
       {
