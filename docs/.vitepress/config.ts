@@ -23,6 +23,7 @@ export default defineConfig({
       {
         text: "Frontend",
         items: [
+          { text: "attrs-listeners-inheritAtrrs", link: "/frontend/attrs-listeners-inheritAtrrs" },
           { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
           { text: "keyof", link: "/frontend/keyof" },
           { text: "var()", link: "/frontend/var()" },
