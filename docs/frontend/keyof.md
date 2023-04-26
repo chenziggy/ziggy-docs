@@ -1,3 +1,75 @@
+# typescript keyof
+
+## 查找类型
+
+```ts
+interface Person {
+    name: string;
+    age: number;
+    location: string;
+}
+
+type K1 = keyof Person; // "name" | "age" | "location"   索引类型
+type P2 = Person["name" | "age"];  // string | number    索引访问类型
+```
+
+索引类型查询`keyof T`产生的类型是`T`的属性名称。与之相对应的是*索引访问类型*，也称为*查找类型*
+
+```ts
+function getProperty<T, K extends keyof T>(obj: T, key: K) {
+    return obj[key];  // 推断类型是T[K]
+}
+
+function setProperty<T, K extends keyof T>(obj: T, key: K, value: T[K]) {
+    obj[key] = value;
+}
+
+let x = { foo: 10, bar: "hello!" };
+let foo = getProperty(x, "foo"); // number
+setProperty(x, "foo", "string"); // 错误！, 类型是number而非string
+```
+
+## 映射类型
+
+```ts
+interface PartialPerson {
+    name?: string;
+    age?: number;
+    location?: string;
+}
+
+type Partial<T> = {
+    [P in keyof T]?: T[P];
+};
+
+type PartialPerson = Partial<Person>;
+```
+
+```ts
+// 保持类型相同，但每个属性是只读的。
+type Readonly<T> = {
+    readonly [P in keyof T]: T[P];
+};
+```
+
+`Partial`和`Readonly它`们现在默认包含在标准库中。
+
+我们还包括两个其他实用程序类型：`Record`和`Pick`。
+
+```ts
+// 从T中选取一组属性K
+declare function pick<T, K extends keyof T>(obj: T, ...keys: K[]): Pick<T, K>;
+
+const nameAndAgeOnly = pick(person, "name", "age");  // { name: string, age: number }
+
+// 对于类型T的每个属性K，将其转换为U
+function mapObject<K extends string | number, T, U>(obj: Record<K, T>, f: (x: T) => U): Record<K, U>
+
+const names = { foo: "hello", bar: "world", baz: "bye" };
+const lengths = mapObject(names, s => s.length);  // { foo: number, bar: number, baz: number }
+```
+
+
 # Typescript in keyof  extends keyof
 
 [https://github.com/Microsoft/TypeScript/issues/10485](https://github.com/Microsoft/TypeScript/issues/10485)
