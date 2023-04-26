@@ -8,22 +8,22 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
-      { text: "Book", link: "/computer/byte-order" },
+      { text: "Book", link: "/computer/byteOrder" },
     ],
 
     sidebar: [
       {
         text: "Computer",
         items: [
-          { text: "字节序", link: "/computer/byte-order" },
+          { text: "字节序", link: "/computer/byteOrder" },
           { text: "位图", link: "/computer/bitmap" },
-          { text: "流程图", link: "/computer/flow-chart" },
+          { text: "流程图", link: "/computer/flowChart" },
         ],
       },
       {
         text: "Frontend",
         items: [
-          { text: "attrs-listeners-inheritAtrrs", link: "/frontend/attrs-listeners-inheritAtrrs" },
+          { text: "attrs-listeners-inheritAtrrs", link: "/frontend/attrsListenersInheritAtrrs" },
           { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
           { text: "keyof", link: "/frontend/keyof" },
           { text: "var()", link: "/frontend/var()" },
