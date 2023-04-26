@@ -1,7 +1,7 @@
 # mask
 
 在查看**mdn**文档时，会经常看见废弃语法，废弃语法的标识是一个粉色垃圾桶<span class="icon icon-deprecated"></span>  
-本以为他是一个检点`<img>`标签，出于好奇打开控制台发现并非如此
+本以为他是一个简单的`<img>`标签，出于好奇打开控制台发现并非如此
 
 * `mask-image`: none
 * `mask-repeat`: repeat
