@@ -19,6 +19,7 @@ export default defineConfig({
           { text: "位图", link: "/computer/bitmap" },
           { text: "流程图", link: "/computer/flowChart" },
           { text: "wsl", link: "/computer/wsl" },
+          { text: "git", link: "/computer/git" },
         ],
       },
       {
