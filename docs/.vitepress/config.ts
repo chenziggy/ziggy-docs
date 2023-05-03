@@ -35,6 +35,7 @@ export default defineConfig({
           { text: "var()", link: "/frontend/var()" },
           { text: "mask", link: "/frontend/mask" },
           { text: "svg path", link: "/frontend/svgPath" },
+          { text: "prop", link: "/frontend/prop" },
         ],
       },
       {
