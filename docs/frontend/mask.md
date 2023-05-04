@@ -35,8 +35,8 @@
 */
 ```
 :::tip
-由于浏览器兼容性问题，同时添加
--webkit-mask-image
+由于浏览器兼容性问题，需要同时添加  
+-webkit-mask-image  
 mask-image
 :::
 
