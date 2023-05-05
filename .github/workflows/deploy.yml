@@ -24,10 +24,10 @@ jobs:
       - run: ls
       - uses: pnpm/action-setup@v2
         with:
-          version: 6.32.9
+          version: 7.32.1
       - uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '14.18.3'
           cache: 'pnpm'
       - run: |
           pwd
