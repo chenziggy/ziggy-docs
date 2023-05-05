@@ -23,7 +23,7 @@ jobs:
           version: 6.32.9
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '14'
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - name: Build
