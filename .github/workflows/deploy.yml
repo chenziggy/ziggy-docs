@@ -16,7 +16,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        width: gh-pages
+        width:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v2
         with:
           version: 6.32.9
