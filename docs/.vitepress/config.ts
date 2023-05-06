@@ -22,6 +22,7 @@ export default defineConfig({
           { text: "流程图", link: "/computer/flowChart" },
           { text: "wsl", link: "/computer/wsl" },
           { text: "git", link: "/computer/git" },
+          { text: "http cache", link: "/computer/httpCache" },
         ],
       },
       {
