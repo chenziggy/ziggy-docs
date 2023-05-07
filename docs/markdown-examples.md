@@ -83,3 +83,7 @@ This is a details block.
 ## More
 
 Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
+
+## Note
+
+* [Markdown-it-attrs](https://github.com/arve0/markdown-it-attrs) parse special symbol `{ a,b }`. You should use this `\{ a,b }\`
