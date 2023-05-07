@@ -23,6 +23,7 @@ export default defineConfig({
           { text: "wsl", link: "/computer/wsl" },
           { text: "git", link: "/computer/git" },
           { text: "http cache", link: "/computer/httpCache" },
+          { text: "regex", link: "/computer/regex" },
         ],
       },
       {
