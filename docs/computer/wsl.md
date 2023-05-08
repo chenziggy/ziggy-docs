@@ -49,3 +49,9 @@ netsh int ipv4 show excludedportrange protocol=tcp
 netsh int ipv4 set dynamic tcp start=49152 num=16384
 netsh int ipv6 set dynamic tcp start=49152 num=16384
 ```
+
+## oh-my-posh
+oh-my-posh themes 存放路径
+```bash
+/home/linuxbrew/.linuxbrew/opt/oh-my-posh/themes
+```
