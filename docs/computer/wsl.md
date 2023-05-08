@@ -1,5 +1,22 @@
 # wsl
 
+## 命令
+```bash
+pwd  #  Print Working Directory 打印出当前所在的工作目录的绝对路径
+source  #  在当前 shell 环境下读取并执行指定的 shell 脚本文件  source ~/.zshrc
+alias  # 创建命令别名 alias p="pnpm"
+export #  设置环境变量 export PNPM_HOME="/home/ziggy/.local/share/pnpm"
+```
+
+## Proxy
+```bash
+port=7890
+export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+export https_proxy="http://${hostip}:${port}"
+export http_proxy="http://${hostip}:${port}"
+export all_proxy="socks5://${hostip}:${port}"
+```
+
 ## 端口占用
 
 * 升级了wsl2之后，本地开发经常遇到端口被占用
