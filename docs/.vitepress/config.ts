@@ -43,6 +43,12 @@ export default defineConfig({
         ],
       },
       {
+        text: "Vue",
+        items: [
+          { text: "effectScope", link: "/vue/effectScope" },
+        ]
+      },
+      {
         text: "Node",
         items: [{ text: "process.nextTick", link: "/node/nextTick" }],
       },
