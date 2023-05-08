@@ -9,6 +9,7 @@ export #  设置环境变量 export PNPM_HOME="/home/ziggy/.local/share/pnpm"
 ```
 
 ## Proxy
+使用 windows 的代理端口
 ```bash
 port=7890
 export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
