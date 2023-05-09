@@ -11,11 +11,11 @@ export #  设置环境变量 export PNPM_HOME="/home/ziggy/.local/share/pnpm"
 ## Proxy
 使用 windows 的代理端口
 ```bash
-port=7890
-export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
-export https_proxy="http://${hostip}:${port}"
-export http_proxy="http://${hostip}:${port}"
-export all_proxy="socks5://${hostip}:${port}"
+port=10809
+export HOSTIP=$(cat /etc/resolv.conf | grep "nameserver" | cut -f 2 -d " ")
+export http_proxy="http://$HOSTIP:$port"
+export https_proxy="http://$HOSTIP:$port"
+export all_proxy="socks5://$HOSTIP:$port"
 ```
 
 ## 端口占用
