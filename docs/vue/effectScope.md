@@ -45,6 +45,6 @@ effectScope 的作用是什么？
 
 ## [RFC 0041-reactivity-effect-scope](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0041-reactivity-effect-scope.md)
 
-这是 effectScope RFC ，初衷是为了抽象 setup 收集 effect，并在 unmounted 时自动销毁effect这一特性，让这一特性在 component 之外也能使用
+这是 effectScope RFC ，初衷是为了抽象 setup 自动收集、注销 effect 这一特性，让这一特性在 component 之外也能使用
 
 This RFC is trying to abstract the component's setup() effect collecting and disposing feature into a more general API that can be reused outside of the component model.
