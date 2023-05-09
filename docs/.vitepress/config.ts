@@ -31,6 +31,7 @@ export default defineConfig({
         items: [
           {text: "异常捕获", link: "/frontend/errorHandler"},
           {text: "npm", link: "/frontend/npm"},
+          {text: "axios", link: "/frontend/axios"},
           { text: "attrs-listeners-inheritAtrrs", link: "/frontend/attrsListenersInheritAtrrs" },
           { text: "flex", link: "/frontend/flex" },
           { text: "width", link: "/frontend/width" },
