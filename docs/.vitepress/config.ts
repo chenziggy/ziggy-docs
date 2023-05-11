@@ -29,6 +29,7 @@ export default defineConfig({
       {
         text: "Frontend",
         items: [
+          { text: "url", link: "/frontend/url" },
           {text: "异常捕获", link: "/frontend/errorHandler"},
           {text: "npm", link: "/frontend/npm"},
           {text: "axios", link: "/frontend/axios"},
