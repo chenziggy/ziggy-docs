@@ -1,7 +1,15 @@
 # url
 
+## URL()
+创建并返回一个URL对象 new URL("https://www.example.com:8080/index.html?param=type")
+* `origin`  "https://www.example.com:8080"
+* `host`  "www.example.com:8080"
+* `hostname` "www.example.com"
+* `pathname`  "/index.html"
+* `search`  "?param=type"
+* `searchParams`  URLSearchParams \{size: 1\}  
 
-## encodeURI
+## encodeURI()
 encodeURI 会替换所有的字符，但不包括以下字符，即使它们具有适当的 UTF-8 转义序列：
 | 类型     | 包含                      |
 |--------|-------------------------|
@@ -13,6 +21,10 @@ encodeURI 会替换所有的字符，但不包括以下字符，即使它们具�
 :::
 
 ## encodeURIComponent
+encodeURIComponent 会替换所有的字符，但不包括以下字符：
+| 类型     | 包含                      |
+|--------|-------------------------|
+| 非转义的字符 | 字母 数字 - _ . ! ~ * ' ( ) |
 ```js
 var set1 = ";,/?:@&=+$";  // 保留字符
 var set2 = "-_.!~*'()";   // 不转义字符
