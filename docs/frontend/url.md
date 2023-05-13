@@ -9,6 +9,14 @@
 * `search`  "?param=type"
 * `searchParams`  URLSearchParams \{size: 1\}  
 
+## window.location
+`window.location`是一个对象，包含了当前页面的 URL 信息，可以通过这些属性来获取或修改页面的 URL 信息
+```js
+// 当前页面url https://www.baidu.com/index.html?param=type&order=desc
+window.location.host="www.google.com"
+// 页面跳转到https://www.google.com/index.html?param=type&order=desc
+```
+
 ## encodeURI()
 encodeURI 会替换所有的字符，但不包括以下字符，即使它们具有适当的 UTF-8 转义序列：
 | 类型     | 包含                      |
@@ -43,4 +51,12 @@ console.log(encodeURIComponent(set4)); // ABC%20abc%20123 (空格被编码为 %2
 ```
 
 ## URLSearchParams
-
+```js
+// 当前页面url的参数 https://www.baidu.com/index.html?param=type&order=desc
+const params = new URLSearchParams(window.location.search)
+for (const [key, value] of params) {
+  console.log(key, value)
+}
+// param type
+// order desc
+```
