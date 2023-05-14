@@ -3,6 +3,7 @@
 layout: home
 
 hero:
+  image: /avator.png
   name: "ziggy-docs"
   text: "Z master document"
   tagline: My great project tagline
