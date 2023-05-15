@@ -35,15 +35,20 @@ export default defineConfig({
           {text: "npm", link: "/frontend/npm"},
           {text: "axios", link: "/frontend/axios"},
           { text: "attrs-listeners-inheritAtrrs", link: "/frontend/attrsListenersInheritAtrrs" },
-          { text: "flex", link: "/frontend/flex" },
-          { text: "width", link: "/frontend/width" },
           { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
           { text: "keyof", link: "/frontend/keyof" },
-          { text: "var()", link: "/frontend/var()" },
-          { text: "mask", link: "/frontend/mask" },
           { text: "svg path", link: "/frontend/svgPath" },
-          { text: "background", link: "/frontend/background" },
         ],
+      },
+      {
+        text: "CSS",
+        items: [
+          { text: "width", link: "/css/width" },
+          { text: "flex", link: "/css/flex" },
+          { text: "var()", link: "/css/var()" },
+          { text: "mask-image", link: "/css/maskImage" },
+          { text: "background", link: "/css/background" },
+        ]
       },
       {
         text: "Vue",
