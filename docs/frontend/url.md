@@ -60,3 +60,28 @@ for (const [key, value] of params) {
 // param type
 // order desc
 ```
+
+## Data URL
+前缀为 data: 协议的 URL，允许内容创建者向文档中嵌入小文件
+```
+data:[<mediatype>][;base64],<data>
+```
+前缀（data:）、指示数据类型的 MIME 类型、如果非文本则为可选的 base64 标记、数据本身
+``` 
+// Hello, World!
+// mediatype 默认 text/plain 可以不填
+data:,Hello%2C%20World!
+
+// lots of text…
+// <p><a name="bottom">bottom</a>?arg=val</p>
+data:text/html,lots of text…<p><a name%3D"bottom">bottom</a>?arg=val</p>
+```
+
+### 长度限制
+Opera 11 浏览器限制 URL 最长为 65535 个字符，这意味着 data URL 最长为 65529 个字符（如果你使用纯文本 `data:,`
+那么 65529 字符长度是编码后的长度）。
+
+
+### 安全问题
+许多安全问题（例如，钓鱼网站）已与 data URL 相关联，并在浏览器的顶层导航到  
+现代浏览器将 Data URL 视作唯一的不透明来源，它们不可以用于导航的 URL  
