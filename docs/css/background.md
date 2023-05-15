@@ -19,7 +19,7 @@
 * border-box 背景延伸至边框外沿（但是在边框下层）
 * padding-box  背景延伸至内边距（padding），不会绘制到边框处
 * content-box  背景被裁剪至内容区（content box）外沿
-* text  背景被裁剪成文字的前景色 （类似于遮罩图像 mask-image）
+* text  背景被裁剪成文字的前景色 （类似于遮罩图像 [mask-image](./maskImage.md)）
 
 
 ## background-image
