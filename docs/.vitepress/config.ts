@@ -4,7 +4,7 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   base: "/ziggy-docs",
   title: "ziggy-docs",
-  description: "Z master document",
+  description: "Stay hungry stay foolish",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [

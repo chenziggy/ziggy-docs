@@ -6,7 +6,7 @@ hero:
   image: /avator.png
   name: "ziggy-docs"
   text: "Master piece"
-  tagline: My great project tagline
+  tagline: Stay hungry stay foolish
   actions:
     - theme: brand
       text: Markdown Examples
