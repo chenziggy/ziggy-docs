@@ -5,7 +5,7 @@ layout: home
 hero:
   image: /avator.png
   name: "ziggy-docs"
-  text: "Z master document"
+  text: "Master piece"
   tagline: My great project tagline
   actions:
     - theme: brand
