@@ -42,7 +42,6 @@ export default defineConfig({
             {text: "异常捕获", link: "/frontend/errorHandler"},
             {text: "npm", link: "/frontend/npm"},
             {text: "axios", link: "/frontend/axios"},
-            { text: "attrs-listeners-inheritAtrrs", link: "/frontend/attrsListenersInheritAtrrs" },
             { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
             { text: "keyof", link: "/frontend/keyof" },
             { text: "svg path", link: "/frontend/svgPath" },
@@ -66,6 +65,7 @@ export default defineConfig({
           text: "Vue",
           items: [
             { text: "prop", link: "/vue/prop" },
+            { text: "attrs-listeners-inheritAtrrs", link: "/vue/attrsListenersInheritAtrrs" },
             { text: "effectScope", link: "/vue/effectScope" },
           ]
         },
