@@ -9,18 +9,15 @@ hero:
   tagline: Stay hungry stay foolish
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Getting Started
+      link: /computer/code
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Hello World
+    details: There's no place like 127.0.0.1
+  - title: 冲冲冲
+    details: 路漫漫其修远兮，吾将上下而求索
+  - title: 昨日已逝，未来可期
+    details: 北海虽赊，扶摇可接；东隅已逝，桑榆非晚
 ---
 
