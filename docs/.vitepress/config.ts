@@ -26,6 +26,7 @@ export default defineConfig({
             { text: "字节序", link: "/computer/byteOrder" },
             { text: "位图", link: "/computer/bitmap" },
             { text: "流程图", link: "/computer/flowChart" },
+            { text: "代理", link: "/computer/proxy" },
             { text: "wsl", link: "/computer/wsl" },
             { text: "git", link: "/computer/git" },
             { text: "http cache", link: "/computer/httpCache" },
