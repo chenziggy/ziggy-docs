@@ -22,8 +22,8 @@ export default defineConfig({
         {
           text: "Computer",
           items: [
-            { text: "字节序", link: "/computer/byteOrder" },
             { text: "编码", link: "/computer/code" },
+            { text: "字节序", link: "/computer/byteOrder" },
             { text: "位图", link: "/computer/bitmap" },
             { text: "流程图", link: "/computer/flowChart" },
             { text: "wsl", link: "/computer/wsl" },
