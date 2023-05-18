@@ -48,7 +48,7 @@ Last-Modified: Tue, 22 Feb 2021 22:22:22 GMT
 复用多长时间取决于实现，但规范建议存储后大约 10%，在这个例子中0.1年
 
 
-## 基于 age 的缓存策略
+### 基于 age 的缓存策略
 存储的 HTTP 响应有两种状态：fresh 和 stale
 * fresh 状态通常表示响应仍然有效，可以重复使用
 * stale 状态表示缓存的响应已经过期
@@ -69,7 +69,7 @@ max-age 604800 （一周）
 * 如果响应的 age 超过一周，则响应为 stale
 * 该响应它在剩余的 518400 秒内是新鲜
 
-## Vary 响应
+### Vary 响应
 Vary 字段用于指示服务器在响应中使用了哪些请求头部字段来确定缓存的有效性  
 当客户端发送请求时，服务器会检查请求中的这些字段的值，以确定是否可以使用缓存的响应。如果请求中的这些字段的值与缓存的响应匹配，则服务器可以返回缓存的响应
 
@@ -77,6 +77,36 @@ Vary 字段用于指示服务器在响应中使用了哪些请求头部字段来
 * Accept-Encoding：表示客户端支持的内容编码方式来确定缓存的有效性
 * Accept-Language：表示客户端首选的语言来确定缓存的有效性
 * Authorization：表示客户端的身份验证凭证来确定缓存的有效性
+
+### 验证响应
+过时的响应不会立即被丢弃。HTTP 有一种机制，可以通过询问源服务器将陈旧的响应转换为新的响应。这称为验证，有时也称为重新验证
+####  If-Modified-Since
+验证是通过使用包含 If-Modified-Since 或 If-None-Match 请求标头的条件请求完成的
+```
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1024
+Date: Tue, 22 Feb 2022 22:22:22 GMT
+Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
+Cache-Control: max-age=3600
+```
+1. 响应在 22:22:22 生成，max-age 为 1 小时，因此响应在 23:22:22 之前是新鲜的 fresh
+2. 过了 23:22:22 时，响应会过时并且不能重用缓存，客户端发送带有 If-Modified-Since 请求标头的请求，以询问服务器自指定时间以来是否有任何的改变
+```
+GET /index.html HTTP/1.1
+Host: example.com
+Accept: text/html
+If-Modified-Since: Tue, 22 Feb 2022 22:00:00 GMT
+```
+3. 如果内容自指定时间以来没有更改，服务器将响应 304 Not Modified，响应主体——只有一个状态码——因此传输大小非常小
+```
+HTTP/1.1 304 Not Modified
+Content-Type: text/html
+Date: Tue, 22 Feb 2022 23:22:22 GMT
+Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
+Cache-Control: max-age=3600
+```
+4. 收到该响应后，客户端将存储的陈旧响应恢复为新鲜的，并可以在剩余的 1 小时内重复使用它
 
 ## 强缓存
 
