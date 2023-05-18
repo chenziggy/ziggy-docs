@@ -55,3 +55,20 @@ git fetch target
 git log target/master
 git cherry-pick <commitHash>
 ```
+
+## remote
+
+远程仓库名
+```bash
+git remote 
+```
+
+远程仓库名、url 列表
+```bash
+git remote -v
+```
+
+添加远程仓库
+```bash
+git remote add <remote-name> <remote-url>
+```
