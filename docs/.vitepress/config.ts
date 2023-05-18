@@ -9,7 +9,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "Home", link: "/" },
-      { text: "Computer", link: "/computer/byteOrder" },
+      { text: "Computer", link: "/computer/code" },
       { text: "Frontend", link: "/frontend/url" },
       { text: "CSS", link: "/css/width" },
       { text: "Vue", link: "/vue/prop" },
