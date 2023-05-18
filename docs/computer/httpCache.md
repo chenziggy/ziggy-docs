@@ -3,7 +3,7 @@
 ## 私有缓存
 * 仅用于单个用户
 * 在HTTP响应中添加了一些头信息
-* 缓存数据只能在用户本地存储
+* 只能被客户端缓存，不能被中间代理服务器缓存
 ```bash
 Cache-Control: private
 ```
@@ -22,9 +22,7 @@ Cache-Control: private
 * 可以由多个用户或客户端共享一份缓存
 * 通常存储在代理服务器缓存和CDN缓存
 * 共享缓存通常用于静态资源 例如 JavaScript、CSS、图像等
-```bash
-Cache-Control: public
-```
+
 进一步细分为代理缓存和托管缓存
 
 
@@ -47,7 +45,9 @@ Last-Modified: Tue, 22 Feb 2021 22:22:22 GMT
 当前资源2021最后一次修改，推测它这么长时间未修改，最近也不会修改，响应被客户端复用
 复用多长时间取决于实现，但规范建议存储后大约 10%，在这个例子中0.1年
 
-
+:::tip
+启发式缓存是在 Cache-Control 被广泛采用之前出现的一种解决方法
+:::
 ### 基于 age 的缓存策略
 存储的 HTTP 响应有两种状态：fresh 和 stale
 * fresh 状态通常表示响应仍然有效，可以重复使用
@@ -69,14 +69,15 @@ max-age 604800 （一周）
 * 如果响应的 age 超过一周，则响应为 stale
 * 该响应它在剩余的 518400 秒内是新鲜
 
+
 ### Vary 响应
 Vary 字段用于指示服务器在响应中使用了哪些请求头部字段来确定缓存的有效性  
 当客户端发送请求时，服务器会检查请求中的这些字段的值，以确定是否可以使用缓存的响应。如果请求中的这些字段的值与缓存的响应匹配，则服务器可以返回缓存的响应
 
 常见的 Vary 字段值包括：
-* Accept-Encoding：表示客户端支持的内容编码方式来确定缓存的有效性
-* Accept-Language：表示客户端首选的语言来确定缓存的有效性
-* Authorization：表示客户端的身份验证凭证来确定缓存的有效性
+* Accept-Encoding：内容编码方式来确定缓存的有效性
+* Accept-Language：首选的语言来确定缓存的有效性
+* Authorization：身份验证凭证来确定缓存的有效性
 
 ### 验证响应
 过时的响应不会立即被丢弃。HTTP 有一种机制，可以通过询问源服务器将陈旧的响应转换为新的响应。这称为验证，有时也称为重新验证
@@ -107,6 +108,54 @@ Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
 Cache-Control: max-age=3600
 ```
 4. 收到该响应后，客户端将存储的陈旧响应恢复为新鲜的，并可以在剩余的 1 小时内重复使用它
+
+#### ETag/If-None-Match
+ETag 响应标头的值是服务器生成的任意值，常用主体内容的哈希或版本号
+```
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1024
+Date: Tue, 22 Feb 2022 22:22:22 GMT
+ETag: "deadbeef"
+Cache-Control: max-age=3600
+```
+1. ETag 标头使用了 hash 值，index.html 资源的 hash 值是 deadbeef
+2. 如果该响应是陈旧的，则客户端获取缓存响应的 ETag 响应标头的值，并将其放入 If-None-Match 请求标头中，以询问服务器资源是否已被修改
+```
+GET /index.html HTTP/1.1
+Host: example.com
+Accept: text/html
+If-None-Match: "deadbeef"
+```
+3. 如果服务器为请求的资源确定的 ETag 标头的值与请求中的 If-None-Match 值相同，则服务器将返回 304 Not Modified
+
+:::tip
+* 如果 ETag 和 Last-Modified 都存在，则 ETag 优先 
+* Last-Modified 不仅仅对缓存有用,相反，它是一个标准的 HTTP 标头，内容管理 (CMS) 系统也使用它来显示上次修改时间
+* 最好同时提供 ETag 和 Last-Modified
+:::
+
+#### 强制重新验证
+如果你不希望重复使用响应，而是希望始终从服务器获取最新内容，则可以使用 no-cache 指令`强制验证`  
+Cache-Control: no-cache 以及 Last-Modified 和 ETag
+```
+HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 1024
+Date: Tue, 22 Feb 2022 22:22:22 GMT
+Last-Modified: Tue, 22 Feb 2022 22:00:00 GMT
+ETag: deadbeef
+Cache-Control: no-cache
+```
+max-age=0 和 must-revalidate 的组合与 no-cache 相同  
+max-age=0 的使用是解决 HTTP/1.1 之前的许多实现无法处理 no-cache 这一指令，优先使用 no-cache
+
+### 不使用缓存
+如果你不希望将响应存储在任何缓存中，请使用 no-store
+```
+Cache-Control: no-store
+```
+
 
 ## 强缓存
 
