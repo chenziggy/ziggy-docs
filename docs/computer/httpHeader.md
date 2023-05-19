@@ -28,3 +28,31 @@ Cache-control: proxy-revalidate
 Cache-Control: max-age=<seconds>  # 客户端和中间代理服务器可以根据该值来决定响应的缓存有效期
 Cache-control: s-maxage=<seconds>
 ```
+
+
+## Date
+响应创建的日期和时间
+```
+Date: Wed, 21 Oct 2015 07:28:00 GMT
+```
+[启发式缓存](./httpCache.md#启发式缓存) 利用 `Date` `Last-Modified` 计算缓存时间
+
+## Age
+Age 响应头里包含对象在缓存代理中存贮的时长，以秒为单位
+```
+Age: 24
+```
+响应是24秒前从原始服务器获取  
+[基于 age 的缓存策略](./httpCache.md#基于-age-的缓存策略) 通过 `Age` 与 `Cache-Control: max-age`  对比缓存是否新鲜
+
+## Last-Modified
+Last-Modified 包含源头服务器认定的资源做出修改的日期及时间  
+[验证响应](./httpCache.md#验证响应) 通常与 `If-Modified-Since` 被用作一个验证器来判断接收到的或者存储的资源是否彼此一致
+
+## ETag
+资源的特定版本的标识符，资源变化 ETag 必定变化
+```
+ETag: W/"276f7dbce2395416275a0f05181ff7be"
+
+```
+[验证响应](./httpCache.md#验证响应) 通常与 请求头 `If-None-Match` 比较资源是否变化
