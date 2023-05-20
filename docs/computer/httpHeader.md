@@ -63,3 +63,5 @@ ETag: W/"276f7dbce2395416275a0f05181ff7be"
 Access-Control-Allow-Origin: *        # 服务器会以“*”作为通配符，允许任意来源的请求都具有访问资源的权限
 Access-Control-Allow-Origin: <origin> # 指定一个来源（只能指定一个）
 ```
+服务器允许多个源访问资源，需要在响应中动态设置，每个响应头 `Access-Control-Allow-Origin` 指定当前请求的 origin
+
