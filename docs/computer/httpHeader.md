@@ -56,3 +56,10 @@ ETag: W/"276f7dbce2395416275a0f05181ff7be"
 
 ```
 [验证响应](./httpCache.md#验证响应) 通常与 请求头 `If-None-Match` 比较资源是否变化
+
+## Access-Control-Allow-Origin
+响应的资源是否被允许与给定的来源（origin）共享
+```
+Access-Control-Allow-Origin: *        # 服务器会以“*”作为通配符，允许任意来源的请求都具有访问资源的权限
+Access-Control-Allow-Origin: <origin> # 指定一个来源（只能指定一个）
+```
