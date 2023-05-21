@@ -31,6 +31,7 @@ export default defineConfig({
             { text: "git", link: "/computer/git" },
             { text: "http cache", link: "/computer/httpCache" },
             { text: "http header", link: "/computer/httpHeader" },
+            { text: "http request body", link: "/computer/httpRequestBody" },
             { text: "regex", link: "/computer/regex" },
             { text: "时间", link: "/computer/time" },
             { text: "设计模式", link: "/computer/designPattern" },
