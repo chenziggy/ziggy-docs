@@ -68,3 +68,17 @@ Access-Control-Allow-Origin: <origin> # 指定一个来源（只能指定一个�
 ## Authorization
 请求头用于提供服务器验证用户代理身份的凭据，允许访问受保护的资源  
 通过Authorization 访问的资源需要缓存时，`Cache-Control` 必须设置 `public`
+
+## Content-Type
+```
+text/plain
+text/html
+text/css
+image/jpeg
+audio/mp4
+multipart/data-form
+application/json
+application/x-www-form-urlencoded
+...
+```
+查询更多的 [MIME Type](https://www.iana.org/assignments/media-types/media-types.xhtml)
