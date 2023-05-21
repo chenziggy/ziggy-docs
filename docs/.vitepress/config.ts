@@ -49,6 +49,7 @@ export default defineConfig({
             { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
             { text: "keyof", link: "/frontend/keyof" },
             { text: "svg path", link: "/frontend/svgPath" },
+            { text: "proxy", link: "/frontend/proxy" },
           ],
         },
       ],
