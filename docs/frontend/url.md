@@ -85,3 +85,17 @@ Opera 11 浏览器限制 URL 最长为 65535 个字符，这意味着 data URL �
 ### 安全问题
 许多安全问题（例如，钓鱼网站）已与 data URL 相关联，并在浏览器的顶层导航到  
 现代浏览器将 Data URL 视作唯一的不透明来源，它们不可以用于导航的 URL  
+
+## createObjectURL
+创建一个表示指定对象的 URL。通常，它用于创建一个指向 Blob 或 File 对象的 URL，以便在浏览器中显示或下载该对象
+
+```js
+const fileInput = document.getElementById('fileInput');
+const imgElement = document.getElementById('imgElement');
+
+fileInput.addEventListener('change', function (event) {
+  const file = event.target.files[0];
+  const imgUrl = URL.createObjectURL(file);
+  imgElement.src = imgUrl;
+});
+```
