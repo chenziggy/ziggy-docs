@@ -76,6 +76,22 @@ data:,Hello%2C%20World!
 // <p><a name="bottom">bottom</a>?arg=val</p>
 data:text/html,lots of text…<p><a name%3D"bottom">bottom</a>?arg=val</p>
 ```
+对于图像等二进制数据必须使用 Base64 进行编码  
+SVG 它本身已经是文本格式，不需要 Base64编码
+```js
+// https://bl.ocks.org/jennyknuth/222825e315d45a738ed9d6e04c7a88d0
+function encodeSvg(svg: string) {
+  return svg.replace('<svg', (~svg.indexOf('xmlns') ? '<svg' : '<svg xmlns="http://www.w3.org/2000/svg"'))
+    .replace(/"/g, '\'')
+    .replace(/%/g, '%25')
+    .replace(/#/g, '%23')
+    .replace(/{/g, '%7B')
+    .replace(/}/g, '%7D')
+    .replace(/</g, '%3C')
+    .replace(/>/g, '%3E')
+}
+const dataUri = `data:image/svg+xml;utf8,${encodeSvg(svg)}`
+```
 
 ### 长度限制
 Opera 11 浏览器限制 URL 最长为 65535 个字符，这意味着 data URL 最长为 65529 个字符（如果你使用纯文本 `data:,`
