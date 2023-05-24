@@ -51,6 +51,7 @@ export default defineConfig({
             { text: "keyof", link: "/frontend/keyof" },
             { text: "svg path", link: "/frontend/svgPath" },
             { text: "proxy", link: "/frontend/proxy" },
+            { text: "class", link: "/frontend/class" },
           ],
         },
       ],
