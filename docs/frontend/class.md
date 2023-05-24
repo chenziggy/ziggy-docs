@@ -6,7 +6,7 @@
 ```js
 class Person {
   #privateField;
-  static #PRIVATE_STATIC_FIELD;
+  static #PRIVATE_STATIC_FIELD;  // 私有静态属性
   
   constructor() {
     this.#privateFiled = 52
@@ -15,7 +15,9 @@ class Person {
   #privateMethod() {
     return 'hello world'
   }
-
+  static #privateStaticMethod() { // 私有静态方法
+    return 42;
+  }
 }
 ```
 :::tip
