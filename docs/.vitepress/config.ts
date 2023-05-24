@@ -52,6 +52,7 @@ export default defineConfig({
             { text: "svg path", link: "/frontend/svgPath" },
             { text: "proxy", link: "/frontend/proxy" },
             { text: "class", link: "/frontend/class" },
+            { text: "iterator", link: "/frontend/iterator" },
           ],
         },
       ],
