@@ -54,6 +54,7 @@ export default defineConfig({
             { text: "class", link: "/frontend/class" },
             { text: "iterator", link: "/frontend/iterator" },
             { text: "作用域", link: "/frontend/scope" },
+            { text: "函数", link: "/frontend/function" },
           ],
         },
       ],
