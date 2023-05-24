@@ -53,6 +53,7 @@ export default defineConfig({
             { text: "proxy", link: "/frontend/proxy" },
             { text: "class", link: "/frontend/class" },
             { text: "iterator", link: "/frontend/iterator" },
+            { text: "作用域", link: "/frontend/scope" },
           ],
         },
       ],
