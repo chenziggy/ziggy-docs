@@ -31,6 +31,9 @@ Employee.prototype.say = function() { // 原型方法
   console.log(`${this.name}   ${this.age}`)
 }
 ```
+:::tip
+在构造器外定义的方法是原型方法，定义的变量是实例属性
+:::
 
 ## 类私有域
 
