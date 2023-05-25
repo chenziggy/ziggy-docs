@@ -44,6 +44,6 @@ export default {
 
 
 ## 组件事件
-::: danger Important
+::: tip
 组件事件名字格式和prop一致
 :::
