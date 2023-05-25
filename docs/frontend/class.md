@@ -1,5 +1,37 @@
 # class
 
+## 方法
+原型方法和实例方法的区别
+
+```js
+class Employee {
+  constructor(name, age) {
+    this.name = name
+    this.age = age
+    this.eat = () => {  // 实例方法
+    console.log(`${this.name}   eat`)
+    }
+  }
+  say() {     // 类的原型方法
+    console.log(`${this.name}   ${this.age}`)
+  }
+}
+
+const p1 = new Employee('ziggy', 100)
+
+// es5
+function Employee(name, age) {
+  this.name = name
+  this.age = age
+  this.eat = () => {  // 实例方法
+    console.log(`${this.name}   eat`)
+  }
+}
+Employee.prototype.say = function() { // 原型方法
+  console.log(`${this.name}   ${this.age}`)
+}
+```
+
 ## 类私有域
 
 类属性在默认情况下是公有的，但可以使用增加哈希前缀 # 的方法来定义私有类字段
