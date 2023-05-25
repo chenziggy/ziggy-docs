@@ -4,6 +4,7 @@
 原型方法和实例方法的区别
 
 ```js
+// es6
 class Employee {
   constructor(name, age) {
     this.name = name
@@ -16,8 +17,6 @@ class Employee {
     console.log(`${this.name}   ${this.age}`)
   }
 }
-
-const p1 = new Employee('ziggy', 100)
 
 // es5
 function Employee(name, age) {
