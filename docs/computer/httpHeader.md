@@ -82,3 +82,7 @@ application/x-www-form-urlencoded
 ...
 ```
 查询更多的 [MIME Type](https://www.iana.org/assignments/media-types/media-types.xhtml)
+
+## Provisional headers are shown
+请求被插件（AdBlock、AdGuard）拦截
+![Untitled](/img/extension_block.png)
