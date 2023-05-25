@@ -7,6 +7,6 @@
   },
   "devDependencies": {
     "unocss": "^0.51.12",
-    "vitepress": "1.0.0-alpha.65"
+    "vitepress": "1.0.0-beta.1"
   }
 }

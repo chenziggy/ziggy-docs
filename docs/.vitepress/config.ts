@@ -7,6 +7,9 @@ export default defineConfig({
   description: "Stay hungry stay foolish",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    "search": {
+      provider: 'local'
+    },
     nav: [
       { text: "Home", link: "/" },
       { text: "Computer", link: "/computer/code" },
