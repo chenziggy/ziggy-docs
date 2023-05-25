@@ -66,3 +66,29 @@ set = new Set([...set].map(val => val * 2));
 let set = new Set([1, 2, 3]);
 set = new Set(Array.from(set, val => val * 2));
 ```
+
+## WeakSet
+WeakSet 结构与 Set 类似，也是不重复的值的集合，它与 Set 有两个区别
+* WeakSet 的成员只能是对象
+* WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用
+* WeakSet 没有size属性，同时也没有办法遍历它的成员
+```js
+const a = [[1, 2], [3, 4]];
+const ws = new WeakSet(a);
+// WeakSet {[1, 2], [3, 4]}
+const b = [3, 4];
+const ws = new WeakSet(b);
+// Uncaught TypeError: Invalid value used in weak set(…)
+```
+
+
+
+### 操作方法
+* WeakSet.prototype.add(value)：向 WeakSet 实例添加一个新成员，返回 WeakSet 结构本身  
+* WeakSet.prototype.delete(value)：清除 WeakSet 实例的指定成员，清除成功返回true，如果在 WeakSet 中找不到该成员或该成员不是对象，返回false  
+* WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 WeakSet 实例之中  
+
+:::tip
+如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中  
+为[垃圾回收机制](./garbage)根据对象的可达性（reachability）来判断回收，如果对象还能被访问到，垃圾回收机制就不会释放这块内存。WeakSet 里面的引用，都不计入垃圾回收机制。
+:::
