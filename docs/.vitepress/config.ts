@@ -58,7 +58,7 @@ export default defineConfig({
             { text: "iterator", link: "/frontend/iterator" },
             { text: "作用域", link: "/frontend/scope" },
             { text: "函数", link: "/frontend/function" },
-            { text: "数据结构", link: "/frontend/dataStructure" },
+            { text: "es6数据结构", link: "/frontend/es6DataStructure" },
             { text: "垃圾回收机制", link: "/frontend/garbage" },
           ],
         },
