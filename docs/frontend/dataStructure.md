@@ -67,7 +67,8 @@ set = new Set(Array.from(set, val => val * 2));
 ```
 
 ## WeakSet
-WeakSet 结构与 Set 类似，也是不重复的值的集合，它与 Set 有两个区别
+WeakSet 结构与 Set 类似，也是不重复的值的集合
+### 与Set区别
 * WeakSet 的成员只能是对象
 * WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用
 * WeakSet 没有size属性，同时也没有办法遍历它的成员
@@ -142,3 +143,56 @@ Map 结构的默认遍历器接口（Symbol.iterator属性），就是entries方
 map[Symbol.iterator ] === map.entries
 // true
 ```
+
+## WeakMap
+WeakMap结构与Map结构类似，也是用于生成键值对的集合
+
+### 与Map区别
+* WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名
+* WeakMap的键名所指向的对象，不计入垃圾回收机制
+* WeakMap 没有size属性，同时也没有办法遍历它的成员
+
+WeakMap的设计目的在于，有时我们想在某个对象上面存放一些数据，但是这会形成对于这个对象的引用
+```js
+const e1 = document.getElementById('foo');
+const e2 = document.getElementById('bar');
+const arr = [
+  [e1, 'foo 元素'],
+  [e2, 'bar 元素'],
+];
+```
+e1和e2是两个对象，我们通过arr数组对这两个对象添加一些文字说明  
+一旦不再需要这两个对象，我们就必须手动删除这个引用，否则垃圾回收机制就不会释放e1和e2占用的内存  
+```js
+// 不需要 e1 和 e2 的时候
+// 必须手动删除引用
+arr [0] = null;
+arr [1] = null;
+```
+上面这样的写法显然很不方便。一旦忘了写，就会造成内存泄露
+
+WeakMap 就是为了解决这个问题而诞生的，它的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内
+```js
+const e1 = document.getElementById('foo');
+const e2 = document.getElementById('bar');
+const wm = new WeakMap()
+wm.set(e1, 'foo 元素')
+wm.set(e2, 'bar 元素')
+```
+
+WeakMap 应用的典型场合就是 DOM 节点作为键名
+```js
+let myWeakmap = new WeakMap();
+
+myWeakmap.set(
+  document.getElementById('logo'),
+  {timesClicked: 0})
+;
+
+document.getElementById('logo').addEventListener('click', function() {
+  let logoData = myWeakmap.get(document.getElementById('logo'));
+  logoData.timesClicked++;
+}, false);
+```
+
+WeakMap 的另一个用处是部署私有属性，WeakMap 作为实例的属性是弱引用，所以如果删除实例，它们也就随之消失，不会造成内存泄漏
