@@ -47,6 +47,7 @@ for (let item of set.keys()) {
 Set 结构的实例默认可遍历，它的默认遍历器生成函数就是它的values方法
 ```js
 Set.prototype[Symbol.iterator] === Set.prototype.values
+// true
 ```
 
 ### 数组去重
