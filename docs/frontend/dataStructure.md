@@ -196,3 +196,33 @@ document.getElementById('logo').addEventListener('click', function() {
 ```
 
 WeakMap 的另一个用处是部署私有属性，WeakMap 是弱引用作为实例的属性，所以如果删除实例，它们也就随之消失，不会造成内存泄漏
+
+## WeakRef
+用于直接创建对象的弱引用
+```js
+let target = {};
+let wr = new WeakRef(target);
+```
+target是原始对象，构造函数WeakRef()创建了一个基于target的新对象wr。这里，wr就是一个 WeakRef 的实例，属于对target的弱引用，垃圾回收机制不会计入这个引用，也就是说，wr的引用不会妨碍原始对象target被垃圾回收机制清除
+
+weakRef.prototype.deref 如果原始对象存在，该方法返回原始对象；如果原始对象已经被垃圾回收机制清除，该方法返回undefined
+
+弱引用对象的一大用处，就是作为缓存，未被清除时可以从缓存取值，一旦清除缓存就自动失效
+```js
+function makeWeakCached(f) {
+  const cache = new Map();
+  return key => {
+    const ref = cache.get(key);
+    if (ref) {
+      const cached = ref.deref();
+      if (cached !== undefined) return cached;
+    }
+
+    const fresh = f(key);
+    cache.set(key, new WeakRef(fresh));
+    return fresh;
+  };
+}
+
+const getImageCached = makeWeakCached(getImage);
+```
