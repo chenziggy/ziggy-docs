@@ -209,20 +209,32 @@ weakRef.prototype.deref 如果原始对象存在，该方法返回原始对象�
 
 弱引用对象的一大用处，就是作为缓存，未被清除时可以从缓存取值，一旦清除缓存就自动失效
 ```js
-function makeWeakCached(f) {
+function getImage(key) {
+  // 获取指定 key 对应的图片数据的逻辑
+  // 这里仅作示例，具体实现需要根据需求来定义
+  console.log(`Fetching image for key: ${key}`);
+  return `Image for ${key}`;
+}
+
+const makeWeakCached = (f) => {
   const cache = new Map();
-  return key => {
+  return (key) => {
     const ref = cache.get(key);
     if (ref) {
       const cached = ref.deref();
       if (cached !== undefined) return cached;
     }
-
     const fresh = f(key);
     cache.set(key, new WeakRef(fresh));
     return fresh;
   };
-}
+};
 
 const getImageCached = makeWeakCached(getImage);
+
+console.log(getImageCached("image1")); // Fetching image for key: image1  Output: Image for image1
+console.log(getImageCached("image1")); // Output: Image for image1 (从缓存中获取，不再调用 getImage)
+
+console.log(getImageCached("image2")); // Fetching image for key: image2  Output: Image for image2
+console.log(getImageCached("image2")); // Output: Image for image2 (从缓存中获取，不再调用 getImage)
 ```
