@@ -195,4 +195,4 @@ document.getElementById('logo').addEventListener('click', function() {
 }, false);
 ```
 
-WeakMap 的另一个用处是部署私有属性，WeakMap 作为实例的属性是弱引用，所以如果删除实例，它们也就随之消失，不会造成内存泄漏
+WeakMap 的另一个用处是部署私有属性，WeakMap 是弱引用作为实例的属性，所以如果删除实例，它们也就随之消失，不会造成内存泄漏
