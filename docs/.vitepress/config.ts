@@ -59,7 +59,7 @@ export default defineConfig({
             { text: "作用域", link: "/frontend/scope" },
             { text: "函数", link: "/frontend/function" },
             { text: "es6数据结构", link: "/frontend/es6DataStructure" },
-            { text: "数据结构", link: "/frontend/dataStructure" },
+            { text: "树", link: "/frontend/tree" },
             { text: "垃圾回收机制", link: "/frontend/garbage" },
           ],
         },
