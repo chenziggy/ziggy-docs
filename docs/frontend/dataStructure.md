@@ -8,6 +8,7 @@
 * 路径：从根节点到任意节点的路径称为路径
 * 深度（Depth）：节点的深度是指从根节点到该节点的路径的长度
 * 高度（Height）：树的高度是指从根节点到叶节点的最长路径的长度
+* 度（Degree）：节点拥有的子节点数量
 
 查询节点，并返回路径
 ```js
@@ -41,6 +42,10 @@ function findMatchingNodes(tree, searchText) {
 * 中序遍历（Inorder Traversal）：按照左子树-根节点-右子树的顺序遍历二叉树   L | V | R
 * 后序遍历（Postorder Traversal）：按照左子树-右子树-根节点的顺序遍历二叉树 L | R | V
 
+:::tip
+* 前驱：指的是在中序遍历中，节点的前一个节点
+* 后继：指的是在中序遍历中，节点的后一个节点
+:::
 ### 搜索方式
 
 #### 深度优先
@@ -65,3 +70,14 @@ function findMatchingNodes(tree, searchText) {
 
 ## Trie树
 Trie树（字典树或前缀树）：一种专门用于字符串匹配和前缀搜索的树结构。Trie树的每个节点代表一个字符，从根节点到叶节点的路径表示一个字符串
+
+## 线索二叉树
+| leftChild | leftTag | data | rightTag | rightChild |
+|---|---|---|---|---|
+
+### 标志域
+leftTag 和 rightTag 规定  
+leftTag
+* 0 - leftChild 域指向左孩子
+* 1 - leftChild 域指向前驱
+* rightTag 同理
