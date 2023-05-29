@@ -81,6 +81,7 @@ export default defineConfig({
           text: "Vue",
           items: [
             { text: "prop", link: "/vue/prop" },
+            { text: "reactive", link: "/vue/reactive" },
             { text: "attrs-listeners-inheritAtrrs", link: "/vue/attrsListenersInheritAtrrs" },
             { text: "effectScope", link: "/vue/effectScope" },
           ]
