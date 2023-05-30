@@ -5,7 +5,11 @@ export default defineConfig({
   base: "/ziggy-docs",
   title: "ziggy-docs",
   description: "Stay hungry stay foolish",
+  head: [
+    ['link', { rel: "shortcut icon", href: "/img/favicon.ico"}],
+  ],
   themeConfig: {
+    // logo: '/avatar.png',
     // https://vitepress.dev/reference/default-theme-config
     "search": {
       provider: 'local'

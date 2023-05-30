@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  image: /avator.png
+  image: /avatar.png
   name: "ziggy-docs"
   text: "Master piece"
   tagline: Stay hungry stay foolish
