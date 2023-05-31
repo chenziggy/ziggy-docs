@@ -77,6 +77,7 @@ export default defineConfig({
             { text: "var()", link: "/css/var()" },
             { text: "mask-image", link: "/css/maskImage" },
             { text: "background", link: "/css/background" },
+            { text: "vertical-align", link: "/css/verticalAlign" },
           ]
         },
       ],
