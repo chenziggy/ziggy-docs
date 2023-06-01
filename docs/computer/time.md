@@ -3,7 +3,7 @@
 ## GMT
 GMT（格林尼治标准时间）是一种国际时间标准，它与地球上的任何特定时区无关  
 格林尼治位于英国伦敦东南部的格林尼治区，它位于零度经线（经度0度）上，被称为本初子午线
-http协议中使用的时间格式是 GMT
+`http协议` 使用的时间格式是 GMT
 
 ```js
 // 获取GMT
@@ -44,6 +44,7 @@ console.log(timezoneOffset);
 ```js
 // GMT 转换本地时间
 const gmtTime = new Date('Wed, 12 May 2021 10:30:00 GMT');
+// Wed May 12 2021 18:30:00 GMT+0800 (中国标准时间)
 const localTime = gmtTime.toLocaleString(); // 转换为本地时间字符串
 console.log(localTime);
 // 2021/5/12 18:30:00
