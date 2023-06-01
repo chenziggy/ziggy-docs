@@ -14,6 +14,14 @@ page=1&rows=30&id=890
 优点数据简单
 缺点数据类型单只支持字符串不支持布尔、数字、对象、数组；对于存在`= &`符号的值需要使用 [encodeURIComponent](/frontend/url.md#encodeuricomponent) 进行编码
 
+## multipart/form-data
+在 HTTP 请求中传输带有文件上传的表单数据。它允许同时传输文本字段和二进制文件数据  
+请求的主体被分割成多个部分（即多部分内容）
+相较于 
+```
+Content-Type: multipart/form-data; boundary=---------------------------1234567890
+```
+
 ## application/json
 数据以JSON格式编码，支持布尔、数字、对象、数组等
 ```
@@ -24,14 +32,6 @@ page=1&rows=30&id=890
     "Nested", "Array"
   ]
 ]
-```
-
-## multipart/form-data
-在 HTTP 请求中传输带有文件上传的表单数据。它允许同时传输文本字段和二进制文件数据  
-请求的主体被分割成多个部分（即多部分内容）
-相较于 
-```
-Content-Type: multipart/form-data; boundary=---------------------------1234567890
 ```
 
 ## text/plain
