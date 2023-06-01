@@ -81,8 +81,14 @@ application/json
 application/x-www-form-urlencoded
 ...
 ```
+* [text/plain](./httpRequestBody.md#text-plain)
+* [application/json](./httpRequestBody.md#application-json)
+* [application/x-www-form-urlencoded](./httpRequestBody.md#application-x-www-form-urlencoded)
+* [multipart/form-data](./httpRequestBody.md#multipart-form-data)
+
 查询更多的 [MIME Type](https://www.iana.org/assignments/media-types/media-types.xhtml)
 
 ## Provisional headers are shown
 请求被插件（AdBlock、AdGuard）拦截
 ![Untitled](/img/extension_block.png)
+
