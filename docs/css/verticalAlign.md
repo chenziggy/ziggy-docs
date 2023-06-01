@@ -24,7 +24,7 @@
 小写字母'x'的高度，术语描述就是基线（`baseline`）和等分线（`mean line`也称作中线`midline`）之间的距离
 ![x-height](/img/x-height.png)
 
-* ascender height: 上下线高度
+* ascender height: 上行线高度
 * cap height: 大写字母高度
 * median: 中线
 * descender height: 下行线高度
