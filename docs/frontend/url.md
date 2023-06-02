@@ -53,12 +53,15 @@ console.log(encodeURIComponent(set4)); // ABC%20abc%20123 (空格被编码为 %2
 ## URLSearchParams
 ```js
 // 当前页面url的参数 https://www.baidu.com/index.html?param=type&order=desc
-const params = new URLSearchParams(window.location.search)
-for (const [key, value] of params) {
+const params1 = new URLSearchParams(window.location.search)
+for (const [key, value] of params1) {
   console.log(key, value)
 }
 // param type
 // order desc
+
+const params2 = new URLSearchParams({name: '陈舜', gender: 'man'}).toString()
+// 'name=%E9%99%88%E8%88%9C&gender=man'
 ```
 
 ## Data URL
