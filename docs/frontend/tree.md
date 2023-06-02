@@ -39,7 +39,7 @@ function findMatchingNodes(tree, searchText) {
 二叉树（Binary Tree）：每个节点最多有两个子节点的树结构。子节点通常称为左子节点和右子节点
 
 ### 遍历方式
-* 前序遍历（Preorder Traversal）：按照根节点-左子树-右子树的顺序遍历二叉树  V | R | L   
+* 前序遍历（Preorder Traversal）：按照根节点-左子树-右子树的顺序遍历二叉树  V | L | R   
 * 中序遍历（Inorder Traversal）：按照左子树-根节点-右子树的顺序遍历二叉树   L | V | R
 * 后序遍历（Postorder Traversal）：按照左子树-右子树-根节点的顺序遍历二叉树 L | R | V
 
