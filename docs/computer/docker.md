@@ -29,7 +29,9 @@
 删除名为 subapp 的容器
 
 ## docker-compose
+使用 `docker-compose` 替换 `docker run` 
 ```
+# docker-compose.yml
 version: '3'
 services:
   subapp:
