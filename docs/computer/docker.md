@@ -20,6 +20,10 @@
 * -d 容器后台运行
 * --force-recreate 如有存在重名容器，会强制替换
 
+## docker exec
+`docker exec -it subapp /bin/bash`
+进入容器
+
 ## docker stop
 `docker stop subapp`
 停止名为 subapp 的容器
@@ -30,6 +34,7 @@
 
 ## docker-compose
 使用 `docker-compose` 替换 `docker run` 
+docker-compose up -d
 ```
 # docker-compose.yml
 version: '3'
