@@ -58,6 +58,7 @@ export default defineConfig({
             {text: "axios", link: "/frontend/axios"},
             { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
             { text: "keyof", link: "/frontend/keyof" },
+            { text: "ts常见类型", link: "/frontend/es5.d.ts.md" },
             { text: "svg path", link: "/frontend/svgPath" },
             { text: "proxy", link: "/frontend/proxy" },
             { text: "class", link: "/frontend/class" },
