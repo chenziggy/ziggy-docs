@@ -21,7 +21,7 @@ export default defineConfig({
       { text: "CSS", link: "/css/width" },
       { text: "Vue", link: "/vue/prop" },
       { text: "Node", link: "/node/nextTick" },
-      { text: "C", link: "/c/fferrtag" },
+      { text: "Other", link: "/other/fferrtag" },
     ],
 
     sidebar: {
@@ -101,10 +101,10 @@ export default defineConfig({
           items: [{ text: "process.nextTick", link: "/node/nextTick" }],
         },
       ],
-      "/c/": [
+      "/other/": [
         {
-          text: "C",
-          items: [{ text: "FFERRTAG", link: "/c/fferrtag" }],
+          text: "Other",
+          items: [{ text: "FFERRTAG", link: "/other/fferrtag" }],
         },
       ]
     },
