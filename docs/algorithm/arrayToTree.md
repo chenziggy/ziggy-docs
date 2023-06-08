@@ -4,6 +4,7 @@
 
 * 每一项 pid === 父节点 id；pid对应的父节点找不到，这一项为一棵新树的根节点
 
+### 方法1
 ```js
 const list = [
   {id: 1, name: '部门1', pid: 0},
@@ -37,4 +38,44 @@ function buildForest (list) {
 }
 
 console.log(JSON.stringify( buildForest(list)))
+```
+
+### 方法2
+递归 判断是否为根节点，是根节点构造树
+
+```js
+function buildForest(data) {
+  const nodeMap = new Map();
+  
+  // 构建节点映射
+  for (const item of data) {
+    nodeMap.set(item.id, { ...item, children: [] });
+  }
+
+  function buildTree(id) {
+    const node = nodeMap.get(id)
+    for (const item of data) {
+      if (item.pid === id) {
+        const child = buildTree(item.id)
+        if (child) {
+          node.children.push(child)
+        }
+      }
+    }
+    return node
+  }
+
+  let forest = []
+  for( const item of data) {
+    const parent = nodeMap.get(item.pid)
+    if (!parent) {
+      const tree = buildTree(item.id)
+      if (tree) {
+        forest.push(tree)
+      }
+    }
+  }
+
+  return forest;
+}
 ```
