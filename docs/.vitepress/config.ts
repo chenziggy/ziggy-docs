@@ -20,6 +20,7 @@ export default defineConfig({
       { text: "Frontend", link: "/frontend/url" },
       { text: "CSS", link: "/css/width" },
       { text: "Vue", link: "/vue/prop" },
+      { text: "Algorithm", link: "/algorithm/arrayQuery" },
       { text: "Node", link: "/node/nextTick" },
       { text: "Other", link: "/other/fferrtag" },
     ],
@@ -93,6 +94,12 @@ export default defineConfig({
             { text: "attrs-listeners-inheritAtrrs", link: "/vue/attrsListenersInheritAtrrs" },
             { text: "effectScope", link: "/vue/effectScope" },
           ]
+        },
+      ],
+      '/algorithm/': [
+        {
+          text: "Algorithm",
+          items: [{ text: "数组query", link: "/algorithm/arrayQuery" }],
         },
       ],
       '/node/': [
