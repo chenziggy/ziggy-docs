@@ -99,7 +99,10 @@ export default defineConfig({
       '/algorithm/': [
         {
           text: "Algorithm",
-          items: [{ text: "数组query", link: "/algorithm/arrayQuery" }],
+          items: [
+            { text: "数组query", link: "/algorithm/arrayQuery" },
+            { text: "Array转Tree", link: "/algorithm/arrayToTree" }
+          ],
         },
       ],
       '/node/': [
