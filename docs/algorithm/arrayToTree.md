@@ -26,7 +26,7 @@ function buildForest (list) {
     map.set(item.id, {...item, children: []})
   }
 
-  for (const node of list ) {
+  for (const node of list) {
     const parent = map.get(node.pid)
     if (parent) {
       parent.children.push(map.get(node.id))
@@ -36,8 +36,6 @@ function buildForest (list) {
   }
   return result
 }
-
-console.log(JSON.stringify( buildForest(list)))
 ```
 
 ### 方法2
