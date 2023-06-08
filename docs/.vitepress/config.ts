@@ -63,6 +63,7 @@ export default defineConfig({
             { text: "svg path", link: "/frontend/svgPath" },
             { text: "proxy", link: "/frontend/proxy" },
             { text: "class", link: "/frontend/class" },
+            { text: "原型", link: "/frontend/prototype" },
             { text: "iterator", link: "/frontend/iterator" },
             { text: "作用域", link: "/frontend/scope" },
             { text: "函数", link: "/frontend/function" },
