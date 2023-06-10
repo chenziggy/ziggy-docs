@@ -21,18 +21,39 @@ Object.defineProperty(obj, prop, descriptor)
   2. 该属性不可被删除
   3. 其描述符的其他属性也不能被更改（但是，如果它是一个可写的数据描述符，则 value 可以被更改，writable 可以更改为 false）
 
-* enumerable 当前属性是否可枚举，默认值为 false。
+* enumerable 当前属性是否`可枚举`，默认值为 false。
 
 #### 数据描述符独有属性
 
 * value 与属性相关联的值，默认值为 undefined。
 * writable value可以使用赋值运算符更改，则为 true。默认值为 false
 
+```js
+Object.defineProperty(o, "a", {
+  value: 37,
+  writable: true,
+  enumerable: true,
+  configurable: true,
+});
+```
+
 #### 访问器描述符独有属性
 
 * get 用作属性 `getter 的函数`，当访问该属性时，将不带参地调用此函数，并将 this 设置为通过该属性访问的对象
 * set 用作属性 `setter 的函数`，调用此函数，并带有一个参数（要赋给该属性的值），并将 this 设置为通过该属性分配的对象
 
+```js
+Object.defineProperty(o, "b", {
+  get() {
+    return bValue;
+  },
+  set(newValue) {
+    bValue = newValue;
+  },
+  enumerable: true,
+  configurable: true,
+});
+```
 ## getPrototypeOf
 `Object.getPrototypeOf`
 返回指定对象的原型（即内部 [[Prototype]] 属性的值）
