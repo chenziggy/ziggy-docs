@@ -64,6 +64,7 @@ export default defineConfig({
             { text: "proxy", link: "/frontend/proxy" },
             { text: "class", link: "/frontend/class" },
             { text: "原型", link: "/frontend/prototype" },
+            { text: "object", link: "/frontend/object" },
             { text: "iterator", link: "/frontend/iterator" },
             { text: "作用域", link: "/frontend/scope" },
             { text: "函数", link: "/frontend/function" },
