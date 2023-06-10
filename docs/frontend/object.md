@@ -96,3 +96,10 @@ console.log(Object.getOwnPropertyDescriptor(obj, 'name'))
 * Object.keys()：返回对象自身的所有可枚举的属性的键名
 * JSON.stringify()：只串行化对象自身的可枚举的属性
 * Object.assign()： 忽略enumerable为false的属性，只拷贝对象自身的可枚举的属性
+
+## 属性的遍历
+* for...in 循环遍历对象自身的和继承的可枚举属性
+* Object.keys(obj) 返回一个数组，包括对象自身的（不含继承的）所有可枚举属性
+* Object.getOwnPropertyNames(obj)  返回一个数组，包含对象自身的所有属性（包括不可枚举属性）
+* Object.getOwnPropertySymbols(obj) 包含对象自身的所有 Symbol 属性的键名
+* Reflect.ownKeys(obj) 返回一个数组，包含对象自身的（不含继承的）所有键名，不管键名是 Symbol 或字符串，也不管是否可枚举
