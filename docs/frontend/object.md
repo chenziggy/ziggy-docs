@@ -21,7 +21,7 @@ Object.defineProperty(obj, prop, descriptor)
   2. 该属性不可被删除
   3. 其描述符的其他属性也不能被更改（但是，如果它是一个可写的数据描述符，则 value 可以被更改，writable 可以更改为 false）
 
-* enumerable 当前属性是否`可枚举`，默认值为 false。
+* [enumerable](#enumerable) 当前属性是否`可枚举`，默认值为 false。
 
 #### 数据描述符独有属性
 
@@ -88,3 +88,11 @@ const descriptor2 =  Object.defineProperty(obj, 'name', {
 console.log(Object.getOwnPropertyDescriptor(obj, 'name'))
 // {enumerable: false, configurable: false, get: ƒ, set: ƒ}
 ```
+
+## enumerable
+可枚举属性，最初让某些属性可以规避掉`for...in`操作，不然所有内部属性和方法都会被遍历到
+
+* for...in循环：只遍历对象自身的和继承的可枚举的属性
+* Object.keys()：返回对象自身的所有可枚举的属性的键名
+* JSON.stringify()：只串行化对象自身的可枚举的属性
+* Object.assign()： 忽略enumerable为false的属性，只拷贝对象自身的可枚举的属性
