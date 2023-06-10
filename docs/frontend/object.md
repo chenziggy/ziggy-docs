@@ -1,5 +1,37 @@
 # Object
 
+## defineProperty
+`Object.defineProperty`
+直接在一个对象上定义一个新属性，或修改其现有属性，并返回此对象
+```js
+Object.defineProperty(obj, prop, descriptor)
+```
+
+### descriptor
+定义或修改的属性的描述符
+* `数据描述符` 是一个具有可写或不可写值的属性
+* `访问器描述符` 由 getter/setter 函数对描述的属性
+* 描述符只能是这两种类型之一，`不能同时为两者`
+
+#### 数据描述符和访问器描述符共享属性
+
+
+* configurable 当设置为 false（默认值） 时，
+  1. 该属性的类型不能在数据属性和访问器属性之间更改
+  2. 该属性不可被删除
+  3. 其描述符的其他属性也不能被更改（但是，如果它是一个可写的数据描述符，则 value 可以被更改，writable 可以更改为 false）
+
+* enumerable 当前属性是否可枚举，默认值为 false。
+
+#### 数据描述符独有属性
+
+* value 与属性相关联的值，默认值为 undefined。
+* writable value可以使用赋值运算符更改，则为 true。默认值为 false
+
+#### 访问器描述符独有属性
+
+* get 用作属性 `getter 的函数`，当访问该属性时，将不带参地调用此函数，并将 this 设置为通过该属性访问的对象
+* set 用作属性 `setter 的函数`，调用此函数，并带有一个参数（要赋给该属性的值），并将 this 设置为通过该属性分配的对象
 
 ## getPrototypeOf
 `Object.getPrototypeOf`
