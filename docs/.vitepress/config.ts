@@ -116,7 +116,10 @@ export default defineConfig({
       "/other/": [
         {
           text: "Other",
-          items: [{ text: "FFERRTAG", link: "/other/fferrtag" }],
+          items: [
+            { text: "FFERRTAG", link: "/other/fferrtag" },
+            { text: "input.value", link: "/other/input" }
+        ],
         },
       ]
     },
