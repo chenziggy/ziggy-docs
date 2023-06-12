@@ -7,6 +7,36 @@ npm run configuration 即npm运行时配置文件
 * 全局配置文件 ($PREFIX/etc/npmrc)
 * npm 内置配置文件 (/path/to/npm/npmrc)
 
+## 发展历史
+
+### npm v1 v2
+嵌套的依赖结构，每个依赖包都会在其父级依赖包的目录下进行安装，形成一个嵌套的目录结构，每个依赖都有自己的node_modules存放其依赖包
+#### 缺点
+* node_modules 体积过大（大量重复的包被安装）
+* node_modules 嵌套层级过深，路径过长
+* 依赖不能共享
+
+### npm v3 yarn
+扁平化依赖管理，依赖包安装到项目的顶层 node_modules 目录下
+#### 缺点
+* 依赖结构不确定
+* 扁平化算法复杂度高、耗时长
+* 项目中可以非法访问有没申明的依赖包
+* 同一个包存在不同版本依赖时，不能明确版本关系
+
+### npm v5
+package-lock.json 文件，记录依赖版本和树状结构，保证不同环境安装相同依赖
+
+### pnpm
+节省磁盘空间并提升安装速度，创建非扁平化的 node_modules  
+项目node_modules .pnpm 软链接  
+全局 .pnpm-store 硬链接
+
+![pnpm](/img/pnpm.jpg)
+### 优点
+* 不同项目依赖同一个包，pnpm安装的包会存储在寻址的磁盘中（依赖store），节约磁盘空间
+* 算法比`扁平化算法`简单耗时短
+* 安全 不可访问未申明的依赖
 ## npmmirror 换源
 由于墙的原因，下载npm依赖会出现网速慢，超时等原因  
 npm切换淘宝源，在用户目录下新建.npmrc文件，配置registry
