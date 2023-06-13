@@ -55,6 +55,7 @@ export default defineConfig({
             { text: "url", link: "/frontend/url" },
             { text: "module", link: "/frontend/module" },
             {text: "异常捕获", link: "/frontend/errorHandler"},
+            {text: "浏览器存储", link: "/frontend/application"},
             {text: "npm", link: "/frontend/npm"},
             {text: "axios", link: "/frontend/axios"},
             { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
