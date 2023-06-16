@@ -57,6 +57,7 @@ export default defineConfig({
             {text: "异常捕获", link: "/frontend/errorHandler"},
             {text: "浏览器存储", link: "/frontend/application"},
             {text: "npm", link: "/frontend/npm"},
+            {text: "pnpm", link: "/frontend/pnpm"},
             {text: "axios", link: "/frontend/axios"},
             { text: "keyboardEvent", link: "/frontend/keyboardEvent" },
             { text: "keyof", link: "/frontend/keyof" },
