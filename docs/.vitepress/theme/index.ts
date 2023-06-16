@@ -15,7 +15,6 @@ export default {
       watch(
         () => router.route.data.relativePath,
         () => {
-          console.log(location)
           return updateHomePageStyle(location.pathname === '/ziggy-docs/')
         },
         { immediate: true },
