@@ -15,6 +15,19 @@ require “/”开头，则表示加载一个位于绝对路径的模块文件
 不以“./“或”/“开头，则表示加载的是一个默认提供的核心模块（位于Node的系统安装目录中），或者一个位于各级node_modules目录的已安装模块（全局安装或局部安装）
 :::
 
+### 命名空间
+```js
+// lib.js
+module.exports = {
+  func: () =>{},
+  propertyA: 'ziggy',
+  default: 'hello world'
+}
+
+const utils = require('lib')
+// utils 是命名空间，具体使用方法 utils.func() utils.propertyA
+```
+
 ## ES6 Module
 
 * 使用 import 和 export 关键字来导入和导出模块
