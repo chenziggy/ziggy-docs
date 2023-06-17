@@ -6,7 +6,7 @@ export default defineConfig({
   title: "ziggy-docs",
   description: "Stay hungry stay foolish",
   head: [
-    ['link', { rel: "shortcut icon", href: "/img/favicon.ico"}],
+    ['link', { rel: "shortcut icon", href: "/ziggy-docs/img/favicon.ico"}],
   ],
   themeConfig: {
     // logo: '/avatar.png',
