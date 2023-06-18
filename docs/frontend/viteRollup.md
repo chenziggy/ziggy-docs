@@ -39,16 +39,16 @@ JS 引入的资源 URL，CSS 中的 url() 引用以及 .html 文件中引用的�
 查看 [rollup](#rollup) 配置
 
 ### plugins
+查看 [rollup plugin](#plugins-1)
 
 ### 虚拟模块
-虚拟模块在 vite 中都以 `virtual:` 为浅醉，
-对ESM 语法的源文件传入编译时信息，`node_modules` 中并不存在 `virtual:my-module` 依赖
+虚拟模块在 vite 中都以 `virtual:` 为前缀，对ESM 语法的源文件传入编译时信息，`node_modules` 中并不存在 `virtual:my-module` 依赖
 ```js
 import { msg } from 'virtual:my-module'
 
 console.log(msg)
 ```
-vite 启动时注册插件 myPlugin，在解析源码 `virtual:my-module` 时，
+vite 启动时注册插件 myPlugin，在编译 `virtual:my-module` 时， myPlugin 通过 load 输出虚拟模块内容
 ```js
 // my-plugin.js
 export default function myPlugin() {
