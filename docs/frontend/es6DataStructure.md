@@ -90,7 +90,7 @@ const ws = new WeakSet(b);
 * WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 WeakSet 实例之中  
 
 :::tip
-如果其他对象都不再引用该对象，那么[垃圾回收机制](./garbage)会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中  
+如果其他对象都不再引用该对象，那么[垃圾回收机制](../node/garbage)会自动回收该对象所占用的内存，不考虑该对象还存在于 WeakSet 之中  
 垃圾回收机制根据对象的可达性（reachability）来判断回收，如果对象还能被访问到，垃圾回收机制就不会释放这块内存。WeakSet 里面的引用，都不计入垃圾回收机制。
 :::
 
