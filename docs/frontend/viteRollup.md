@@ -39,7 +39,7 @@ JS 引入的资源 URL，CSS 中的 url() 引用以及 .html 文件中引用的�
 查看 [rollup](#rollup) 配置
 
 ### plugins
-查看 [rollup plugin](#plugins-1)
+查看 [rollup plugins](#plugins-1)
 
 ### 虚拟模块
 虚拟模块在 vite 中都以 `virtual:` 为前缀，对ESM 语法的源文件传入编译时信息，`node_modules` 中并不存在 `virtual:my-module` 依赖

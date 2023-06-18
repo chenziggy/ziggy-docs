@@ -74,6 +74,7 @@ export default defineConfig({
             { text: "es6数据结构", link: "/frontend/es6DataStructure" },
             { text: "树", link: "/frontend/tree" },
             { text: "垃圾回收机制", link: "/frontend/garbage" },
+            { text: "node_modules debug", link: "/frontend/nodeModulesDebug" },
           ],
         },
       ],
