@@ -73,7 +73,6 @@ export default defineConfig({
             { text: "函数", link: "/frontend/function" },
             { text: "es6数据结构", link: "/frontend/es6DataStructure" },
             { text: "树", link: "/frontend/tree" },
-            { text: "垃圾回收机制", link: "/frontend/garbage" },
             { text: "node_modules debug", link: "/frontend/nodeModulesDebug" },
           ],
         },
@@ -114,7 +113,10 @@ export default defineConfig({
       '/node/': [
         {
           text: "Node",
-          items: [{ text: "process.nextTick", link: "/node/nextTick" }],
+          items: [
+            { text: "process.nextTick", link: "/node/nextTick" },
+            { text: "垃圾回收机制", link: "/node/garbage" }
+          ],
         },
       ],
       "/other/": [
