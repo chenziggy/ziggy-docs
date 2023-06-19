@@ -1,6 +1,11 @@
 # vite & rollup
 
 ## vite
+vite 开发环境使用 esbuild 作为构建工具，生产环境是用 rollup 打包工具
+
+开发环境中，首次启动 vite 时，会预构建项目依赖
+* 将 CommonJS 或 UMD 形式提供的依赖项转换为 ES 模块
+* 为了提高性能，将具有多个内部模块的 ESM 依赖转换为单个模块，减少 http
 
 ### base
 开发或生产环境服务的`公共基础路径`
@@ -154,6 +159,15 @@ chunkFileNames( chunkInfo) {
 ```
 
 #### assetFileNames
+自定义构建结果中的静态资源名称
+```js
+assetFileNames(assetInfo) {
+  if (assetInfo.name === 'entry.css') {
+    return "assets/[name][extname]"
+  }
+  return "assets/[name]-[hash][extname]"
+},
+```
 
 ### plugins
 
