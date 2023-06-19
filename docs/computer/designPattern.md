@@ -61,3 +61,31 @@ const person2 = createPerson('Bob', 30);
 JavaScript 中，每个对象都有一个 __proto__ 属性指向原型对象  
 每一个对象的构造函数都一个 prototype 属性指向原型对象
 :::
+
+
+## 策略模式
+
+在策略模式中，将不同的方法封装在各自的策略类中，这些策略类都实现了相同的接口或基类。然后，根据需要，在运行时选择特定的策略对象来执行相应的方法
+
+```js
+const strategies = {
+  run() {
+    console.log("Called run");
+  },
+  walk() {
+    console.log("Called walk");
+  },
+  bus() {
+    console.log("Called bus");
+  }
+}
+
+const execute = (strategy) => {
+  return strategies[strategy]();
+}
+
+execute('run')
+execute('walk')
+execute('bus')
+```
+* 后续新增 `train airplane` 接口 execute 不需要修改
