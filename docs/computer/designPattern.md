@@ -90,5 +90,5 @@ execute('bus')
 ```
 * 后续新增 `train airplane` 接口 execute 不需要修改
 :::tip
-Vuex 异步操作 Action 都是通过 `store.dispatch(xxx, payload)` 调用， Action 的增加 dispatch 方法不修改，这就是策略模式
+Vuex 异步操作 Action 都是通过 `store.dispatch(xxx, payload)` 调用， Action 的增加 dispatch 方法不会修改，这就是策略模式
 :::
