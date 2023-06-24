@@ -58,10 +58,10 @@ unocss 更新了`vscode-css-languageservice`: 6.2.5，更新依赖时淘宝源�
 ## node_modules 文件夹命名
 
 ### vite
-vite: 这是 Vite 的核心模块，它包含了 Vite 的运行时代码和相关功能。当你在项目中使用 Vite 作为构建工具时，会安装名为 vite 的包，它就是 Vite 的核心模块。这个模块通常被用于启动开发服务器、构建生产代码等任务
+vite: 这是 Vite 的核心模块，它包含了 Vite 的运行时代码和相关功能。这个模块通常被用于启动开发服务器、构建生产代码等任务
 
 ### @vite
-@vite: 这是一个命名空间，通常用于存放与 Vite 相关的模块。Vite 是一个现代化的前端构建工具，它提供了快速的开发服务器和基于浏览器原生 ES 模块的构建系统。当你使用 Vite 进行项目开发时，一些与 Vite 相关的模块可能会被安装到 node_modules 目录中的 @vite 文件夹下
+@vite: 这是一个命名空间，通常用于存放与 Vite 相关的模块。当你使用 Vite 进行项目开发时，一些与 Vite 相关的模块可能会被安装到 node_modules 目录中的 @vite 文件夹下
 
 `@vitejs/plugin-vue`
 
