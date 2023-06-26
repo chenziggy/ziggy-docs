@@ -3,10 +3,18 @@
     "dev": "vitepress dev docs",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "prepare": "husky install"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^0.39.5",
+    "eslint": "^8.43.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.2",
     "unocss": "^0.51.12",
     "vitepress": "1.0.0-beta.1"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
   }
 }
