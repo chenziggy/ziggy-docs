@@ -7,16 +7,16 @@
 
 ```js
 function outer() {
-  var x = 10;
-  
+  const x = 10
+
   function inner() {
-    var y = 20;
-    console.log(x + y);
+    const y = 20
+    console.log(x + y)
   }
-  
-  inner();
+
+  inner()
 }
 
-outer(); // 输出: 30
+outer() // 输出: 30
 ```
 在 inner 函数中，可以访问到外部作用域 outer 中声明的变量 x，因为它在 outer 函数的词法作用域内

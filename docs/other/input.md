@@ -10,16 +10,16 @@ input 标签具有同名事件`input`，可以通过`addEventListener('input', c
 ```js
 const input = document.querySelector('#input')
 
-const callback = function(mutationsList, observer) {
-  for(let mutation of mutationsList) {
-    if (mutation.type === 'attributes') {
-      console.log('The ' + mutation.attributeName + ' attribute was modified.');
-    }
+const callback = function (mutationsList, observer) {
+  for (const mutation of mutationsList) {
+    if (mutation.type === 'attributes')
+      console.log(`The ${mutation.attributeName} attribute was modified.`)
+
   }
 }
 
 const observer = new MutationObserver(callback)
-observer.observe(input, { attributes: true})
+observer.observe(input, { attributes: true })
 ```
 
 ## defineProperty
@@ -29,14 +29,14 @@ observer.observe(input, { attributes: true})
 function observe(obj, property, cb) {
   let interval
   Object.defineProperty(obj, property, {
-    get: function () {
+    get() {
       return interval
     },
-    set: function (newVal) {
+    set(newVal) {
       interval = newVal
-      if (typeof cb == "function") {
+      if (typeof cb == 'function')
         cb(interval)
-      }
+
     }
   })
 }
@@ -47,27 +47,27 @@ function observe(obj, property, cb) {
 ## 最终方案
 由于原型链的存在，可以调用原型的 `get set` 函数设置原有的值
 ```js
- function observe(obj, property, cb) {
-    // 获取obj的原型
-    const __proto__ = Object.getPrototypeOf(obj);
-    if (__proto__.hasOwnProperty(property)) {
+function observe(obj, property, cb) {
+  // 获取obj的原型
+  const __proto__ = Object.getPrototypeOf(obj)
+  if (__proto__.hasOwnProperty(property)) {
     //  获取原型 property descriptor
-      let descriptor = Object.getOwnPropertyDescriptor(__proto__, property);
-      Object.defineProperty(obj, property, {
-        get: function () {
-          // 调用原型 get
-          return descriptor.get.apply(this);
-        },
-        set: function () {
-          // 调用原型 set
-          descriptor.set.apply(this, arguments);
-          if (typeof cb == "function") {
-              cb(this[property])
-          }
-        }
-      })
-    }
+    const descriptor = Object.getOwnPropertyDescriptor(__proto__, property)
+    Object.defineProperty(obj, property, {
+      get() {
+        // 调用原型 get
+        return descriptor.get.apply(this)
+      },
+      set() {
+        // 调用原型 set
+        descriptor.set.apply(this, arguments)
+        if (typeof cb == 'function')
+          cb(this[property])
+
+      }
+    })
   }
+}
 ```
 * [Object.defineProperty](/frontend/object#defineproperty)
 * [Object.getPrototypeOf](/frontend/object#getprototypeof)

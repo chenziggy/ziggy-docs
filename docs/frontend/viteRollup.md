@@ -58,20 +58,20 @@ vite 启动时注册插件 myPlugin，在编译 `virtual:my-module` 时， myPlu
 // my-plugin.js
 export default function myPlugin() {
   const virtualModuleId = 'virtual:my-module'
-  const resolvedVirtualModuleId = '\0' + virtualModuleId
+  const resolvedVirtualModuleId = `\0${virtualModuleId}`
 
   return {
     name: 'my-plugin', // 必须的，将会在 warning 和 error 中显示
     // 定义自定义解析器
     resolveId(id) {
-      if (id === virtualModuleId) {
+      if (id === virtualModuleId)
         return resolvedVirtualModuleId
-      }
+
     },
     load(id) {
-      if (id === resolvedVirtualModuleId) {
-        return `export const msg = "from virtual module"`
-      }
+      if (id === resolvedVirtualModuleId)
+        return 'export const msg = "from virtual module"'
+
     },
   }
 }
@@ -95,23 +95,23 @@ export default function myPlugin() {
 * default 默认导出具体值、变量或函数而非[命名空间](./module#命名空间)
 ```js
 // your-lib 包入口
-export default 'Hello world';
+export default 'Hello world'
 
 // CommonJS 消费者
 /* require( "your-lib" ) 返回 "Hello World" */
-const hello = require('your-lib');
+const hello = require('your-lib')
 ```
 
 * named 适用于 CommonJs
 ```js
 // your-lib 包入口
-export const hello = 'Hello world';
+export const hello = 'Hello world'
 
 // CommonJS 消费者
 /* require( "your-lib" ) 返回 {hello: "Hello World"} */
-const hello = require('your-lib').hello;
+const hello = require('your-lib').hello
 /* 或使用解构 */
-const { hello } = require('your-lib');
+const { hello } = require('your-lib')
 ```
 :::
 

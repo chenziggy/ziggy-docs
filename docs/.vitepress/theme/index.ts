@@ -5,22 +5,21 @@ import './rainbow.css'
 import './vars.css'
 import './overrides.css'
 
-
 export default {
   ...Theme,
   enhanceApp({ router }) {
     if (typeof window === 'undefined')
       return
 
-      watch(
-        () => router.route.data.relativePath,
-        () => {
-          return updateHomePageStyle(location.pathname === '/ziggy-docs/')
-        },
-        { immediate: true },
-      )
+    watch(
+      () => router.route.data.relativePath,
+      () => {
+        return updateHomePageStyle(location.pathname === '/ziggy-docs/')
+      },
+      { immediate: true },
+    )
   },
- 
+
 }
 
 let homePageStyle: HTMLStyleElement | undefined

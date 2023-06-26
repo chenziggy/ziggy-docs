@@ -52,7 +52,7 @@ fi
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": [ "dev"],
+      "runtimeArgs": ["dev"],
       "restart": true,
       "console": "integratedTerminal"
     }

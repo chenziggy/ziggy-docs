@@ -64,9 +64,9 @@ Scavenge 是一种复制算法 新生代空间会被一分为二划分成两个�
 ### 循环引用
 对象之间相互引用，形成了一个闭环，这种情况下，每个对象都持有对方的引用，导致它们无法被垃圾回收机制正常释放
 ```js
-const obj1 = {};
-const obj2 = {};
+const obj1 = {}
+const obj2 = {}
 
-obj1.ref = obj2;
-obj2.ref = obj1;
+obj1.ref = obj2
+obj2.ref = obj1
 ```

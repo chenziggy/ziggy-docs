@@ -19,7 +19,7 @@ require “/”开头，则表示加载一个位于绝对路径的模块文件
 ```js
 // lib.js
 module.exports = {
-  func: () =>{},
+  func: () => {},
   propertyA: 'ziggy',
   default: 'hello world'
 }

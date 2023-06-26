@@ -7,8 +7,8 @@ GMT（格林尼治标准时间）是一种国际时间标准，它与地球上�
 
 ```js
 // 获取GMT
-const gmtString = new Date().toGMTString();
-const gmtString = new Date().toUTCString();
+const gmtString = new Date().toGMTString()
+const gmtString = new Date().toUTCString()
 // Wed, 12 May 2021 10:30:00 GMT
 ```
 
@@ -33,9 +33,9 @@ Date.now()
 ## 时区
 ```js
 // 获取当前时区偏移（分钟）
-const timezoneOffset = new Date().getTimezoneOffset();
+const timezoneOffset = new Date().getTimezoneOffset()
 
-console.log(timezoneOffset);
+console.log(timezoneOffset)
 // -480，表示当前时区为 UTC+8（中国标准时间）
 ```
 
@@ -43,9 +43,9 @@ console.log(timezoneOffset);
 本地时间是指某个特定地理位置的当地时间，考虑了时区和夏令时等因素。本地时间可以根据所在的时区和当地的时间规则进行调整
 ```js
 // GMT 转换本地时间
-const gmtTime = new Date('Wed, 12 May 2021 10:30:00 GMT');
+const gmtTime = new Date('Wed, 12 May 2021 10:30:00 GMT')
 // Wed May 12 2021 18:30:00 GMT+0800 (中国标准时间)
-const localTime = gmtTime.toLocaleString(); // 转换为本地时间字符串
-console.log(localTime);
+const localTime = gmtTime.toLocaleString() // 转换为本地时间字符串
+console.log(localTime)
 // 2021/5/12 18:30:00
 ```

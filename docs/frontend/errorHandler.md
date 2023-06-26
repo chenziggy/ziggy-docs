@@ -21,7 +21,7 @@ window.onerror = function(message, source, lineno, colno, error) {...}
 
 ```js
 window.onerror = (message, source, lineno, clono, error) => {
-  // 处理异常数据  
+  // 处理异常数据
   this.saveLog({
     type: 'onerror',
     mesage: message,
@@ -41,13 +41,12 @@ window.addEventListener('unhandledrejection', (param) => {
     data: param.reason
   })
 })
-
 ```
 
 ### 接口错误
 通过重写window.XMLHttpRequest的方法，在需要处理异常的地方记录数据。
 ```js
-const sendError = (e) => {
+function sendError(e) {
   this.saveLog({
     type: 'http',
     message: e.target.status,
@@ -62,9 +61,9 @@ window.XMLHttpRequest.prototype.send = function (...param) {
   this.addEventListener('abort', sendError)
   this.onreadystatechange = (e) => {
     if (this.readyState === 4) {
-      if (this.status !== 200) {
+      if (this.status !== 200)
         sendError()
-      }
+
     }
     oldHttpStatechange.call(this)
   }

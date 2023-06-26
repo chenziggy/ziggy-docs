@@ -13,8 +13,8 @@
 * Set.prototype.has(value)：返回一个布尔值，表示该值是否为Set的成员
 * Set.prototype.clear()：清除所有成员，没有返回值
 ```js
-let s = new Set();
-s.add(1).add(2).add(2);
+const s = new Set()
+s.add(1).add(2).add(2)
 
 s.size // 2
 s.has(1) // true
@@ -34,11 +34,11 @@ s.has(2) // false
 由于 Set 结构没有键名，只有键值（或者说键名和键值是同一个值），所以keys方法和values方法的行为完全一致
 
 ```js
-let set = new Set(['red', 'green', 'blue']);
+const set = new Set(['red', 'green', 'blue'])
 
-for (let item of set.keys()) {
-  console.log(item);
-}
+for (const item of set.keys())
+  console.log(item)
+
 // red
 // green
 // blue
@@ -53,18 +53,18 @@ Set.prototype[Symbol.iterator] === Set.prototype.values
 ### 数组去重
 ```js
 function dedupe(array) {
-  return Array.from(new Set(array));
+  return Array.from(new Set(array))
 }
 dedupe([1, 1, 2, 3]) // [1, 2, 3]
 ```
 ### Set遍历操作
 在遍历操作中改变原来的 Set 结构
 ```js
-let set = new Set([1, 2, 3]);
-set = new Set([...set].map(val => val * 2));
+let set = new Set([1, 2, 3])
+set = new Set([...set].map(val => val * 2))
 
-let set = new Set([1, 2, 3]);
-set = new Set(Array.from(set, val => val * 2));
+let set = new Set([1, 2, 3])
+set = new Set(Array.from(set, val => val * 2))
 ```
 
 ## WeakSet
@@ -74,11 +74,11 @@ WeakSet 结构与 Set 类似，也是不重复的值的集合
 * WeakSet 中的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用
 * WeakSet 没有size属性，同时也没有办法遍历它的成员
 ```js
-const a = [[1, 2], [3, 4]];
-const ws = new WeakSet(a);
+const a = [[1, 2], [3, 4]]
+const ws = new WeakSet(a)
 // WeakSet {[1, 2], [3, 4]}
-const b = [3, 4];
-const ws = new WeakSet(b);
+const b = [3, 4]
+const ws = new WeakSet(b)
 // Uncaught TypeError: Invalid value used in weak set(…)
 ```
 
@@ -102,19 +102,18 @@ Map构造函数接收数组，实际上执行的是下面的算法
 const map = new Map([
   ['name', '张三'],
   ['title', 'Author']
-]);
-
+])
 
 const items = [
   ['name', '张三'],
   ['title', 'Author']
-];
+]
 
-const map = new Map();
+const map = new Map()
 
 items.forEach(
   ([key, value]) => map.set(key, value)
-);
+)
 
 map.has('name') // true
 map.get('name') // "张三"
@@ -141,7 +140,7 @@ map.get('name') // "张三"
 
 Map 结构的默认遍历器接口（Symbol.iterator属性），就是entries方法
 ```js
-map[Symbol.iterator ] === map.entries
+map[Symbol.iterator] === map.entries
 // true
 ```
 
@@ -155,27 +154,27 @@ WeakMap结构与Map结构类似，也是用于生成键值对的集合
 
 WeakMap的设计目的在于，有时我们想在某个对象上面存放一些数据，但是这会形成对于这个对象的引用
 ```js
-const e1 = document.getElementById('foo');
-const e2 = document.getElementById('bar');
+const e1 = document.getElementById('foo')
+const e2 = document.getElementById('bar')
 const arr = [
   [e1, 'foo 元素'],
   [e2, 'bar 元素'],
-];
+]
 ```
 e1和e2是两个对象，我们通过arr数组对这两个对象添加一些文字说明  
 一旦不再需要这两个对象，我们就必须手动删除这个引用，否则垃圾回收机制就不会释放e1和e2占用的内存  
 ```js
 // 不需要 e1 和 e2 的时候
 // 必须手动删除引用
-arr [0] = null;
-arr [1] = null;
+arr[0] = null
+arr[1] = null
 ```
 上面这样的写法显然很不方便。一旦忘了写，就会造成内存泄露
 
 WeakMap 就是为了解决这个问题而诞生的，它的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内
 ```js
-const e1 = document.getElementById('foo');
-const e2 = document.getElementById('bar');
+const e1 = document.getElementById('foo')
+const e2 = document.getElementById('bar')
 const wm = new WeakMap()
 wm.set(e1, 'foo 元素')
 wm.set(e2, 'bar 元素')
@@ -183,17 +182,16 @@ wm.set(e2, 'bar 元素')
 
 WeakMap 应用的典型场合就是 DOM 节点作为键名
 ```js
-let myWeakmap = new WeakMap();
+const myWeakmap = new WeakMap()
 
 myWeakmap.set(
   document.getElementById('logo'),
-  {timesClicked: 0})
-;
+  { timesClicked: 0 })
 
-document.getElementById('logo').addEventListener('click', function() {
-  let logoData = myWeakmap.get(document.getElementById('logo'));
-  logoData.timesClicked++;
-}, false);
+document.getElementById('logo').addEventListener('click', () => {
+  const logoData = myWeakmap.get(document.getElementById('logo'))
+  logoData.timesClicked++
+}, false)
 ```
 
 WeakMap 的另一个用处是部署私有属性，WeakMap 是弱引用作为实例的属性，所以如果删除实例，它们也就随之消失，不会造成内存泄漏
@@ -201,8 +199,8 @@ WeakMap 的另一个用处是部署私有属性，WeakMap 是弱引用作为实�
 ## WeakRef
 用于直接创建对象的弱引用
 ```js
-let target = {};
-let wr = new WeakRef(target);
+const target = {}
+const wr = new WeakRef(target)
 ```
 target是原始对象，构造函数WeakRef()创建了一个基于target的新对象wr。这里，wr就是一个 WeakRef 的实例，属于对target的弱引用，垃圾回收机制不会计入这个引用，也就是说，wr的引用不会妨碍原始对象target被垃圾回收机制清除
 
@@ -213,29 +211,30 @@ weakRef.prototype.deref 如果原始对象存在，该方法返回原始对象�
 function getImage(key) {
   // 获取指定 key 对应的图片数据的逻辑
   // 这里仅作示例，具体实现需要根据需求来定义
-  console.log(`Fetching image for key: ${key}`);
-  return `Image for ${key}`;
+  console.log(`Fetching image for key: ${key}`)
+  return `Image for ${key}`
 }
 
-const makeWeakCached = (f) => {
-  const cache = new Map();
+function makeWeakCached(f) {
+  const cache = new Map()
   return (key) => {
-    const ref = cache.get(key);
+    const ref = cache.get(key)
     if (ref) {
-      const cached = ref.deref();
-      if (cached !== undefined) return cached;
+      const cached = ref.deref()
+      if (cached !== undefined)
+        return cached
     }
-    const fresh = f(key);
-    cache.set(key, new WeakRef(fresh));
-    return fresh;
-  };
-};
+    const fresh = f(key)
+    cache.set(key, new WeakRef(fresh))
+    return fresh
+  }
+}
 
-const getImageCached = makeWeakCached(getImage);
+const getImageCached = makeWeakCached(getImage)
 
-console.log(getImageCached("image1")); // Fetching image for key: image1  Output: Image for image1
-console.log(getImageCached("image1")); // Output: Image for image1 (从缓存中获取，不再调用 getImage)
+console.log(getImageCached('image1')) // Fetching image for key: image1  Output: Image for image1
+console.log(getImageCached('image1')) // Output: Image for image1 (从缓存中获取，不再调用 getImage)
 
-console.log(getImageCached("image2")); // Fetching image for key: image2  Output: Image for image2
-console.log(getImageCached("image2")); // Output: Image for image2 (从缓存中获取，不再调用 getImage)
+console.log(getImageCached('image2')) // Fetching image for key: image2  Output: Image for image2
+console.log(getImageCached('image2')) // Output: Image for image2 (从缓存中获取，不再调用 getImage)
 ```

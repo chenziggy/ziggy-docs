@@ -11,12 +11,16 @@ axios 在 adapter 区分环境
 调用链路
 
 ```js
-// /lib/axios.js 
-createInstance() { const instance = bind(Axios.prototype.request, context) }
-// /lib/core/Axios.js  
-request() { promise = dispatchRequest.call(this, newConfig) }
-// /lib/core/dispatchRequest.js  
-dispatchRequest() { const adapter = adapters.getAdapter(config.adapter || defaults.adapter) }
+// /lib/axios.js
+function createInstance() {
+  (Axios.prototype.request, context)
+}
+// /lib/core/Axios.js
+function request() {
+  promise = dispatchRequest.call(this, newConfig)
+}
+// /lib/core/dispatchRequest.js
+function dispatchRequest() { const adapter = adapters.getAdapter(config.adapter || defaults.adapter) }
 
 // /lib/adapter/adapter.js
 const knownAdapters = {
@@ -27,30 +31,30 @@ const knownAdapters = {
 export default {
   // 默认 config.adapters: ['xhr', 'http'],
   getAdapter: (adapters) => {
-    adapters = utils.isArray(adapters) ? adapters : [adapters];
+    adapters = utils.isArray(adapters) ? adapters : [adapters]
 
-    const {length} = adapters;
-    let nameOrAdapter;
-    let adapter;
+    const { length } = adapters
+    let nameOrAdapter
+    let adapter
 
     for (let i = 0; i < length; i++) {
-      nameOrAdapter = adapters[i];
+      nameOrAdapter = adapters[i]
       // 这里返回 adapter   看这有点草率
-      if((adapter = utils.isString(nameOrAdapter) ? knownAdapters[nameOrAdapter.toLowerCase()] : nameOrAdapter)) {
-        break;
-      }
+      if ((adapter = utils.isString(nameOrAdapter) ? knownAdapters[nameOrAdapter.toLowerCase()] : nameOrAdapter))
+        break
+
     }
 
-    return adapter;
+    return adapter
   },
   adapters: knownAdapters
 }
 
-//xhr.js 
-isXHRAdapterSupported = typeof XMLHttpRequest !== 'undefined';
+// xhr.js
+isXHRAdapterSupported = typeof XMLHttpRequest !== 'undefined'
 
 // http.js
-const isHttpAdapterSupported = typeof process !== 'undefined' && utils.kindOf(process) === 'process';
+const isHttpAdapterSupported = typeof process !== 'undefined' && utils.kindOf(process) === 'process'
 ```
 
 ## 取消请求
@@ -59,13 +63,13 @@ const isHttpAdapterSupported = typeof process !== 'undefined' && utils.kindOf(pr
 
 用法
 ```js
-const controller = new AbortController();
+const controller = new AbortController()
 
 axios.get('/foo/bar', {
-   signal: controller.signal
-}).then(function(response) {
-   //...
-});
+  signal: controller.signal
+}).then((response) => {
+  // ...
+})
 // cancel the request
 controller.abort()
 ```

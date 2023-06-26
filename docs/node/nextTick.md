@@ -4,19 +4,19 @@
 在整理远古笔记的时候发现了问题
 
 ```js
-  process.nextTick(function A() {
-    console.log('A')
-    process.nextTick(function C() {
-      console.log('C')
-    })
-  })
+process.nextTick(() => {
+  console.log('A')
+  process.nextTick(() => {
+    console.log('C')
+  })
+})
 
-  new Promise((resolve) => {
-    console.log('Promise')
-    resolve()
-  }).then(() => {
-    console.log('then')
-  })
+new Promise((resolve) => {
+  console.log('Promise')
+  resolve()
+}).then(() => {
+  console.log('then')
+})
 ```
 
 ### 惯犯思维
@@ -37,20 +37,20 @@ process.nextTick 是一种特殊的微任务，它总是在当前阶段结束之
 process.nextTick 不像Promise.then()一样追加到微任务队尾，而是被放入一个单独的队列中，这个队列只存放 nextTick，并且这个队列的优先级比其他微任务要高。这意味着在当前事件循环中，所有的 nextTick 回调函数都会被执行完毕（包括在执行中产生的新的 nextTick），才会执行其他微任务。
 
 ```js
-process.nextTick(function A() {
+process.nextTick(() => {
   console.log('A')
-  process.nextTick(function C() {
+  process.nextTick(() => {
     console.log('C')
-    process.nextTick(function D() {
+    process.nextTick(() => {
       console.log('D')
     })
   })
 })
 
-process.nextTick(function F() {
-  console.log("F")
-  process.nextTick(function J() {
-    console.log("J")
+process.nextTick(() => {
+  console.log('F')
+  process.nextTick(() => {
+    console.log('J')
   })
 })
 

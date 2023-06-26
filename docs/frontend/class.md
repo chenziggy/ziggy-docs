@@ -9,11 +9,12 @@ class Employee {
   constructor(name, age) {
     this.name = name
     this.age = age
-    this.eat = () => {  // 实例方法
-    console.log(`${this.name}   eat`)
+    this.eat = () => { // 实例方法
+      console.log(`${this.name}   eat`)
     }
   }
-  say() {     // 类的原型方法
+
+  say() { // 类的原型方法
     console.log(`${this.name}   ${this.age}`)
   }
 }
@@ -22,11 +23,11 @@ class Employee {
 function Employee(name, age) {
   this.name = name
   this.age = age
-  this.eat = () => {  // 实例方法
+  this.eat = () => { // 实例方法
     console.log(`${this.name}   eat`)
   }
 }
-Employee.prototype.say = function() { // 原型方法
+Employee.prototype.say = function () { // 原型方法
   console.log(`${this.name}   ${this.age}`)
 }
 ```
@@ -39,18 +40,20 @@ Employee.prototype.say = function() { // 原型方法
 类属性在默认情况下是公有的，但可以使用增加哈希前缀 # 的方法来定义私有类字段
 ```js
 class Person {
-  #privateField;
-  static #PRIVATE_STATIC_FIELD;  // 私有静态属性
-  
+  #privateField
+  static #PRIVATE_STATIC_FIELD // 私有静态属性
+
   constructor() {
     this.#privateFiled = 52
     Person.#PRIVATE_STATIC_FIELD = 42
   }
+
   #privateMethod() {
     return 'hello world'
   }
+
   static #privateStaticMethod() { // 私有静态方法
-    return 42;
+    return 42
   }
 }
 ```

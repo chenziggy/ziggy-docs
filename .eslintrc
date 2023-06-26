@@ -1,3 +1,13 @@
 {
-  "extends": "@antfu"
+  "extends": "@antfu",
+  "rules": {
+    "max-statements-per-line": [
+      "error",
+      {
+        "max": 2
+      }
+    ],
+    "no-cond-assign": "off",
+    "@typescript-eslint/no-invalid-this": "off"
+  }
 }

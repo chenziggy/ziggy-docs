@@ -29,12 +29,12 @@ Object.defineProperty(obj, prop, descriptor)
 * writable value可以使用赋值运算符更改，则为 true。默认值为 false
 
 ```js
-Object.defineProperty(o, "a", {
+Object.defineProperty(o, 'a', {
   value: 37,
   writable: true,
   enumerable: true,
   configurable: true,
-});
+})
 ```
 
 #### 访问器描述符独有属性
@@ -43,16 +43,16 @@ Object.defineProperty(o, "a", {
 * set 用作属性 `setter 的函数`，调用此函数，并带有一个参数（要赋给该属性的值），并将 this 设置为通过该属性分配的对象
 
 ```js
-Object.defineProperty(o, "b", {
+Object.defineProperty(o, 'b', {
   get() {
-    return bValue;
+    return bValue
   },
   set(newValue) {
-    bValue = newValue;
+    bValue = newValue
   },
   enumerable: true,
   configurable: true,
-});
+})
 ```
 ## getPrototypeOf
 `Object.getPrototypeOf`
@@ -70,17 +70,17 @@ Object.getPrototypeOf(obj)
 
 const obj = {
   age: 18,
-};
+}
 
-const descriptor1 = Object.getOwnPropertyDescriptor(obj, 'age');
+const descriptor1 = Object.getOwnPropertyDescriptor(obj, 'age')
 // {value: 42, writable: true, enumerable: true, configurable: true}
 
-let interval 
-const descriptor2 =  Object.defineProperty(obj, 'name', {
-  get: function () {
+let interval
+const descriptor2 = Object.defineProperty(obj, 'name', {
+  get() {
     return interval
   },
-  set: function (newVal) {
+  set(newVal) {
     interval = newVal
   }
 })

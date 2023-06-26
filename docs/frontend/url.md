@@ -13,7 +13,7 @@
 `window.location`是一个对象，包含了当前页面的 URL 信息，可以通过这些属性来获取或修改页面的 URL 信息
 ```js
 // 当前页面url https://www.baidu.com/index.html?param=type&order=desc
-window.location.host="www.google.com"
+window.location.host = 'www.google.com'
 // 页面跳转到https://www.google.com/index.html?param=type&order=desc
 ```
 
@@ -34,33 +34,33 @@ encodeURIComponent 会替换所有的字符，但不包括以下字符：
 |--------|-------------------------|
 | 非转义的字符 | 字母 数字 - _ . ! ~ * ' ( ) |
 ```js
-var set1 = ";,/?:@&=+$";  // 保留字符
-var set2 = "-_.!~*'()";   // 不转义字符
-var set3 = "#";           // 数字标志
-var set4 = "ABC abc 123"; // 字母数字字符和空格
+const set1 = ';,/?:@&=+$' // 保留字符
+const set2 = '-_.!~*\'()' // 不转义字符
+const set3 = '#' // 数字标志
+const set4 = 'ABC abc 123' // 字母数字字符和空格
 
-console.log(encodeURI(set1)); // ;,/?:@&=+$
-console.log(encodeURI(set2)); // -_.!~*'()
-console.log(encodeURI(set3)); // #
-console.log(encodeURI(set4)); // ABC%20abc%20123 (空格被编码为 %20)
+console.log(encodeURI(set1)) // ;,/?:@&=+$
+console.log(encodeURI(set2)) // -_.!~*'()
+console.log(encodeURI(set3)) // #
+console.log(encodeURI(set4)) // ABC%20abc%20123 (空格被编码为 %20)
 
-console.log(encodeURIComponent(set1)); // %3B%2C%2F%3F%3A%40%26%3D%2B%24
-console.log(encodeURIComponent(set2)); // -_.!~*'()
-console.log(encodeURIComponent(set3)); // %23
-console.log(encodeURIComponent(set4)); // ABC%20abc%20123 (空格被编码为 %20)
+console.log(encodeURIComponent(set1)) // %3B%2C%2F%3F%3A%40%26%3D%2B%24
+console.log(encodeURIComponent(set2)) // -_.!~*'()
+console.log(encodeURIComponent(set3)) // %23
+console.log(encodeURIComponent(set4)) // ABC%20abc%20123 (空格被编码为 %20)
 ```
 
 ## URLSearchParams
 ```js
 // 当前页面url的参数 https://www.baidu.com/index.html?param=type&order=desc
 const params1 = new URLSearchParams(window.location.search)
-for (const [key, value] of params1) {
+for (const [key, value] of params1)
   console.log(key, value)
-}
+
 // param type
 // order desc
 
-const params2 = new URLSearchParams({name: '陈舜', gender: 'man'}).toString()
+const params2 = new URLSearchParams({ name: '陈舜', gender: 'man' }).toString()
 // 'name=%E9%99%88%E8%88%9C&gender=man'
 ```
 
@@ -109,12 +109,12 @@ Opera 11 浏览器限制 URL 最长为 65535 个字符，这意味着 data URL �
 创建一个表示指定对象的 URL。通常，它用于创建一个指向 Blob 或 File 对象的 URL，以便在浏览器中显示或下载该对象
 
 ```js
-const fileInput = document.getElementById('fileInput');
-const imgElement = document.getElementById('imgElement');
+const fileInput = document.getElementById('fileInput')
+const imgElement = document.getElementById('imgElement')
 
-fileInput.addEventListener('change', function (event) {
-  const file = event.target.files[0];
-  const imgUrl = URL.createObjectURL(file);
-  imgElement.src = imgUrl;
-});
+fileInput.addEventListener('change', (event) => {
+  const file = event.target.files[0]
+  const imgUrl = URL.createObjectURL(file)
+  imgElement.src = imgUrl
+})
 ```

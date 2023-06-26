@@ -6,6 +6,7 @@ Vueuse 提供了一个函数 createSharedComposable
 
 ```js
 import { createSharedComposable, useMouse } from '@vueuse/core'
+
 const useSharedMouse = createSharedComposable(useMouse)
 
 // CompA.vue

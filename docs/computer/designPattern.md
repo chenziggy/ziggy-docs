@@ -6,26 +6,26 @@
 ```js
 // AppConfig 对象就是一个单例，我们可以在应用程序中的任何地方访问它
 const AppConfig = {
-  apiUrl: "http://example.com/api",
+  apiUrl: 'http://example.com/api',
   maxItemsPerPage: 20,
   enableDebugMode: true
-};
+}
 
 // 使用构造函数和静态方法来实现单例模式
 class Singleton {
   constructor() {
   // Singleton.instance 类属性
-    if (!Singleton.instance) {
-      Singleton.instance = this;
-    }
-    return Singleton.instance;
+    if (!Singleton.instance)
+      Singleton.instance = this
+
+    return Singleton.instance
   }
-  
+
   static getInstance() {
-    if (!Singleton.instance) {
-      Singleton.instance = new Singleton();
-    }
-    return Singleton.instance;
+    if (!Singleton.instance)
+      Singleton.instance = new Singleton()
+
+    return Singleton.instance
   }
 }
 ```
@@ -41,16 +41,16 @@ class Singleton {
 // 不使用类
 function createPerson(name, age) {
   return {
-    name: name,
-    age: age,
-    greet: function() {
-      console.log(`Hi, my name is ${this.name}, and I'm ${this.age} years old.`);
+    name,
+    age,
+    greet() {
+      console.log(`Hi, my name is ${this.name}, and I'm ${this.age} years old.`)
     }
   }
 }
 
-const person1 = createPerson('Alice', 25);
-const person2 = createPerson('Bob', 30);
+const person1 = createPerson('Alice', 25)
+const person2 = createPerson('Bob', 30)
 ```
 
 ## 原型模式
@@ -70,18 +70,18 @@ JavaScript 中，每个对象都有一个 __proto__ 属性指向原型对象
 ```js
 const strategies = {
   run() {
-    console.log("Called run");
+    console.log('Called run')
   },
   walk() {
-    console.log("Called walk");
+    console.log('Called walk')
   },
   bus() {
-    console.log("Called bus");
+    console.log('Called bus')
   }
 }
 
-const execute = (strategy) => {
-  return strategies[strategy]();
+function execute(strategy) {
+  return strategies[strategy]()
 }
 
 execute('run')

@@ -28,145 +28,144 @@ p 可以通过 handler 扩展以上Object原生方法
 
 ## 通过代理验证数据
 ```js
-let validator = {
-  set: function(obj, prop, value) {
+const validator = {
+  set(obj, prop, value) {
     if (prop === 'age') {
-      if (!Number.isInteger(value)) {
-        throw new TypeError('The age is not an integer');
-      }
-      if (value > 200) {
-        throw new RangeError('The age seems invalid');
-      }
+      if (!Number.isInteger(value))
+        throw new TypeError('The age is not an integer')
+
+      if (value > 200)
+        throw new RangeError('The age seems invalid')
+
     }
 
     // The default behavior to store the value
-    obj[prop] = value;
+    obj[prop] = value
 
     // 表示成功
-    return true;
+    return true
   }
-};
+}
 
-let person = new Proxy({}, validator);
-person.age = 100;
-console.log(person.age);
+const person = new Proxy({}, validator)
+person.age = 100
+console.log(person.age)
 // 100
-person.age = 'young';
+person.age = 'young'
 // 抛出异常：Uncaught TypeError: The age is not an integer
-person.age = 300;
+person.age = 300
 // 抛出异常：Uncaught RangeError: The age seems invalid
 ```
 
 ### 修正及附加属性
 ```js
-let products = new Proxy({
+const products = new Proxy({
   browsers: ['Internet Explorer', 'Netscape']
 }, {
-  get: function(obj, prop) {
+  get(obj, prop) {
     // 附加一个属性
-    if (prop === 'latestBrowser') {
-      return obj.browsers[obj.browsers.length - 1];
-    }
+    if (prop === 'latestBrowser')
+      return obj.browsers[obj.browsers.length - 1]
+
     // 默认行为是返回属性值
-    return obj[prop];
+    return obj[prop]
   },
-  set: function(obj, prop, value) {
+  set(obj, prop, value) {
     // 附加属性
     if (prop === 'latestBrowser') {
-      obj.browsers.push(value);
-      return;
+      obj.browsers.push(value)
+      return
     }
     // 如果不是数组，则进行转换
-    if (typeof value === 'string') {
-      value = [value];
-    }
+    if (typeof value === 'string')
+      value = [value]
+
     // 默认行为是保存属性值
-    obj[prop] = value;
+    obj[prop] = value
     // 表示成功
-    return true;
+    return true
   }
-});
+})
 
-console.log(products.browsers); // ['Internet Explorer', 'Netscape']
-products.browsers = 'Firefox';  // 如果不小心传入了一个字符串
-console.log(products.browsers); // ['Firefox'] <- 也没问题，得到的依旧是一个数组
+console.log(products.browsers) // ['Internet Explorer', 'Netscape']
+products.browsers = 'Firefox' // 如果不小心传入了一个字符串
+console.log(products.browsers) // ['Firefox'] <- 也没问题，得到的依旧是一个数组
 
-products.latestBrowser = 'Chrome';
-console.log(products.browsers);      // ['Firefox', 'Chrome']
-console.log(products.latestBrowser); // 'Chrome'
+products.latestBrowser = 'Chrome'
+console.log(products.browsers) // ['Firefox', 'Chrome']
+console.log(products.latestBrowser) // 'Chrome'
 ```
 
 ## 通过属性查找数组中特点的对象
 ```js
-let products = new Proxy([
-  { name: 'Firefox'    , type: 'browser' },
-  { name: 'SeaMonkey'  , type: 'browser' },
+const products = new Proxy([
+  { name: 'Firefox', type: 'browser' },
+  { name: 'SeaMonkey', type: 'browser' },
   { name: 'Thunderbird', type: 'mailer' }
 ], {
-  get: function(obj, prop) {
+  get(obj, prop) {
     // 默认行为是返回属性值，prop ?通常是一个整数
-    if (prop in obj) {
-      return obj[prop];
-    }
+    if (prop in obj)
+      return obj[prop]
+
     // 获取 products 的 number; 它是 products.length 的别名
-    if (prop === 'number') {
-      return obj.length;
-    }
+    if (prop === 'number')
+      return obj.length
 
-    let result, types = {};
+    let result; const types = {}
 
-    for (let product of obj) {
-      if (product.name === prop) {
-        result = product;
-      }
-      if (types[product.type]) {
-        types[product.type].push(product);
-      } else {
-        types[product.type] = [product];
-      }
+    for (const product of obj) {
+      if (product.name === prop)
+        result = product
+
+      if (types[product.type])
+        types[product.type].push(product)
+      else
+        types[product.type] = [product]
+
     }
     // 通过 name 获取 product
-    if (result) {
-      return result;
-    }
-    // 通过 type 获取 products
-    if (prop in types) {
-      return types[prop];
-    }
-    // 获取 product type
-    if (prop === 'types') {
-      return Object.keys(types);
-    }
-    return undefined;
-  }
-});
+    if (result)
+      return result
 
-console.log(products[0]); // { name: 'Firefox', type: 'browser' }
-console.log(products['Firefox']); // { name: 'Firefox', type: 'browser' }
-console.log(products['Chrome']); // undefined
-console.log(products.browser); // [{ name: 'Firefox', type: 'browser' }, { name: 'SeaMonkey', type: 'browser' }]
-console.log(products.types); // ['browser', 'mailer']
-console.log(products.number); // 3
+    // 通过 type 获取 products
+    if (prop in types)
+      return types[prop]
+
+    // 获取 product type
+    if (prop === 'types')
+      return Object.keys(types)
+
+    return undefined
+  }
+})
+
+console.log(products[0]) // { name: 'Firefox', type: 'browser' }
+console.log(products.Firefox) // { name: 'Firefox', type: 'browser' }
+console.log(products.Chrome) // undefined
+console.log(products.browser) // [{ name: 'Firefox', type: 'browser' }, { name: 'SeaMonkey', type: 'browser' }]
+console.log(products.types) // ['browser', 'mailer']
+console.log(products.number) // 3
 ```
 
 ## 定义私有属性
 ```js
 const target = {
   _id: '1024',
-  name:  'vuejs'
+  name: 'vuejs'
 }
 
 const proxy = new Proxy(target, {
-  get(target, propkey, proxy){
-    if(propkey[0] === '_'){
-      throw Error(`${propkey} is restricted`)
-    }
+  get(target, propkey, proxy) {
+    if (propkey[0] === '_')
+      throw new Error(`${propkey} is restricted`)
+
     return Reflect.get(target, propkey, proxy)
   },
-  set(target, propkey, value, proxy){
-    if(propkey[0] === '_'){
-      throw Error(`${propkey} is restricted`)
-    }
+  set(target, propkey, value, proxy) {
+    if (propkey[0] === '_')
+      throw new Error(`${propkey} is restricted`)
+
     return Reflect.set(target, propkey, value, proxy)
   }
 })
@@ -180,18 +179,18 @@ proxy._id = '1025' // Uncaught Error: _id is restricted
 ## Proxy.revocable
 唯一的静态方法
 ```js
-Proxy.revocable(target, handler);
+Proxy.revocable(target, handler)
 ```
 返回一个包含了代理对象本身和它的撤销方法的可撤销 Proxy 对象 `{"proxy": proxy, "revoke": revoke}`
 ```js
-var revocable = Proxy.revocable({}, {
+const revocable = Proxy.revocable({}, {
   get(target, name) {
-    return "[[" + name + "]]";
+    return `[[${name}]]`
   }
-});
-var proxy = revocable.proxy;
-proxy.foo;              // "[[foo]]"
-revocable.revoke();
-console.log(proxy.foo); // 抛出 TypeError
+})
+const proxy = revocable.proxy
+proxy.foo // "[[foo]]"
+revocable.revoke()
+console.log(proxy.foo) // 抛出 TypeError
 ```
 

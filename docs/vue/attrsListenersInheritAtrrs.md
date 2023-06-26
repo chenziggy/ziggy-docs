@@ -4,50 +4,52 @@
 ## MyButton.vue
 
 ```vue
-<template>
-    <el-button
-        :size="size"
-        :type="type"
-        :disabled="disabled"
-        @click="onClick"
-    >
-        <slot />
-    </el-button>
-</template>
-
 <script>
 export default {
-    name: "MyButton",
-    props: {
-        size: {
-            type: String,
-            default: "medium",
-        },
-        type: {
-            type: String,
-            default: "primary",
-        },
-        disabled: Boolean,
+  name: 'MyButton',
+  props: {
+    size: {
+      type: String,
+      default: 'medium',
     },
-    methods: {
-        onClick() {
-            this.$emit("click");
-        },
+    type: {
+      type: String,
+      default: 'primary',
     },
-};
+    disabled: Boolean,
+  },
+  methods: {
+    onClick() {
+      this.$emit('click')
+    },
+  },
+}
 </script>
+
+<template>
+  <el-button
+    :size="size"
+    :type="type"
+    :disabled="disabled"
+    @click="onClick"
+  >
+    <slot />
+  </el-button>
+</template>
 ```
 
 ## UseMyButton.vue
 
 ```vue
 <template>
-    <my-button
-        type="success"
-        disabled
-        round
-        native-type="submit"
-    >测试</my-button>
+  <my-button
+    type="success"
+    disabled
+    round
+    native-type="submit"
+  >
+    测试
+  </my-button>
 </template>
 ```
 
@@ -64,35 +66,36 @@ export default {
 处理完属性透传，接下来我们还要处理事件，类似于`$attrs`，`$listeners`也能把父组件中对子组件的事件监听全部拿到，这样我们就能用一个`v-on`把这些来自于父组件的事件监听传递到下一级组件。
 
 ```vue
-<template>
-    <el-button
-        v-bind="customizedAttrs"
-        v-on="$listeners"
-    >
-        <slot />
-    </el-button>
-</template>
-
 <script>
 export default {
-    name: "MyButton",inheritAttrs:false,
-    props: {
-        size: {
-            type: String,
-            default: "medium",
-        },
+  name: 'MyButton',
+  inheritAttrs: false,
+  props: {
+    size: {
+      type: String,
+      default: 'medium',
     },
-    computed: {
-        customizedAttrs() {
-            return {
-                size: "medium",
-                // 支持传过来的size覆盖默认的size
-                ...this.$attrs,
-            };
-        },
+  },
+  computed: {
+    customizedAttrs() {
+      return {
+        size: 'medium',
+        // 支持传过来的size覆盖默认的size
+        ...this.$attrs,
+      }
     },
-};
+  },
+}
 </script>
+
+<template>
+  <el-button
+    v-bind="customizedAttrs"
+    v-on="$listeners"
+  >
+    <slot />
+  </el-button>
+</template>
 ```
 
 [Vue 这个透传技巧，治好了我的重度代码洁癖（收藏！）](https://mp.weixin.qq.com/s/F7PkcVhN15JB6AaCap7QgQ)

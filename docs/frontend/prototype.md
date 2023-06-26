@@ -24,13 +24,13 @@ const person = {
   name: 'ziggy'
 }
 
-person.__proto__  ===  Object.prototype
+person.__proto__ === Object.prototype
 // true
 
 function Dog(name) {
   this.name = name
 }
-var dog = new Dog('husky')
+const dog = new Dog('husky')
 
 dog.__proto__ === dog.constructor.prototype
 // true
@@ -62,14 +62,14 @@ dog.__proto__.__proto__ === Object.prototype
 
 #### 重写valueOf
 ```js
-function Dog (name) {
-    this.name = name
-    this.valueOf = () => {
-        return this.name
-    }
+function Dog(name) {
+  this.name = name
+  this.valueOf = () => {
+    return this.name
+  }
 }
-var dog = new Dog('husky')
-console.log(dog+'wowo')
+const dog = new Dog('husky')
+console.log(`${dog}wowo`)
 // husky wowo
 ```
 
@@ -88,12 +88,12 @@ console.log(dog+'wowo')
 #### 重写toString
 
 ```js
-function Dog (name) {
-    this.name = name
-    this.toString = () => {
-        return this.name
-    }
+function Dog(name) {
+  this.name = name
+  this.toString = () => {
+    return this.name
+  }
 }
-var dog = new Dog('husky')
+const dog = new Dog('husky')
 console.log(dog.toString())
 ```

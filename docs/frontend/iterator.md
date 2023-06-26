@@ -24,36 +24,34 @@ iterator.next() // {value: undefined, done: true}
 ### 利用遍历器实现"链表"
 ```js
 function Obj(value) {
-  this.value = value;
-  this.next = null;
+  this.value = value
+  this.next = null
 }
 
-Obj.prototype[Symbol.iterator] = function() {
-  var iterator = { next: next };
-  var current = this;
+Obj.prototype[Symbol.iterator] = function () {
+  const iterator = { next }
+  let current = this
 
   function next() {
     if (current) {
-      var value = current.value;
-      current = current.next;
-      return { done: false, value: value };
+      const value = current.value
+      current = current.next
+      return { done: false, value }
     }
-    return { done: true };
+    return { done: true }
   }
-  return iterator;
+  return iterator
 }
 
-var one = new Obj(1);
-var two = new Obj(2);
-var three = new Obj(3);
+const one = new Obj(1)
+const two = new Obj(2)
+const three = new Obj(3)
 
-one.next = two;
-two.next = three;
+one.next = two
+two.next = three
 
-for (var i of one){
-  console.log(i); // 1, 2, 3
-}
-
+for (const i of one)
+  console.log(i) // 1, 2, 3
 ```
 
 ## Array.from
@@ -61,16 +59,16 @@ for (var i of one){
 常见的类数组对象有： arguments、NodeList
 ```js
 // 类数组对象
-let arrayLike = {
-    '0': 'a',
-    '1': 'b',
-    '2': 'c',
-    length: 3
-};
+const arrayLike = {
+  0: 'a',
+  1: 'b',
+  2: 'c',
+  length: 3
+}
 // ES5 的写法
-var arr1 = [].slice.call(arrayLike); // ['a', 'b', 'c']
+const arr1 = [].slice.call(arrayLike) // ['a', 'b', 'c']
 // ES6 的写法
-let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
+const arr2 = Array.from(arrayLike) // ['a', 'b', 'c']
 ```
 
 ## generator
@@ -81,17 +79,17 @@ let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
 * 个人理解 Generator 函数是一个状态机，封装了多个内部状态
 ```js
 function* numberGenerator() {
-  const a = yield 1;
-  console.log("🚀 ~ file: generator.md:25 ~ function*numberGenerator ~ a:", a)
-  yield 2;
-  yield 3;
+  const a = yield 1
+  console.log('🚀 ~ file: generator.md:25 ~ function*numberGenerator ~ a:', a)
+  yield 2
+  yield 3
 }
 
-const generator = numberGenerator('xxxxxxxxxx');
+const generator = numberGenerator('xxxxxxxxxx')
 
-console.log(generator.next()); // 输出: {value: 1, done: false}
+console.log(generator.next()) // 输出: {value: 1, done: false}
 // 🚀 ~ file: generator.md:25 ~ function*numberGenerator ~ a: params 2
-console.log(generator.next('params 2')); // 输出: {value: 2, done: false}
-console.log(generator.next()); // 输出: {value: 3, done: false}
-console.log(generator.next()); // 输出: {value: undefined, done: true}
+console.log(generator.next('params 2')) // 输出: {value: 2, done: false}
+console.log(generator.next()) // 输出: {value: 3, done: false}
+console.log(generator.next()) // 输出: {value: undefined, done: true}
 ```
