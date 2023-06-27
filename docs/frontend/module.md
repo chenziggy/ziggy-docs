@@ -75,3 +75,24 @@ iife (Immediately Invoked Function Expression): 生成自执行函数表达式�
 
 ## vendor
 `vendor`（供应商）一词通常用于指代第三方库、框架或其他外部依赖。具体来说，"vendor" 通常指的是应用程序中由外部提供的代码，而不是由开发人员自己编写的应用程序代码
+
+## import
+
+### module namespace object
+模块命名空间对象是块中导出的一个对象，该对象包含了模块中所有导出的成员
+* 当一个模块中有多个导出时，可以将这些导出统一放在一个命名空间对象中，以便更好地组织和管理。
+* 模块命名空间对象是一个普通的 JavaScript 对象，它的属性对应模块中导出的成员
+
+```js
+import * as utils from './utils.js'
+
+const res = await import('./utils')
+// {DEV: true, default: Object, registerApp: ƒ registerApp(), Symbol(Symbol.toStringTag): "Module"}
+/// utils res 都是命名空间对象
+```
+
+### default
+引入模块有一个 default 导出成员 `export default`，可以通过一下形式导入默认值
+```js
+import myDefault from '/modules/my-module.js';
+```
