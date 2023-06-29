@@ -41,6 +41,7 @@ export default defineConfig({
             { text: 'git', link: '/computer/git' },
             { text: 'http cache', link: '/computer/httpCache' },
             { text: 'http 发展历史', link: '/computer/httpHistory' },
+            { text: 'http 队头阻塞', link: '/computer/headOfLineBlock' },
             { text: 'http 报文结构', link: '/computer/httpMessage' },
             { text: 'http header', link: '/computer/httpHeader' },
             { text: 'http status code', link: '/computer/httpStatusCode' },
