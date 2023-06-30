@@ -93,6 +93,7 @@ export default defineConfig({
             { text: 'background', link: '/css/background' },
             { text: 'vertical-align', link: '/css/verticalAlign' },
             { text: 'stacking order', link: '/css/stackingOrder' },
+            { text: '级联 继承', link: '/css/cascading' },
           ],
         },
       ],
