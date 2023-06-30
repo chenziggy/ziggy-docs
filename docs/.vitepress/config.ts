@@ -92,6 +92,7 @@ export default defineConfig({
             { text: 'mask-image', link: '/css/maskImage' },
             { text: 'background', link: '/css/background' },
             { text: 'vertical-align', link: '/css/verticalAlign' },
+            { text: 'stacking order', link: '/css/stackingOrder' },
           ],
         },
       ],
