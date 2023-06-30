@@ -86,6 +86,7 @@ export default defineConfig({
         {
           text: 'CSS',
           items: [
+            { text: '浏览器渲染', link: '/css/browserRender' },
             { text: 'width', link: '/css/width' },
             { text: 'flex', link: '/css/flex' },
             { text: 'var()', link: '/css/var()' },
