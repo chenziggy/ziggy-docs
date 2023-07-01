@@ -57,25 +57,29 @@ chrome 对 Blank 引擎某些实现进行修改， RenderObject  => Layout Objec
 
 
 ###	渲染层提升成合成层
-			 合成层 没有 layout 和 paint
-			该渲染层必须是 SelfPaintingLayer（基本可认为是上文介绍的 NormalPaintLayer）
-			直接原因
-				硬件加速的 iframe 元素
-				video 元素
-				覆盖在 video 元素上的视频控制栏
-				3D 或者 硬件加速的 2D Canvas 元素
-				有 3D transform
-				backface-visibility 为 hidden
-				对 opacity、transform、fliter、backdropfilter 应用了 animation 或者 transition（需要是 active 的 animation 或者 transition，当 animation 或者 transition 效果未开始或结束后，提升合成层也会失效）
-			overlap 重叠原因
-			后代元素原因
-			提升为合成层最好的方式
-				will-change
-				transform 3D (遇到兼容问题使用)
-			提升为合成层优点
-				合成层的位图，交由GPU合成，比CPU处理快
-				当需要repaint，只需要渲染本身，不影响其他层
-				transform 和 opacity效果，不会触发layout和 paint
-			合成层缺点
-				每一个合成层都需要上传GPU处理，消耗CPU到GPU带宽
-				占用内存增大
+![browser_render_4](/img/browser_render_4.png)
+*	合成层 没有 layout 和 paint
+*	该渲染层必须是 SelfPaintingLayer，基本可认为是上文介绍的 [NormalPaintLayer](#NormalPaintLayer)
+1. 直接原因
+	* 硬件加速的 iframe 元素
+	* video 元素
+	* 覆盖在 video 元素上的视频控制栏
+	* 3D 或者 硬件加速的 2D Canvas 元素
+	* 有 3D transform
+	* backface-visibility 为 hidden
+	* 对 opacity、transform、fliter、backdropfilter 应用了 animation 或者 transition（需要是 active 的 animation 或者 transition，当 animation 或者 transition 效果未开始或结束后，提升合成层也会失效）
+2. overlap 重叠原因
+3. 后代元素原因
+	* 有合成层后代同时本身有 transform、opactiy（小于 1）、mask、fliter、reflection 属性 demo
+
+#### 提升为合成层最好的方式
+* will-change
+* transform 3D (遇到兼容问题使用)
+
+#### 提升为合成层优点
+* 合成层的位图，交由GPU合成，比CPU处理快
+* 当需要repaint，只需要渲染本身，不影响其他层
+* transform 和 opacity效果，不会触发layout和 paint
+#### 合成层缺点
+*	每一个合成层都需要上传GPU处理，消耗CPU到GPU带宽
+*	占用内存增大
