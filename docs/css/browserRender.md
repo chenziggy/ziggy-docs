@@ -33,6 +33,8 @@
 * 拥有相同的坐标空间的 Layout Object 属于同一个渲染层（PaintLayer）
 
 ### 渲染层 PaintLayer
+是浏览器中用于管理和绘制页面内容的基本单元。它是浏览器渲染引擎中的一个概念，用于描述页面上的可绘制区域以及与之相关的绘制属性和状态
+
 渲染层分为 3 种分别是：
 #### NormalPaintLayer
 *	根元素 HTML
@@ -48,6 +50,8 @@
 * 不需要 paint （例如空div）
 
 ### 图形层 GraphicsLayers
+是浏览器中用于管理和渲染图形元素的机制
+
 某些特殊的渲染层被认为是合成层( Compositing Layers) ，合成层有用单独的 GraphicsLayer
 而其他不是合成层的渲染层，则和其他第一个拥有 GraphicsLayer 渲染层共用一个
 
@@ -69,6 +73,7 @@ chrome 对 Blank 引擎某些实现进行修改， RenderObject  => Layout Objec
 	* backface-visibility 为 hidden
 	* 对 opacity、transform、fliter、backdropfilter 应用了 animation 或者 transition（需要是 active 的 animation 或者 transition，当 animation 或者 transition 效果未开始或结束后，提升合成层也会失效）
 2. overlap 重叠原因
+	* 主要是指元素的 border box（content + padding + border） 和`合成层`的有重叠
 3. 后代元素原因
 	* 有合成层后代同时本身有 transform、opactiy（小于 1）、mask、fliter、reflection 属性 demo
 
