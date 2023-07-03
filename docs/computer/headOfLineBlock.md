@@ -24,3 +24,15 @@ tcp 协议传输字节流，使用滑动窗口（Sliding Window）机制来实�
 * 反向顺序调度（例如2是密钥服务器推送的资源）：22221111
 * 部分调度（流1被中止且未完整发送）：112222
 :::
+
+## http 3
+TTP/3 是基于 QUIC 协议的下一代 HTTP 协议。QUIC（Quick UDP Internet Connections）是一种基于 UDP 的传输协议
+
+QUIC 受到 HTTP/2 帧方式（framing-approach）的启发，还添加了自己的帧（frames）；在本例中是流帧（STREAM frame）。流id（stream id）以前在 HTTP/2 的数据帧（DATA frame）中，现在被下移到传输层的 QUIC 流帧（STREAM frame）中。（这也说明了如果我们想使用 QUIC，我们需要一个新版本的 HTTP 的原因之一）
+
+
+![http3](/img/http3.jpg)
+
+:::tip
+因为 http 3 将流、帧下放到了 QUIC 协议中，所有 QUIC 能够识别到流、帧，在发生某一个流丢包时，不相关的流继续传输不会阻塞
+:::
