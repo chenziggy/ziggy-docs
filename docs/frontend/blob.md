@@ -25,6 +25,18 @@ const blobURL = URL.createObjectURL(blob)
 
 # File
 
-文件（File）接口提供有关文件的信息，并允许网页中的 JavaScript 访问其内容，File 对象是特殊类型的 Blob
+文件（File）接口提供有关文件的信息，并允许网页中的 JavaScript 访问其内容，File对象是Blob的一种特殊类型，表示用户选择的文件。它具有一些与文件相关的属性和方法，如文件名、文件大小、文件类型
 
-通常 File 对象来自用户 <input type='file'> 选择文件后返回的 FileList 对象，或则 `paste copy` 事件 `event.clipboardData` 
+通常 File 对象来自用户 `<input type='file'>` 选择文件后返回的 FileList 对象 <input type='file'>
+
+## property
+
+* name：文件名
+* size：文件大小（以字节为单位）
+* type：文件的MIME类型
+* lastModified：文件最后修改时间的时间戳
+
+## method
+* slice() 截取原始File对象中的一部分数据，返回一个新的File或Blob对象
+* stream() 返回一个可读取文件数据的可读流（ReadableStream）对象
+
