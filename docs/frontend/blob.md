@@ -40,3 +40,11 @@ const blobURL = URL.createObjectURL(blob)
 * slice() 截取原始File对象中的一部分数据，返回一个新的File或Blob对象
 * stream() 返回一个可读取文件数据的可读流（ReadableStream）对象
 
+# atob btoa
+
+## atob
+
+atob() 是 JavaScript 中的一个内置函数，用于将 Base64 编码的字符串解码为原始字符串
+
+## btoa
+btoa() 是 JavaScript 中的一个内置函数，用于将原始字符串转换为 Base64 编码的字符串
