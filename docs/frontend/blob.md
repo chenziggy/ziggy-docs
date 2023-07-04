@@ -40,7 +40,7 @@ const blobURL = URL.createObjectURL(blob)
 * slice() 截取原始File对象中的一部分数据，返回一个新的File或Blob对象
 * stream() 返回一个可读取文件数据的可读流（ReadableStream）对象
 
-# atob btoa
+# base64 转化
 
 ## atob
 
