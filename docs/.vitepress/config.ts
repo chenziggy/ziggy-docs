@@ -79,6 +79,7 @@ export default defineConfig({
             { text: 'es6数据结构', link: '/frontend/es6DataStructure' },
             { text: '树', link: '/frontend/tree' },
             { text: 'babel', link: '/frontend/babel' },
+            { text: 'blob', link: '/frontend/blob' },
             { text: 'node_modules debug', link: '/frontend/nodeModulesDebug' },
           ],
         },
