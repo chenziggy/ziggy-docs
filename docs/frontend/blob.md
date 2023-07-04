@@ -45,6 +45,16 @@ const blobURL = URL.createObjectURL(blob)
 ## atob
 
 atob() 是 JavaScript 中的一个内置函数，用于将 Base64 编码的字符串解码为原始字符串
+```js
+const base64String = 'SGVsbG8sIFdvcmxkIQ=='
+const decodedString = atob(base64String)
+// "Hello, World!"
+```
 
 ## btoa
 btoa() 是 JavaScript 中的一个内置函数，用于将原始字符串转换为 Base64 编码的字符串
+```js
+const originalString = 'Hello, World!'
+const encodedString = btoa(originalString)
+// "SGVsbG8sIFdvcmxkIQ=="
+```
