@@ -16,6 +16,19 @@
 window.location.host = 'www.google.com'
 // 页面跳转到https://www.google.com/index.html?param=type&order=desc
 ```
+### method
+* Location.assign() 导航到一个新页面
+* Location.reload() 刷新当前页面
+* Location.replace() 方法以给定的 URL 来替换当前的资源，与 assign() 方法不同的是，当前页面不会保存在回话历史中
+
+
+```js
+document.location.assign('https://www.baidu.com')
+
+document.location.reload()
+
+document.location.replace('https://www.baidu.com')
+```
 
 ## encodeURI()
 encodeURI 会替换所有的字符，但不包括以下字符，即使它们具有适当的 UTF-8 转义序列：
