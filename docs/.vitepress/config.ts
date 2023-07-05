@@ -58,6 +58,7 @@ export default defineConfig({
           text: 'Frontend',
           items: [
             { text: 'url', link: '/frontend/url' },
+            { text: 'history', link: '/frontend/history' },
             { text: 'module', link: '/frontend/module' },
             { text: '异常捕获', link: '/frontend/errorHandler' },
             { text: '浏览器存储', link: '/frontend/application' },
