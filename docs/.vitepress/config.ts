@@ -82,6 +82,7 @@ export default defineConfig({
             { text: 'babel', link: '/frontend/babel' },
             { text: 'blob', link: '/frontend/blob' },
             { text: 'node_modules debug', link: '/frontend/nodeModulesDebug' },
+            { text: 'import.meta', link: '/frontend/importMeta' },
           ],
         },
       ],
