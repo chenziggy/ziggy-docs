@@ -119,6 +119,7 @@ export default defineConfig({
           items: [
             { text: '数组query', link: '/algorithm/arrayQuery' },
             { text: 'Array转Tree', link: '/algorithm/arrayToTree' },
+            { text: 'LRU', link: '/algorithm/lru' },
           ],
         },
       ],
