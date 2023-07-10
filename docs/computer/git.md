@@ -88,3 +88,36 @@ git rebase -i commitA
 ![git rebase](/img/git_rebase.png)
 
 将需要删除的 commit pick 改为 drop
+
+## diff
+
+```bash
+git diff 7d08a0fc2b0e67642ee818ec4ce42780d4f0380f
+diff --git a/docs/computer/git.md b/docs/computer/git.md       # a版本的(即变动前)和b版本的(即变动后),进行比较
+index eda7fb7..d75a794 100644                                  # index区域的eda7fb7对象,与工作目录区域的d75a794对象进行比较。100代表普通文件，644代表文件具有的权限
+--- a/docs/computer/git.md                                     # --- 变动前
++++ b/docs/computer/git.md                                     # +++ 变动后
+@@ -71,4 +71,20 @@ git remote -v                               # -71,4 变动前第71行开始，连续4行  +71,20 变动后第71行开始，连续20行
+ 添加远程仓库
+ ```bash
+ git remote add <remote-name> <remote-url>
+-```                                                           # - 删除
+\ No newline at end of file
++```^M                                                         # + 新增
++^M
++## base^M
++^M
++### 删除提交^M
++删除 b c^M
++``` ^M
++    a - b - c - d  main^M
++```^M
++^M
++```bash^M
++# rebase 到 b 的前一个 commit^M
++git rebase -i commitA^M
++```^M
++![git rebase](/img/git_rebase.png)^M
++^M
++将需要删除的 commit pick 改为 drop
+```
