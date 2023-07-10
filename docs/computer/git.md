@@ -72,3 +72,19 @@ git remote -v
 ```bash
 git remote add <remote-name> <remote-url>
 ```
+
+## base
+
+### 删除提交
+删除 b c
+``` 
+    a - b - c - d  main
+```
+
+```bash
+# rebase 到 b 的前一个 commit
+git rebase -i commitA
+```
+![git rebase](/img/git_rebase.png)
+
+将需要删除的 commit pick 改为 drop
