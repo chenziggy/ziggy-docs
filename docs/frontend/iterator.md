@@ -4,7 +4,7 @@
 用于遍历数据结构的机制，它定义了一种统一的方式来访问集合中的每个元素，任何数据接口只要部署 Iterator，就可以完成遍历操作
 * 为各种数据结构，提供一个统一的、简便的访问接口
 * 使得数据结构的成员能够按某种次序排列
-* 三是 ES6 创造了一种新的遍历命令for...of循环，Iterator 接口主要供 `for...of` 消费；`...`  `Array.from()`
+* ES6 创造了一种新的遍历命令for...of循环，Iterator 接口主要供 `for...of` `...` `Array.from()` 消费
 
 原生具备 Iterator 接口数据类型：
 Array、String、Map、Set、TypeArray、NodeList
@@ -17,7 +17,7 @@ const arr = [10, 11, 12]
 const iterator = arr[Symbol.iterator]()
 iterator.next() // {value: 10, done: false}
 iterator.next() // {value: 11, done: false}
-...
+// ...
 iterator.next() // {value: undefined, done: true}
 ```
 
@@ -88,8 +88,9 @@ function* numberGenerator() {
 const generator = numberGenerator('xxxxxxxxxx')
 
 console.log(generator.next()) // 输出: {value: 1, done: false}
+console.log(generator.next('params 2')) 
 // 🚀 ~ file: generator.md:25 ~ function*numberGenerator ~ a: params 2
-console.log(generator.next('params 2')) // 输出: {value: 2, done: false}
+// 输出: {value: 2, done: false}
 console.log(generator.next()) // 输出: {value: 3, done: false}
 console.log(generator.next()) // 输出: {value: undefined, done: true}
 ```
