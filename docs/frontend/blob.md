@@ -23,6 +23,27 @@ const blob = new Blob([JSON.stringify(obj, null, 2)], { type: 'application/json'
 const blobURL = URL.createObjectURL(blob)
 ```
 
+## 下载blob
+axios 请求后端返回文件二进制
+```js
+async function downloadFile(url) {
+  const res = await axios.get(url, { responseType: 'blob' })
+  const { data, headers } = res
+  const fileName = headers['content-disposition'].replace(/\w+;filename=(.*)/, '$1')
+  // 此处当返回json文件时需要先对data进行JSON.stringify处理，其他类型文件不用做处理
+  // const blob = new Blob([JSON.stringify(data)], ...)
+  const blob = new Blob([data], { type: headers['content-type'] })
+  const dom = document.createElement('a')
+  let url = window.URL.createObjectURL(blob)
+  dom.href = url
+  dom.download = encodeURIComponent(fileName)
+  dom.style.display = 'none'
+  document.body.appendChild(dom)
+  dom.click()
+  dom.parentNode.removeChild(dom)
+  window.URL.revokeObjectURL(url)
+}
+```
 # File
 
 文件（File）接口提供有关文件的信息，并允许网页中的 JavaScript 访问其内容，File对象是Blob的一种特殊类型，表示用户选择的文件。它具有一些与文件相关的属性和方法，如文件名、文件大小、文件类型
