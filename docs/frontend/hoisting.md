@@ -36,6 +36,36 @@ console.log(num); // Returns undefined
 var num = 6;
 ```
 
+## 函数表达式
+函数表达式会有变量提升，在赋值之前，值也是 undefined
+
+```js
+console.log(fn)
+var fn = function (a) {
+  return a;
+}
+// Returns undefined
+```
+
+## 覆盖
+变量赋值会覆盖函数声明
+```js
+fn();
+var fn = function () {
+  console.log(1);
+}
+fn();
+function fn () {
+  console.log(2);
+}
+var fn = function () {
+  console.log(3)
+};
+fn();
+var fn = 4
+console.log(fn)
+// 2 1 3 4
+```
 
 ## 与块级作用域
 var i 会变量提升到函数 `foo`，for 循环是同步代码，for 循环执行完成才会执行异步宏任务 setTimeout
