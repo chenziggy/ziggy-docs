@@ -77,6 +77,7 @@ export default defineConfig({
             { text: 'reflect', link: '/frontend/reflect' },
             { text: 'iterator', link: '/frontend/iterator' },
             { text: '作用域', link: '/frontend/scope' },
+            { text: '变量提升', link: '/frontend/hoisting' },
             { text: '函数', link: '/frontend/function' },
             { text: 'es6数据结构', link: '/frontend/es6DataStructure' },
             { text: '树', link: '/frontend/tree' },
