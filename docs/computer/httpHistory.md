@@ -14,7 +14,7 @@
 
 ## HTTP/1.1
 1997年1月
-* 新增方法 PUT、PATCH、HEAD、 OPTIONS、DELETE
+* 新增方法 PUT、PATCH、OPTIONS、DELETE
 * 持久连接  不需要声明  connection: keep-alive，允许在单个 tcp 连接上发送多个请求和响应，减少了每次请求的连接建立和断开开销
 * 流水线传输（pipelining），支持请求和响应的流水线传输。同一个 tcp 连接里面，客户端可以同时发送多个请求（但是服务器只有处理完一个 response 才会处理下一个，可能造成“队头堵塞”）
 * 分块传输编码（Chunked Transfer Encoding）：HTTP 1.1 引入了分块传输编码，允许服务器将响应消息分成多个块进行传输，而不是等待整个响应消息完全生成。这对于传输大型响应或动态生成的响应非常有用，无需知道响应大小，每个chunck 自带长度，最后的chunck 长度为 0
