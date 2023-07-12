@@ -135,7 +135,6 @@ vue3 基于 Proxy 对象用于创建一个对象的代理，从而实现基本�
 ```js
 const targetMap = new WeakMap()
 let activeEffect = null
-
 function track(target, key) {
   if (activeEffect) {
     let depsMap = targetMap.get(target)
@@ -147,6 +146,7 @@ function track(target, key) {
       depsMap.set(key, (deps = new Set()))
 
     deps.add(activeEffect)
+    activeEffect.deps.push(deps)
   }
 }
 
@@ -155,12 +155,12 @@ function trigger(target, key) {
   if (!depsMap)
     return
 
-  const effects = depsMap.get(key)
-  effects && effects.forEach(fn => fn())
+  const deps = depsMap.get(key)
+  const effects = new Set(deps) // 必须值拷贝，否者在执行 effect() 时重新进行依赖收集，deps  -> delete -> add -> add，陷入死循环
+  effects.forEach(effect => effect())
 }
-
-function reactive(obj) {
-  return new Proxy(obj, {
+function reactive(target) {
+  return new Proxy(target, {
     get(target, key) {
       track(target, key)
       const ret = Reflect.get(target, key)
@@ -170,36 +170,42 @@ function reactive(obj) {
       const ret = Reflect.set(target, key, newVal)
       trigger(target, key)
       return ret
-    },
+    }
   })
 }
-
 function effect(update) {
-  const wrapper = () => {
-    activeEffect = wrapper
+  const effectFn = () => {
+    cleanup(effectFn)
+    activeEffect = effectFn
     update()
     activeEffect = null
   }
-  wrapper()
+  effectFn.deps = []
+  effectFn()
 }
 
-const state = {
-  count: 1,
+function cleanup(effectFn) {
+  for (let i = 0; i < effectFn.deps.length; i++) {
+    const deps = effectFn.deps[i]
+    deps.delete(effectFn)
+  }
+  effectFn.deps.length = 0
+}
+
+state = {
   person: {
-    age: 18,
-  },
+    age: 18
+  }
 }
-
 const proxy = reactive(state)
 
 effect(() => {
-  document.getElementById('app').innerHTML = proxy.person.age
+  const app = document.querySelector('#app')
+  app.innerHTML = proxy.person.age
 })
-effect(() => {
-  document.getElementById('app1').innerHTML = `${proxy.person.age}app1`
-})
+
 setInterval(() => {
-  proxy.person.age++
+  proxy.person.age += 1
 }, 1000)
 ```
 
