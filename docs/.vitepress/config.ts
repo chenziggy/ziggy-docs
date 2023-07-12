@@ -62,6 +62,7 @@ export default defineConfig({
             { text: 'module', link: '/frontend/module' },
             { text: '异常捕获', link: '/frontend/errorHandler' },
             { text: '浏览器存储', link: '/frontend/application' },
+            { text: '执行上下文', link: '/frontend/executionContext' },
             { text: 'npm', link: '/frontend/npm' },
             { text: 'pnpm', link: '/frontend/pnpm' },
             { text: 'vite&rollup', link: '/frontend/viteRollup' },
