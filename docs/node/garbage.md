@@ -30,8 +30,7 @@ V8 将堆分为两类新生代和老生代
 由于新空间中的垃圾回收很频繁，采用 Scavenge 算法
 
 Scavenge 是一种复制算法 新生代空间会被一分为二划分成两个相等大小的 from-space 和 to-space
-* 当 from space 被占满，将会移除
-* 将 from space 中存活对象移动到 to space或者提升到老生代空间中
+* 当 from space 被占满，将 from space 中存活对象移动到 to space或者提升到老生代空间中
 * 将 from space 中没有存活的对象将被释放 （from space 清空）
 * 互换 from space 和 to space
 
@@ -40,7 +39,7 @@ Scavenge 是一种复制算法 新生代空间会被一分为二划分成两个�
 ### 老生代空间
 存储长时间存活的对象的内存区域
 
-新生代空间在垃圾回收满足一定条件（是否经历过 Scavenge 回收、to space 的内存占比）会被晋升到老生代空间中，对象长期存在新生代空间影响性能
+新生代空间在垃圾回收满足一定条件（是否经历过 Scavenge 回收、to space 的内存占比大于 25%）会被晋升到老生代空间中，对象长期存在新生代空间影响性能
 
 老生代空间中采用了 Mark-Sweep（标记清除） 和 Mark-Compact（标记整理） 算法
 
