@@ -132,6 +132,7 @@ export default defineConfig({
         {
           text: 'Node',
           items: [
+            { text: '事件循环', link: '/node/eventLoop' },
             { text: 'process.nextTick', link: '/node/nextTick' },
             { text: '垃圾回收机制', link: '/node/garbage' },
           ],
