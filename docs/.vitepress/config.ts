@@ -57,7 +57,7 @@ export default defineConfig({
         {
           text: 'Frontend',
           items: [
-            { text: 'v8引擎', link: '/frontend/v8' },
+            { text: 'v8引擎编译', link: '/frontend/v8Compile' },
             { text: 'url', link: '/frontend/url' },
             { text: 'history', link: '/frontend/history' },
             { text: 'module', link: '/frontend/module' },
