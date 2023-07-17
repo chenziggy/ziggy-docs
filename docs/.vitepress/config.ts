@@ -126,6 +126,7 @@ export default defineConfig({
             { text: '数组query', link: '/algorithm/arrayQuery' },
             { text: 'Array转Tree', link: '/algorithm/arrayToTree' },
             { text: 'LRU', link: '/algorithm/lru' },
+            { text: 'regex demo', link: '/algorithm/regexDemo' },
           ],
         },
       ],
