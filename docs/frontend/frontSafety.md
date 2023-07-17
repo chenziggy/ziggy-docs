@@ -19,4 +19,78 @@
 ### 反射型 XSS
 攻击者通过诱使用户点击包含恶意脚本的恶意链接，使得恶意脚本作为参数被发送到目标网站的服务器。服务器将恶意脚本在响应中返回给用户的浏览器，并在浏览器中执行。
 
-DOM 型 XSS：攻击者通过修改目标网页的 DOM 结构，注入和执行恶意脚本。这种攻击不涉及服务器的参与，而是直接在用户的浏览器中进行。
+#### document.write
+```html
+<html>
+<body>
+<form>
+  <input type="text" name="keyword">
+  <input type="submit" value="Search">
+</form>
+
+<script>
+  const url = new URL(window.location);
+  const keyword = url.searchParams.get("keyword");
+
+  document.write("You searched for: " + keyword); 
+</script>
+</body>
+</html>
+```
+
+恶意链接：http://localhost:5171/?keyword=%3Cimg%20src=x%20onerror=alert(1)%3E
+![](/img/xss_reflect.png)
+* html 内容进行转译
+* 废弃 document.write() 可以使用更明确和安全的 DOM 方法如textContent、innerHTML、appendChlid()，（安全性是相对的）
+
+#### a 标签
+```html
+<html>
+<body>
+
+<form>
+  <input type="text" name="keyword">
+  <input type="submit" value="Search">
+</form>
+<a>xss攻击</a>
+
+<script>
+  const url = new URL(window.location);
+  const keyword = url.searchParams.get("keyword");
+  document.querySelector('a').href = keyword
+</script>
+
+</body>
+</html>
+```
+恶意链接：http://localhost:5171/?keyword=javascript:alert(%27XSS%27)
+![](/img/xss_reflect.png)
+* a 标签 href 禁止掉 "javascript:" 链接、非法 scheme
+
+### DOM XSS
+利用浏览器 DOM 解析和操作 HTML文档实现，攻击注入恶意代码，使浏览器进行解析，这种攻击与依赖服务器响应
+```html
+<html>
+<body>
+<input id="searchInput">
+<button id="searchButton">Search</button>
+
+<script>
+const input = document.getElementById("searchInput");
+const button = document.getElementById("searchButton");
+
+button.addEventListener("click", () => {
+  const value = input.value;
+  document.getElementById("result").innerHTML = value;
+});
+</script>
+
+<div id="result"></div>
+</body>
+</html>
+```
+input 输入：`<img src=x onerror=alert(1)>`
+
+:::tip
+xss 小游戏： https://xss-game.appspot.com/level1
+:::
