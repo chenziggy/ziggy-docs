@@ -94,3 +94,21 @@ input 输入：`<img src=x onerror=alert(1)>`
 :::tip
 xss 小游戏： https://xss-game.appspot.com/level1
 :::
+
+## CSRF 跨站请求伪造
+黑客引诱用户打开黑客的网站，黑客利用用户登录状态发起跨站请求
+
+### demo
+1. 假设一个论坛网站forum.com,用户登录后可以发帖
+2. 攻击者可以在自己控制的网站evil.com中植入以下HTML:
+```html
+<img src="http://forum.com/newthread?title=spam&content=spam">
+```
+3. 当用户登录 forum.com 之后，打开 evil.com
+4. forum.com 收到请求后，会以用户身份创建标题和内容分别为"spam"的帖子
+5. 这样攻击者就利用用户在 forum.com 的身份，执行了未经用户授权的操作
+
+防治
+* cookie SameSite
+* 验证请求来源  http header origin referer
+* CSRF Token
