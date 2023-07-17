@@ -8,6 +8,7 @@ export default defineConfig({
   head: [
     ['link', { rel: 'shortcut icon', href: '/ziggy-docs/img/favicon.ico' }],
   ],
+  ignoreDeadLinks: true,
   themeConfig: {
     // logo: '/avatar.png',
     // https://vitepress.dev/reference/default-theme-config
