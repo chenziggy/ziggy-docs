@@ -129,6 +129,7 @@ export default defineConfig({
             { text: 'LRU', link: '/algorithm/lru' },
             { text: 'regex demo', link: '/algorithm/regexDemo' },
             { text: '分治算法', link: '/algorithm/divideConquer' },
+            { text: '快速排序', link: '/algorithm/quickSort' },
           ],
         },
       ],
