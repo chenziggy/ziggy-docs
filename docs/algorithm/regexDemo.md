@@ -18,19 +18,16 @@ if (matches) {
 ```
 
 <script>
-const text = 'http://www.example.com/path?param1=value1&param2=value2#a'
-
-// 使用正则表达式匹配URL
-const urlRegex = /^(?:(https?):\/\/)?((?:|[\w-]+\.)+[a-z0-9]+)(?:(\/[^/?#]+)*)?(\?[^#]+)?(#.+)?$/i
-const matches = urlRegex.exec(text)
-console.log("🚀 ~ file: regexDemo.md:26 ~ matches:", JSON.stringify(matches))
+  const url = 'https://www.example.com:8080/path?param1=value1&param2=value2'
+  const urlRegex = /(?:(https?):\/\/)?((?:|[\w-]+\.)+[a-z0-9]+)(?:\:([0-9]*))?(?:(\/[^/?#]+)*)?(\?[^#]+)?(#.+)?$/i
+  const matches = urlRegex.exec(url)
+  console.log("🚀 ~ file: regexDemo.md:24 ~ matches:", matches)
 </script>
 
 ## 解析url
-
 ```js
-const test = 'https://www.example.com/path?param1=value1&param2=value2'
-const urlRegex = /^(?:(https?):\/\/)?((?:|[\w-]+\.)+[a-z0-9]+)(?:(\/[^/?#]+)*)?(\?[^#]+)?(#.+)?$/i
-const matches = text.match(httpRegex)
-// ["http://www.example.com/path?param1=value1&param2=value2#a","http","www.example.com","/path","?param1=value1&param2=value2","#a"]
+const url = 'https://www.example.com:8080/path?param1=value1&param2=value2'
+const urlRegex = /^(?:(https?):\/\/)?((?:|[\w-]+\.)+[a-z0-9]+)(?:\:([0-9]*))?(?:(\/[^/?#]+)*)?(\?[^#]+)?(#.+)?$/i
+const matches = urlRegex.exec(url)
+// ["http://www.example.com/path?param1=value1&param2=value2#a","http","www.example.com","8080","/path","?param1=value1&param2=value2","#a"]
 ```
