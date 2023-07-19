@@ -126,12 +126,14 @@ export default defineConfig({
           items: [
             { text: '数组query', link: '/algorithm/arrayQuery' },
             { text: 'Array转Tree', link: '/algorithm/arrayToTree' },
+            { text: 'Array去重', link: '/algorithm/arrayDeduplicate' },
             { text: 'LRU', link: '/algorithm/lru' },
             { text: 'regex demo', link: '/algorithm/regexDemo' },
             { text: '复杂度', link: '/algorithm/complexity' },
             { text: '分治算法', link: '/algorithm/divideConquer' },
             { text: '快速排序', link: '/algorithm/quickSort' },
             { text: '归并排序', link: '/algorithm/mergeSort' },
+
           ],
         },
       ],
