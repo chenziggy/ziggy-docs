@@ -133,6 +133,7 @@ export default defineConfig({
             { text: '分治算法', link: '/algorithm/divideConquer' },
             { text: '快速排序', link: '/algorithm/quickSort' },
             { text: '归并排序', link: '/algorithm/mergeSort' },
+            { text: '贪心算法', link: '/algorithm/greedy' },
 
           ],
         },
