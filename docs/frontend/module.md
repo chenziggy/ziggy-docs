@@ -94,5 +94,31 @@ const res = await import('./utils')
 ### default
 引入模块有一个 default 导出成员 `export default`，可以通过一下形式导入默认值
 ```js
-import myDefault from '/modules/my-module.js';
+import myDefault from '/modules/my-module.js'
+```
+
+### __esModule
+__esModule是一个特殊的属性，用于表示一个JavaScript模块是否采用了ES模块（ESM）规范
+
+esModule
+```js
+export const person = { name: 'ziggy' }
+
+export default person
+```
+
+babel 转化为 common.js
+```js
+'use strict'
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+})
+exports.person = exports.default = undefined
+const person = {
+  name: 'ziggy'
+}
+exports.person = person
+const _default = person
+exports.default = _default
 ```
