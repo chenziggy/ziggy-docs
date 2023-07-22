@@ -134,7 +134,7 @@ export default defineConfig({
             { text: '快速排序', link: '/algorithm/quickSort' },
             { text: '归并排序', link: '/algorithm/mergeSort' },
             { text: '贪心算法', link: '/algorithm/greedy' },
-
+            { text: '动态规划', link: '/algorithm/dynamicProgramming' },
           ],
         },
       ],
