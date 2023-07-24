@@ -83,7 +83,6 @@ export default defineConfig({
             { text: '变量提升', link: '/frontend/hoisting' },
             { text: '函数', link: '/frontend/function' },
             { text: 'es6数据结构', link: '/frontend/es6DataStructure' },
-            { text: '树', link: '/frontend/tree' },
             { text: 'babel', link: '/frontend/babel' },
             { text: 'blob', link: '/frontend/blob' },
             { text: 'node_modules debug', link: '/frontend/nodeModulesDebug' },
@@ -124,6 +123,8 @@ export default defineConfig({
         {
           text: 'Algorithm',
           items: [
+            { text: '树', link: '/algorithm/tree' },
+            { text: '图', link: '/algorithm/map' },
             { text: '数组query', link: '/algorithm/arrayQuery' },
             { text: 'Array转Tree', link: '/algorithm/arrayToTree' },
             { text: 'Array去重', link: '/algorithm/arrayDeduplicate' },
