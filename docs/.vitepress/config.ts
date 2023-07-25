@@ -154,6 +154,7 @@ export default defineConfig({
         {
           text: 'Other',
           items: [
+            { text: '视频预览', link: '/other/videoFramePreview' },
             { text: 'FFERRTAG', link: '/other/fferrtag' },
             { text: 'input.value', link: '/other/input' },
           ],
