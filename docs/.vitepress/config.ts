@@ -126,6 +126,7 @@ export default defineConfig({
             { text: '树', link: '/algorithm/tree' },
             { text: '图', link: '/algorithm/map' },
             { text: '数组query', link: '/algorithm/arrayQuery' },
+            { text: '数组reduce', link: '/algorithm/arrayReduce' },
             { text: 'Array转Tree', link: '/algorithm/arrayToTree' },
             { text: 'Array去重', link: '/algorithm/arrayDeduplicate' },
             { text: 'LRU', link: '/algorithm/lru' },
