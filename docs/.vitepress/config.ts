@@ -82,6 +82,7 @@ export default defineConfig({
             { text: '作用域', link: '/frontend/scope' },
             { text: '变量提升', link: '/frontend/hoisting' },
             { text: '函数', link: '/frontend/function' },
+            { text: '柯里化', link: '/frontend/currying' },
             { text: 'es6数据结构', link: '/frontend/es6DataStructure' },
             { text: 'babel', link: '/frontend/babel' },
             { text: 'blob', link: '/frontend/blob' },
