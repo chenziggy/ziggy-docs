@@ -125,6 +125,7 @@ export default defineConfig({
           items: [
             { text: '树', link: '/algorithm/tree' },
             { text: '树深度优先', link: '/algorithm/treeDfs' },
+            { text: '树广度优先', link: '/algorithm/treeBfs' },
             { text: '图', link: '/algorithm/map' },
             { text: '数组query', link: '/algorithm/arrayQuery' },
             { text: '数组reduce', link: '/algorithm/arrayReduce' },
