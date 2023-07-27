@@ -129,6 +129,7 @@ export default defineConfig({
             { text: '数组reduce', link: '/algorithm/arrayReduce' },
             { text: 'Array转Tree', link: '/algorithm/arrayToTree' },
             { text: 'Array去重', link: '/algorithm/arrayDeduplicate' },
+            { text: 'Array交集、差集', link: '/algorithm/arrayCollect' },
             { text: 'LRU', link: '/algorithm/lru' },
             { text: 'regex demo', link: '/algorithm/regexDemo' },
             { text: '复杂度', link: '/algorithm/complexity' },
