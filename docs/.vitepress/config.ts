@@ -89,6 +89,7 @@ export default defineConfig({
             { text: 'node_modules debug', link: '/frontend/nodeModulesDebug' },
             { text: 'import.meta', link: '/frontend/importMeta' },
             { text: '前端安全', link: '/frontend/frontSafety' },
+            { text: 'rxjs', link: '/frontend/rxjs' },
           ],
         },
       ],
