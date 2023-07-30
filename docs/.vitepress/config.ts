@@ -90,6 +90,7 @@ export default defineConfig({
             { text: 'import.meta', link: '/frontend/importMeta' },
             { text: '前端安全', link: '/frontend/frontSafety' },
             { text: 'rxjs', link: '/frontend/rxjs' },
+            { text: '防抖节流', link: '/frontend/debounceThrottle' },
           ],
         },
       ],
