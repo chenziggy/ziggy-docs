@@ -4,7 +4,8 @@
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
@@ -12,7 +13,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "unocss": "^0.51.12",
-    "vitepress": "1.0.0-beta.1"
+    "vitepress": "1.0.0-beta.1",
+    "vitest": "^0.33.0"
   },
   "lint-staged": {
     "*": "eslint --fix"
