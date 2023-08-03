@@ -31,3 +31,10 @@ const urlRegex = /^(?:(https?):\/\/)?((?:|[\w-]+\.)+[a-z0-9]+)(?:\:([0-9]*))?(?:
 const matches = urlRegex.exec(url)
 // ["http://www.example.com/path?param1=value1&param2=value2#a","http","www.example.com","8080","/path","?param1=value1&param2=value2","#a"]
 ```
+
+## 匹配单词
+```js
+const text = 'This is an example sentence with company\'s words.'
+const words = text.match(/[a-zA-Z'-]+/g)
+// ['This',  'is', 'an', 'example', 'sentence', 'with', "company's", 'words']
+```
