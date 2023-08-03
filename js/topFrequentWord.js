@@ -1,5 +1,5 @@
 export function splitWords(str) {
-  return str.split(/[^\w/']/).filter(item => item).map(str => str.toLowerCase())
+  return str.match(/[a-zA-Z0-9'-]+/g).filter(item => item).map(str => str.toLowerCase())
 }
 
 export function genHashMap(arr) {
