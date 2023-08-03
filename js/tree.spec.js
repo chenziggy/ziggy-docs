@@ -1,4 +1,4 @@
-import { describe, expect, test } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { TreeNode, TreeNodeChildren, breadthFirstTraversal, inOrderTraversal, postOrderTraversal, preOrderTraversal } from './tree'
 
 describe('tree', () => {
@@ -17,19 +17,19 @@ describe('tree', () => {
   tree.right.left = new TreeNode(6)
   tree.right.right = new TreeNode(7)
 
-  test('preOrderTraversal', () => {
+  it('preOrderTraversal', () => {
     expect(preOrderTraversal(tree)).toMatchSnapshot()
   })
 
-  test('inOrderTraversal', () => {
+  it('inOrderTraversal', () => {
     expect(inOrderTraversal(tree)).toMatchSnapshot()
   })
 
-  test('postOrderTraversal', () => {
+  it('postOrderTraversal', () => {
     expect(postOrderTraversal(tree)).toMatchSnapshot()
   })
 
-  test('breadthFirstTraversal', () => {
+  it('breadthFirstTraversal', () => {
     const root = new TreeNodeChildren('Root')
     const child1 = root.addChild('Child 1')
     const child2 = root.addChild('Child 2')
