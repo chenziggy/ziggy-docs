@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { TreeNode, TreeNodeChildren, breadthFirstTraversal, inOrderTraversal, postOrderTraversal, preOrderTraversal } from './tree'
+import { TreeNode, TreeNodeChildren, breadthFirstTraversal, inOrderTraversal, postOrderTraversal, preOrderTraversal, transferForest } from './tree'
 
 describe('tree', () => {
   /*
@@ -42,5 +42,21 @@ describe('tree', () => {
         'Grandchild 1-2',
         'Grandchild 2-1'],
     )
+  })
+})
+
+describe('数组转森林', () => {
+  const list = [
+    { id: 1, name: '部门1', pid: null },
+    { id: 2, name: '部门2', pid: 1 },
+    { id: 3, name: '部门3', pid: 1 },
+    { id: 4, name: '部门4', pid: 3 },
+    { id: 5, name: '部门5', pid: 4 },
+    { id: 6, name: '部门1', pid: null },
+    { id: 7, name: '部门2', pid: 6 },
+  ]
+
+  it('transferForest', () => {
+    expect(transferForest(list)).toMatchSnapshot()
   })
 })

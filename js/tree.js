@@ -79,3 +79,19 @@ export function breadthFirstTraversal(root) {
   bft(root)
   return res
 }
+
+export function transferForest(arr) {
+  const result = []
+  const map = new Map()
+  for (const item of arr)
+    map.set(item.id, { ...item, children: [] })
+
+  for (const node of arr) {
+    const parent = map.get(node.pid)
+    if (parent)
+      parent.children.push(map.get(node.id))
+    else
+      result.push(map.get(node.id))
+  }
+  return result
+}

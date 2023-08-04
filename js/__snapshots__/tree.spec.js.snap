@@ -35,3 +35,54 @@ exports[`tree > preOrderTraversal 1`] = `
   7,
 ]
 `;
+
+exports[`数组转森林 > transferForest 1`] = `
+[
+  {
+    "children": [
+      {
+        "children": [],
+        "id": 2,
+        "name": "部门2",
+        "pid": 1,
+      },
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "id": 5,
+                "name": "部门5",
+                "pid": 4,
+              },
+            ],
+            "id": 4,
+            "name": "部门4",
+            "pid": 3,
+          },
+        ],
+        "id": 3,
+        "name": "部门3",
+        "pid": 1,
+      },
+    ],
+    "id": 1,
+    "name": "部门1",
+    "pid": null,
+  },
+  {
+    "children": [
+      {
+        "children": [],
+        "id": 7,
+        "name": "部门2",
+        "pid": 6,
+      },
+    ],
+    "id": 6,
+    "name": "部门1",
+    "pid": null,
+  },
+]
+`;
