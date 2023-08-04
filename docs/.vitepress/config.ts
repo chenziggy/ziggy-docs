@@ -52,6 +52,7 @@ export default defineConfig({
             { text: '时间', link: '/computer/time' },
             { text: '设计模式', link: '/computer/designPattern' },
             { text: '二进制协议和文本协议', link: '/computer/protocol' },
+            { text: '跨域', link: '/computer/corsOrigin' },
           ],
         },
       ],
