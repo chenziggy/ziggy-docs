@@ -30,6 +30,8 @@ Cross-Origin 网页脚本视图访问另一个域名下的资源
 :::
 
 ## 服务端设置跨域
+[测试项目](https://github.com/chenziggy/cross-origin)
+
 ```js
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000') // 跨域来源
