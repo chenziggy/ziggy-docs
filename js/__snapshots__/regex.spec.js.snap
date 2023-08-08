@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`正则方法 > 解析 url 1`] = `
+[
+  "https://www.example.com:8080/path?param1=value1&param2=value2",
+  "https",
+  "www.example.com",
+  "8080",
+  "/path",
+  "?param1=value1&param2=value2",
+  undefined,
+]
+`;
