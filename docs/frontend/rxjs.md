@@ -16,7 +16,7 @@ RxJS 是一个库，它通过使用 observable 序列来编写`异步`和`基于
 * HTML5 Geolocation / WebSockets / Server Send Event
 
 ## 核心概念
-* Observable (可观察对象): 表示一个概念，这个概念是一个在未来即将产生的事件（被观察的事件）
+* Observable (可观察对象): 表示一个概念，这个概念是一个在未来即将产生的对象（被观察的对象）
 * Observer (观察者): 一个回调函数的集合，它知道如何去监听由 Observable 提供的值
 * Subscription (订阅): 表示 Observable 的执行，主要用于取消 Observable 的执行
 * Operators (操作符): 采用函数式编程风格的纯函数 (pure function)，使用像 map、filter、concat、flatMap 等这样的操作符来处理集合
