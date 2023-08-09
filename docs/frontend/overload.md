@@ -49,3 +49,61 @@ searcher.getArgs(1, 2)
 * fn = (a = 1, b, c) => {}    fn.length === 0
 * fn = (a, b = 1, c) => {}    fn.length === 1
 :::
+
+## createOverload 函数重载
+
+利用闭包、hashMap 存储重载函数，解决 `addMethod` 缺点
+* 函数参数类型作为 key
+* 重载函数作为 value
+
+```js
+export function createOverload() {
+  const callMap = new Map()
+  function overload(...args) {
+    const key = args.map(arg => typeof arg).join(',')
+    const fn = callMap.get(key)
+    if (fn)
+      return fn.apply(this, args)
+
+    throw new Error('not matching function')
+  }
+
+  overload.addImpl = function (...args) {
+    const fn = args.pop()
+    if (typeof fn !== 'function')
+      return
+
+    const types = args
+    callMap.set(types.join(','), fn)
+  }
+  return overload
+}
+
+// 使用
+const getUsers = createOverload()
+
+getUsers.addImpl(() => {
+  console.log('查询所有用户')
+})
+
+function searchPage(page, size = 10) {
+  console.log('按照页码和数量查询用户')
+}
+
+getUsers.addImpl('number', searchPage)
+getUsers.addImpl('number', 'number', searchPage)
+
+getUsers.addImpl('string', (name) => {
+  console.log('按照名称查询用户')
+})
+
+getUsers.addImpl('string', 'string', (name, sex) => {
+  console.log('按照名称和性别查询用户')
+})
+
+getUsers() // 查询所有用户
+getUsers(10) // 按照页码和数量查询用户
+getUsers(10, 20) // 按照页码和数量查询用户
+getUsers('ziggy') // 按照名称查询用户
+getUsers('ziggy', 'male') // 按照名称和性别查询用户
+```
