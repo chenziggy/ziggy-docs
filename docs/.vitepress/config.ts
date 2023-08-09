@@ -85,6 +85,7 @@ export default defineConfig({
             { text: '变量提升', link: '/frontend/hoisting' },
             { text: '函数', link: '/frontend/function' },
             { text: '柯里化', link: '/frontend/currying' },
+            { text: '函数重载', link: '/frontend/overload' },
             { text: 'es6数据结构', link: '/frontend/es6DataStructure' },
             { text: 'babel', link: '/frontend/babel' },
             { text: 'blob', link: '/frontend/blob' },
