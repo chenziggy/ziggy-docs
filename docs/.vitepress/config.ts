@@ -92,6 +92,7 @@ export default defineConfig({
             { text: 'node_modules debug', link: '/frontend/nodeModulesDebug' },
             { text: 'import.meta', link: '/frontend/importMeta' },
             { text: '前端安全', link: '/frontend/frontSafety' },
+            { text: '前端性能', link: '/frontend/performance' },
             { text: 'rxjs', link: '/frontend/rxjs' },
             { text: '防抖节流', link: '/frontend/debounceThrottle' },
           ],
