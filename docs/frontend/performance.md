@@ -42,15 +42,30 @@ LCP(Largest Contentful Paint) 最大内容绘制 可视区域内可见的最大�
 instagram 最大内容是图像，google最大内容是文本块
 
 ## 可交互时间优化
+
+### 可交互时间
 TTI (time to interactive) 可交互时间
 
-### 计算方法
 * First Contentful Paint 开始沿时间轴正向搜索时长至少为 5 秒的安静窗口（安静窗口的定义为：没有长任务且不超过两个正在处理的网络 GET 请求）
 沿时间轴反向搜索安静窗口之前的最后一个长任务，如果没有找到长任务，则与 FCP 值相同）
 <img style="background: #d2d3d7" src="/img/tti.svg" alt="TTI">
 * 使用资源预加载，提升空闲时间的资源利用率
 * 减少 DOM 操作，较少重绘、回流
 * 使用离屏渲染（渲染层提升到合成层 ），将复杂动画、3D变化、视频、canvas 减少影响主线程性能
+
+### 首次输入延迟
+FID (First Input Delay) 从用户第一次与页面交互（例如当他们单击链接、点按按钮或使用由 JavaScript 驱动的自定义控件）直到浏览器对交互作出响应，并实际能够开始处理事件处理程序所经过的时间   （用户体验）
+
+<img style="background: #d2d3d7" src="/img/fid.svg" alt="FID">
+
+```js
+new PerformanceObserver((entryList) => {
+  for (const entry of entryList.getEntries()) {
+    const delay = entry.processingStart - entry.startTime
+    console.log('FID candidate:', delay, entry)
+  }
+}).observe({ type: 'first-input', buffered: true })
+```
 
 ## 计算/逻辑运行提速
 
