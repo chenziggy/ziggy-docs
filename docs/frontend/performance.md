@@ -67,6 +67,11 @@ new PerformanceObserver((entryList) => {
 }).observe({ type: 'first-input', buffered: true })
 ```
 
+### 总阻塞时间
+TBT (Total Blocking Time) 指标测量首次内容绘制 (FCP)与可交互时间 (TTI)之间的总时间
+每当出现长任务（在主线程上运行超过 50 毫秒的任务）时，主线程都被视作"阻塞状态"
+<img style="background: #d2d3d7" src="/img/tbt.svg" alt="TBT">
+总阻塞时长 345sm = 200+40+105sm
 ## 计算/逻辑运行提速
 
 * 将javascript 大任务进行拆分、结合异步任务管理，避免长时间计算导致页面开端
