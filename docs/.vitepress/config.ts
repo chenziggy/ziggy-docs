@@ -18,12 +18,12 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Computer', link: '/computer/code' },
-      { text: 'Frontend', link: '/frontend/url' },
-      { text: 'CSS', link: '/css/width' },
+      { text: 'Frontend', link: '/frontend/v8Compile' },
+      { text: 'CSS', link: '/css/browserRender' },
       { text: 'Vue', link: '/vue/prop' },
-      { text: 'Algorithm', link: '/algorithm/arrayQuery' },
-      { text: 'Node', link: '/node/nextTick' },
-      { text: 'Other', link: '/other/fferrtag' },
+      { text: 'Algorithm', link: '/algorithm/tree' },
+      { text: 'Node', link: '/node/eventLoop' },
+      { text: 'Other', link: '/other/videoFramePreview' },
     ],
 
     sidebar: {
