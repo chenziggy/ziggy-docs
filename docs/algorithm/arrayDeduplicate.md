@@ -20,7 +20,21 @@ function removeDuplicates(arr) {
 }
 ```
 
-## 
+## hashMap
+```js
+function removeDuplicatesHashMap(arr) {
+  const map = {}
+  arr.reduce((acc, cur) => {
+    if (!acc[cur])
+      acc[cur] = cur
+
+    return acc
+  }, map)
+  return Object.values(map)
+}
+```
+
+## 两次遍历
 ```js
 function removeDuplicates(arr) {
   let list = arr.slice()
