@@ -21,7 +21,7 @@
 ## 4**	客户端错误，请求包含语法错误或无法完成请求
 *	400 Bad Request 语法错误
 *	401 Unauthorized 请求要求用户身份认证
-*	402 Payment Required 保留、预留URI
+*	402 Payment Required 需要付费才能访问
 *	403 Forbidden 拒绝访问
 *	404 Not Found 资源无法找到
 
