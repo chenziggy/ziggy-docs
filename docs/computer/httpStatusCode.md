@@ -18,6 +18,11 @@
 *	302 Found 临时移动，可以继续使用原URI
 *	304 Not Modified 未修改，客户端已缓存过的资源
 
+:::tip
+重定向，需求进一步操作
+* 301 Moved Permanently 当前 url 资源被移除，返回新的 url。客户端下次需要访问新的 url
+* 302 Found 当前 url 资源临时移动，返回新的 url，客户端下次还可以访问当前 url
+:::
 ## 4**	客户端错误，请求包含语法错误或无法完成请求
 *	400 Bad Request 语法错误
 *	401 Unauthorized 请求要求用户身份认证
