@@ -40,6 +40,7 @@ export default defineConfig({
             { text: 'docker', link: '/computer/docker' },
             { text: 'nginx', link: '/computer/nginx' },
             { text: 'git', link: '/computer/git' },
+            { text: 'ssl/tls', link: '/computer/tls' },
             { text: 'http cache', link: '/computer/httpCache' },
             { text: 'http 发展历史', link: '/computer/httpHistory' },
             { text: 'http 队头阻塞', link: '/computer/headOfLineBlock' },
