@@ -148,6 +148,7 @@ export default defineConfig({
             { text: '贪心算法', link: '/algorithm/greedy' },
             { text: '动态规划', link: '/algorithm/dynamicProgramming' },
             { text: '最长回文子串', link: '/algorithm/longestPalindromicSubstring' },
+            { text: '异步调度器', link: '/algorithm/scheduler' },
           ],
         },
       ],
