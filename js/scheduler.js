@@ -10,10 +10,6 @@ export class Scheduler {
     return this.schedule()
   }
 
-  getLen() {
-    return this.queue.length
-  }
-
   schedule() {
     if (this.run.length < this.count && this.queue.length) {
       const task = this.queue.shift()
