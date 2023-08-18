@@ -1,36 +1,33 @@
 export class EventEmitter {
   constructor() {
-    this.event = {}
+    this.event = new Map()
   }
 
   on(eventName, callback) {
-    if (!Array.isArray(this.event[eventName]))
-      this.event[eventName] = []
+    let callbacks = this.event.get(eventName)
+    if (!callbacks)
+      this.event.set(eventName, callbacks = new Set())
 
-    this.event[eventName].push(callback)
+    callbacks.add(callback)
   }
 
   emit(eventName, ...args) {
-    if (Array.isArray(this.event[eventName])) {
-      this.event[eventName].forEach((cb) => {
-        cb.apply(this, args)
-      })
-    }
+    const callbacks = this.event.get(eventName)
+    if (!callbacks)
+      return
+
+    callbacks.forEach(cb => cb.apply(this, args))
   }
 
   off(eventName, callback) {
-    if (!callback) {
-      this.event[eventName] = []
+    const callbacks = this.event.get(eventName)
+    if (!callbacks)
       return
-    }
-    if (!Array.isArray(this.event[eventName])) {
-      const index = this.event[eventName].indexOf(callback)
-      if (index !== -1)
-        this.event[eventName].splice(index, 1)
-    }
-    else {
-      this.event[eventName] = []
-    }
+
+    if (!callback)
+      callbacks.clear()
+    else
+      callbacks.delete(callback)
   }
 
   once(eventName, callback) {
