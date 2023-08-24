@@ -73,6 +73,11 @@ git remote -v
 git remote add <remote-name> <remote-url>
 ```
 
+删除远程分支
+```bash
+git push origin --delete <remote-branch>
+```
+
 ## base
 
 ### 删除提交
