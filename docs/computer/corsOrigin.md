@@ -5,6 +5,12 @@ Cross-Origin 网页脚本视图访问另一个域名下的资源
 
 * CORS需要浏览器和服务器同时支持，浏览器自动完成，服务器需要实现CORS接口
 
+:::tip
+同源策略限制跨域脚本能力、隐私保护、防止恶意攻击
+* 无法读取非同源的 cookie、Storage、indexDB
+* 无法读取非同源DOM 防止恶意网站通过 iframe 其他网站获取数据
+:::
+
 ## CORS 预检请求
 跨域中非简单请求时，浏览器会自动发出一个预检请求（OPTIONS），`Access-Control-Request-Headers`、`Access-Control-Request-Method`、`Origin`
 从而获取服务端是否允许该资源跨域
