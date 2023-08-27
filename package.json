@@ -13,7 +13,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
     "unocss": "^0.51.12",
-    "vitepress": "1.0.0-beta.1",
+    "vitepress": "1.0.0-rc.4",
     "vitest": "^0.33.0"
   },
   "lint-staged": {

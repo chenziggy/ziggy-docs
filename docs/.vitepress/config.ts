@@ -1,12 +1,11 @@
-import { defineConfig } from 'vitepress'
-
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default {
   base: '/ziggy-docs',
   title: 'ziggy-docs',
   description: 'Stay hungry stay foolish',
   head: [
     ['link', { rel: 'shortcut icon', href: '/ziggy-docs/img/favicon.ico' }],
+    ['script', { src: 'https://cdn.tailwindcss.com' }],
   ],
   ignoreDeadLinks: true,
   themeConfig: {
@@ -180,4 +179,4 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/chenziggy/ziggy-docs' },
     ],
   },
-})
+}
