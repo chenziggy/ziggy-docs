@@ -45,6 +45,8 @@ netsh int ipv4 show excludedportrange protocol=tcp
 * 重新设置`TCP 动态端口范围`
 * 重启电脑，检查设置是否生效
 ```cmd
+// 重置socket
+netsh winsock reset
 // 设置 TCP 动态端口范围
 netsh int ipv4 set dynamic tcp start=49152 num=16384
 netsh int ipv6 set dynamic tcp start=49152 num=16384
