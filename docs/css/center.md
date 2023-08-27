@@ -16,3 +16,15 @@
   <div class="basis-1/2 bg-[#eee] h-1/3 border-red-900 border text-center text-black align-middle">2</div>
   <div class="basis-1/2 bg-[#eee] h-1/3 border-red-900 border text-center text-black align-middle">3</div>
 </div>
+
+## position transform
+
+```html
+<div class="relative h-[300px] w-2/3 bg-black">
+  <div class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] border border-red-900  h-1/3 w-1/2 bg-white text-black text-center">1</div>
+</div>
+```
+<div class="relative h-[300px] w-2/3 bg-black">
+  <div class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] border border-red-900  h-1/3 w-1/2 bg-white text-black text-center">1</div>
+</div>
+
