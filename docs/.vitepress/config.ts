@@ -113,6 +113,7 @@ export default {
             { text: '级联 继承', link: '/css/cascading' },
             { text: 'bfc', link: '/css/bfc' },
             { text: '居中', link: '/css/center' },
+            { text: '图片', link: '/css/image' },
           ],
         },
       ],
