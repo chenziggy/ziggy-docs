@@ -173,3 +173,15 @@ Cache-Control: no-store
 * 需要重新验证缓存 Cache-Control: no-cache; max-age=0; must-revalidate 
 
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching#%E4%B8%8D%E4%BD%BF%E7%94%A8%E7%BC%93%E5%AD%98
+
+
+## 浏览器解决缓存问题
+
+### request header
+* `If-Modified-Since`: 0
+* `Cache-Control`: no-cache
+
+### url中增加随机数
+
+* `fresh=`+ Math.random()
+* `nowtime=` + new Date().getTime()
