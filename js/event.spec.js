@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { EventEmitter } from './emitter'
+import { EventEmitter } from './event'
 
 describe('EventEmitter', () => {
   const emitter = new EventEmitter()
