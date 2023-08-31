@@ -100,8 +100,41 @@ class MyPromise {
           count++
           if (count === promiseArg.length)
             resolve(ret)
-        }, (reason) => {
-          reject(reason)
+        }, reject)
+      }
+    })
+  }
+
+  static any(promiseArg) {
+    return new Promise((resolve, reject) => {
+      const ret = []
+      let count = 0
+      for (let i = 0; i < promiseArg.length; i++) {
+        promiseArg[i].then(resolve, (err) => {
+          ret[i] = err
+          count++
+          if (count === promiseArg.length)
+            reject(ret)
+        })
+      }
+    })
+  }
+
+  static allSettled(promises) {
+    const ret = []
+    let count = 0
+    return new Promise((resolve, reject) => {
+      for (let i = 0; i < promises.length; i++) {
+        promises[i].then((data) => {
+          ret[i] = { status: 'fulfilled', value: data }
+          count++
+          if (count === promises.length)
+            resolve(ret)
+        }).catch((err) => {
+          ret[i] = { status: 'rejected', reason: err }
+          count++
+          if (count === promises.length)
+            resolve(ret)
         })
       }
     })
