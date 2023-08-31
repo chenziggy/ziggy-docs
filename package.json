@@ -5,13 +5,16 @@
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "prepare": "husky install",
-    "test": "vitest"
+    "test": "vitest",
+    "test:promise": "promises-aplus-tests /js/promise"
+
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
     "eslint": "^8.43.0",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.2",
+    "promises-aplus-tests": "^2.1.2",
     "unocss": "^0.51.12",
     "vitepress": "1.0.0-rc.4",
     "vitest": "^0.33.0"
