@@ -114,6 +114,7 @@ export default {
             { text: 'bfc', link: '/css/bfc' },
             { text: '居中', link: '/css/center' },
             { text: '图片', link: '/css/image' },
+            { text: '过渡动画', link: '/css/transition' },
           ],
         },
       ],
@@ -131,8 +132,8 @@ export default {
           text: 'React',
           items: [
             { text: 'hook', link: '/frame/react/hook' },
-          ]
-        }
+          ],
+        },
       ],
       '/algorithm/': [
         {
