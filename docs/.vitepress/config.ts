@@ -95,6 +95,7 @@ export default {
             { text: '前端性能', link: '/frontend/performance' },
             { text: 'rxjs', link: '/frontend/rxjs' },
             { text: '防抖节流', link: '/frontend/debounceThrottle' },
+            { text: '常用js', link: '/frontend/general' },
           ],
         },
       ],
