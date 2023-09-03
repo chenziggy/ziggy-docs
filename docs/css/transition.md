@@ -2,7 +2,7 @@
 
 
 ## transition
-
+transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
 ## transform
 允许你旋转，缩放，倾斜或平移给定元素
 
