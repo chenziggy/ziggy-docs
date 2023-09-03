@@ -53,6 +53,7 @@ export default {
             { text: '设计模式', link: '/computer/designPattern' },
             { text: '二进制协议和文本协议', link: '/computer/protocol' },
             { text: '跨域', link: '/computer/corsOrigin' },
+            { text: '单点登录', link: '/computer/sso' },
           ],
         },
       ],
