@@ -128,6 +128,7 @@ export default {
             { text: 'reactive', link: '/frame/vue/reactive' },
             { text: 'attrs-listeners-inheritAtrrs', link: '/frame/vue/attrsListenersInheritAtrrs' },
             { text: 'effectScope', link: '/frame/vue/effectScope' },
+            { text: '生命周期', link: '/frame/vue/lifecycle' },
           ],
         },
         {
