@@ -27,6 +27,11 @@ CSS中组成一个块级盒子需要：
 
 - 普通定位的子元素，width: 50% = content-box * 50%
 - <font color=red>绝对定位的子元素，width: 50%  = (content-box + padding-box) * 50% </font>
+- 绝对定位的子元素，不设置 width、height（优先级更高） 可以设置 left、right、top、bottom 控制元素大小
 ::: tip
 响应式布局中，可以利用这一特性，保证图片等比缩放
 :::
+
+<div class="relative w-96 h-96 bg-[#f1c40f]">
+  <div class="absolute w-1/2 left-0 right-0  top-0 bottom-0 bg-[#3498db]"></div>
+</div>
