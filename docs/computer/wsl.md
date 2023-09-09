@@ -16,6 +16,12 @@ export HOSTIP=$(cat /etc/resolv.conf | grep "nameserver" | cut -f 2 -d " ")
 export http_proxy="http://$HOSTIP:$port"
 export https_proxy="http://$HOSTIP:$port"
 export all_proxy="socks5://$HOSTIP:$port"
+
+# git config proxy https
+git config --global http.https://github.com.proxy socks5://$HOSTIP:$port
+
+# ssh config proxy
+sed -i "s/proxyCommand nc -v -x [0-9.]\+:[0-9]\+ %h %p/proxyCommand nc -v -x $HOSTIP:$port %h %p/g" ~/.ssh/config
 ```
 
 ## 端口占用
