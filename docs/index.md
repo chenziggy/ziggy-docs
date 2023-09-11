@@ -21,3 +21,12 @@ features:
     details: 北海虽赊，扶摇可接；东隅已逝，桑榆非晚
 ---
 
+<div class="h-[300px] relative">
+  <FlipClock class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"></FlipClock>
+</div> 
+
+
+<script setup lang="ts">
+import 'vz-components/dist/es/style.css'
+import { FlipClock } from 'vz-components'
+</script>

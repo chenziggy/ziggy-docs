@@ -1,9 +1,13 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   vz-components:
-    specifier: 0.1.0-beta.4
-    version: 0.1.0-beta.4(vue@3.3.4)
+    specifier: 0.1.0-beta.6
+    version: 0.1.0-beta.6(vue@3.3.4)
 
 devDependencies:
   '@antfu/eslint-config':
@@ -4666,8 +4670,8 @@ packages:
       '@vue/server-renderer': 3.3.4(vue@3.3.4)
       '@vue/shared': 3.3.4
 
-  /vz-components@0.1.0-beta.4(vue@3.3.4):
-    resolution: {integrity: sha512-683N5AyrgEY1BhvsOHNngfO0iQ3vAKXF2UWO9PTdWR3yDA7j4Clq+c73F49Ih+d6ID9mBP549Pse+BD6bTrQkg==}
+  /vz-components@0.1.0-beta.6(vue@3.3.4):
+    resolution: {integrity: sha512-tE0U5G1YsggYNR9COljimNAZmxAKv+vbLrcy96ZiH3pOscePTSQkwgL//283r98RpZvEBw6CY4A814gTsRgoGw==}
     peerDependencies:
       vue: ^3.0.0
     dependencies:
@@ -4772,7 +4776,3 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
