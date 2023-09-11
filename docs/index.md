@@ -27,6 +27,6 @@ features:
 
 
 <script setup lang="ts">
-import 'vz-components/dist/es/style.css'
+import 'vz-components/dist/style.css'
 import { FlipClock } from 'vz-components'
 </script>

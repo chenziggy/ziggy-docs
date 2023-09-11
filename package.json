@@ -9,7 +9,7 @@
     "test:promise": "promises-aplus-tests /js/promise"
   },
   "dependencies": {
-    "vz-components": "0.1.0-beta.6"
+    "vz-components": "0.1.0-beta.7"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
