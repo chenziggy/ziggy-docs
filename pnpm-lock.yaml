@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   vz-components:
-    specifier: 0.1.0-beta.9
-    version: 0.1.0-beta.9(vue@3.3.4)
+    specifier: 0.1.0-beta.10
+    version: 0.1.0-beta.10(vue@3.3.4)
 
 devDependencies:
   '@antfu/eslint-config':
@@ -1134,7 +1134,7 @@ packages:
       colorette: 2.0.20
       consola: 3.1.0
       fast-glob: 3.2.12
-      magic-string: 0.30.2
+      magic-string: 0.30.3
       pathe: 1.1.1
       perfect-debounce: 1.0.0
     transitivePeerDependencies:
@@ -1176,7 +1176,7 @@ packages:
       '@unocss/core': 0.51.12
       css-tree: 2.3.1
       fast-glob: 3.2.12
-      magic-string: 0.30.2
+      magic-string: 0.30.3
       postcss: 8.4.28
     dev: true
 
@@ -1291,7 +1291,7 @@ packages:
       '@unocss/transformer-directives': 0.51.12
       chokidar: 3.5.3
       fast-glob: 3.2.12
-      magic-string: 0.30.2
+      magic-string: 0.30.3
       vite: 4.4.9(@types/node@20.4.5)
     transitivePeerDependencies:
       - rollup
@@ -4647,8 +4647,8 @@ packages:
       '@vue/server-renderer': 3.3.4(vue@3.3.4)
       '@vue/shared': 3.3.4
 
-  /vz-components@0.1.0-beta.9(vue@3.3.4):
-    resolution: {integrity: sha512-uk9o3k+tSW2muaAVwm4FrD0pUk9ba+nhCQcPMPQRbvXnFlTquQffmfZQrdmzuV8zV8LBNB603TJfmYnTYPsciQ==}
+  /vz-components@0.1.0-beta.10(vue@3.3.4):
+    resolution: {integrity: sha512-5JsSExuGHA1KhXRpg2CVMSxXVe+bcGHrAg2aFswQbZdwVJq4Sefk23I8uzzf0IIZgN8tJhu+DRVSKP5+ObUIrA==}
     peerDependencies:
       vue: '>=3.0.0'
     dependencies:
