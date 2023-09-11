@@ -1,15 +1,14 @@
 {
   "scripts": {
     "dev": "vitepress dev docs",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
+    "build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "prepare": "husky install",
     "test": "vitest",
     "test:promise": "promises-aplus-tests /js/promise"
   },
   "dependencies": {
-    "vz-components": "0.1.0-beta.7"
+    "vz-components": "0.1.0-beta.9"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
@@ -18,7 +17,7 @@
     "lint-staged": "^13.2.2",
     "promises-aplus-tests": "^2.1.2",
     "unocss": "^0.51.12",
-    "vitepress": "1.0.0-rc.4",
+    "vitepress": "1.0.0-rc.12",
     "vitest": "^0.33.0"
   },
   "lint-staged": {
