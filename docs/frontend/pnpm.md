@@ -66,3 +66,31 @@ pnpm why <pkg>
 # -r 嵌套查询
 pnpm why -r <pkg>
 ```
+
+## info
+查看单个依赖最新信息
+```bash
+pnpm info vitest
+```
+
+![pnpm info](/img/pnpm_info.png)
+
+
+## list
+查看依赖的本地信息
+
+```bash
+pnpm list vitest
+```
+
+![pnpm list](/img/pnpm_list.png)
+
+## -r --filter
+
+```bash
+pnpm -r --filter='./packages/*' run build
+```
+
+`-r` 递归调用
+`--filter` 过滤条件，指定哪些包执行后续命令
+`run build` 命令
