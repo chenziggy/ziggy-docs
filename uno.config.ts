@@ -11,4 +11,9 @@ export default defineConfig({
     transformerDirectives(),
     transformerVariantGroup(),
   ],
+  theme: {
+    breakpoints: {
+      sm: '450px',
+    },
+  },
 })

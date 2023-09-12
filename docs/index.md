@@ -21,9 +21,9 @@ features:
     details: 北海虽赊，扶摇可接；东隅已逝，桑榆非晚
 ---
 
-<div class=" h-[300px] relative">
+<div class=" h-[300px] !lt-sm:h-[200px] relative">
   <FlipClock class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
- flex !lt-sm:(top-1/4 scale-80)"></FlipClock>
+ flex !lt-sm:(scale-80)"></FlipClock>
 </div>
 
 
