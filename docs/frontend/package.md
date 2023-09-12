@@ -109,3 +109,22 @@
   }
 }
 ```
+
+## exports
+
+```json
+{
+  "name": "vz-components",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.mjs",
+      "require": "./dist/lib/index.js"
+    },
+    "./dist/": "./dist/"
+  }
+}
+```
+
+* 在 esm模块中 import A from 'vz-components' 实际上 import A from 'vz-components/dist/es/index.mjs'
+
+* 在 commonjs模块中 require('vz-components') 实际上 require('vz-components/dist/lib/index.js')

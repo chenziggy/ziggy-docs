@@ -5,7 +5,6 @@ export default {
   description: 'Stay hungry stay foolish',
   head: [
     ['link', { rel: 'shortcut icon', href: '/ziggy-docs/img/favicon.ico' }],
-    ['script', { src: 'https://cdn.tailwindcss.com' }],
   ],
   ignoreDeadLinks: true,
   themeConfig: {

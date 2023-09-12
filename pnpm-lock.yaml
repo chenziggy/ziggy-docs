@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   vz-components:
-    specifier: 0.1.0-beta.10
-    version: 0.1.0-beta.10(vue@3.3.4)
+    specifier: 0.1.0-beta.11
+    version: 0.1.0-beta.11(vue@3.3.4)
 
 devDependencies:
   '@antfu/eslint-config':
@@ -4656,8 +4656,8 @@ packages:
       '@vue/server-renderer': 3.3.4(vue@3.3.4)
       '@vue/shared': 3.3.4
 
-  /vz-components@0.1.0-beta.10(vue@3.3.4):
-    resolution: {integrity: sha512-5JsSExuGHA1KhXRpg2CVMSxXVe+bcGHrAg2aFswQbZdwVJq4Sefk23I8uzzf0IIZgN8tJhu+DRVSKP5+ObUIrA==}
+  /vz-components@0.1.0-beta.11(vue@3.3.4):
+    resolution: {integrity: sha512-4CUHWFLvcTQC5249oU/ZJcWYstJS5dIam9uykzsVgnjU84scZsdqeyqM1Stb0fajPT+iVgUTeTWUc81OEaxLKA==}
     peerDependencies:
       vue: '>=3.0.0'
     dependencies:
