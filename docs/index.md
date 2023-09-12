@@ -23,7 +23,7 @@ features:
 
 <div class=" h-[300px] relative">
   <FlipClock class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
- flex"></FlipClock>
+ flex !lt-sm:(top-1/4 scale-80)"></FlipClock>
 </div>
 
 
@@ -31,11 +31,3 @@ features:
 import 'vz-components/dist/style.css'
 import { FlipClock } from 'vz-components'
 </script>
-
-<style scoped>
-  @media (max-width: 600px) {
-    :deep(.flip__clock){
-      transform: translate(-50%, -50%) scale(75%) ;
-    }
-  }
-</style>

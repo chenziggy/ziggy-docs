@@ -1,5 +1,5 @@
-// eslint-disable-next-line no-restricted-imports
 import { defineConfig, presetAttributify, presetIcons, presetUno, transformerDirectives } from 'unocss'
+import transformerVariantGroup from '@unocss/transformer-variant-group'
 
 export default defineConfig({
   presets: [
@@ -9,5 +9,6 @@ export default defineConfig({
   ],
   transformers: [
     transformerDirectives(),
+    transformerVariantGroup(),
   ],
 })
