@@ -2,13 +2,8 @@ lockfileVersion: '6.0'
 
 dependencies:
   vz-components:
-<<<<<<< Updated upstream
-    specifier: 0.1.0-beta.11
-    version: 0.1.0-beta.11(vue@3.3.4)
-=======
-    specifier: 0.2.0
+    specifier: ^0.2.0
     version: 0.2.0(vue@3.3.4)
->>>>>>> Stashed changes
 
 devDependencies:
   '@antfu/eslint-config':
@@ -2676,6 +2671,17 @@ packages:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}
     dev: true
 
+  /fast-glob@3.2.12:
+    resolution: {integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==}
+    engines: {node: '>=8.6.0'}
+    dependencies:
+      '@nodelib/fs.stat': 2.0.5
+      '@nodelib/fs.walk': 1.2.8
+      glob-parent: 5.1.2
+      merge2: 1.4.1
+      micromatch: 4.0.5
+    dev: true
+
   /fast-glob@3.3.1:
     resolution: {integrity: sha512-kNFPyjhh5cKjrUltxs+wFx+ZkbRaxxmZ+X0ZU31SOsxCEtP9VPgtq2teZw1DebupL5GmDaNQ6yKMMVcM41iqDg==}
     engines: {node: '>=8.6.0'}
@@ -2870,7 +2876,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.3.1
+      fast-glob: 3.2.12
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
@@ -3544,7 +3550,7 @@ packages:
       acorn: 8.9.0
       pathe: 1.1.1
       pkg-types: 1.0.3
-      ufo: 1.3.0
+      ufo: 1.1.2
     dev: true
 
   /mocha@2.5.3:
@@ -4419,6 +4425,10 @@ packages:
     hasBin: true
     dev: true
 
+  /ufo@1.1.2:
+    resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==}
+    dev: true
+
   /ufo@1.3.0:
     resolution: {integrity: sha512-bRn3CsoojyNStCZe0BG0Mt4Nr/4KF+rhFlnNXybgqt5pXHNFRlqinSoQaTrGyzE4X8aHplSb+TorH+COin9Yxw==}
     dev: true
@@ -4764,13 +4774,8 @@ packages:
       '@vue/server-renderer': 3.3.4(vue@3.3.4)
       '@vue/shared': 3.3.4
 
-<<<<<<< Updated upstream
-  /vz-components@0.1.0-beta.11(vue@3.3.4):
-    resolution: {integrity: sha512-4CUHWFLvcTQC5249oU/ZJcWYstJS5dIam9uykzsVgnjU84scZsdqeyqM1Stb0fajPT+iVgUTeTWUc81OEaxLKA==}
-=======
   /vz-components@0.2.0(vue@3.3.4):
     resolution: {integrity: sha512-2YvnxLE6r6Mnz049liCePvcolspvzM8rOI13eSiLCF7i27O5mOLQEZ7xtHh3/NBaIX2oV+KxoBrEfUNKj8KUfw==}
->>>>>>> Stashed changes
     peerDependencies:
       vue: ^3.2.0
     dependencies:
