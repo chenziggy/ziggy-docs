@@ -22,12 +22,12 @@ features:
 ---
 
 <div class=" h-[300px] !lt-sm:h-[200px] relative">
-  <FlipClock class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
- flex !lt-sm:(scale-80)"></FlipClock>
+  <VzFlipClock class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+ flex !lt-sm:(scale-80)"></VzFlipClock>
 </div>
 
 
 <script setup lang="ts">
-import 'vz-components/dist/style.css'
-import { FlipClock } from 'vz-components'
+import 'vz-components/theme-chalk/index.css'
+import { VzFlipClock } from 'vz-components'
 </script>
