@@ -2,6 +2,10 @@
   background-color: transparent;
 }
 
+body {
+  line-height: inherit;
+}
+
 table {
   width: 100% !important;
   display: table;
