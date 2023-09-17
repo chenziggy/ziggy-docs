@@ -117,6 +117,7 @@ export default {
             { text: '居中', link: '/css/center' },
             { text: '图片', link: '/css/image' },
             { text: '过渡动画', link: '/css/transition' },
+            { text: ':where', link: '/css/where' },
           ],
         },
       ],
