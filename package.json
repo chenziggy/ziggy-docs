@@ -8,7 +8,8 @@
     "test:promise": "promises-aplus-tests /js/promise"
   },
   "dependencies": {
-    "vz-components": "^0.2.0"
+    "@vueuse/core": "^10.4.1",
+    "vz-components": "0.2.0-beta.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.39.5",
