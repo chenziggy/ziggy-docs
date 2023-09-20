@@ -29,5 +29,6 @@ features:
 
 <script setup lang="ts">
 import 'vz-components/theme-chalk/index.css'
+import 'vz-components/theme-chalk/dark/css-vars.css'
 import { VzFlipClock } from 'vz-components'
 </script>
