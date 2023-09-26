@@ -21,6 +21,7 @@ export default {
       { text: 'Frame', link: '/frame/vue/prop' },
       { text: 'Algorithm', link: '/algorithm/tree' },
       { text: 'Node', link: '/node/eventLoop' },
+      { text: 'Web3', link: '/web3/account' },
       { text: 'Other', link: '/other/videoFramePreview' },
     ],
 
@@ -183,6 +184,14 @@ export default {
             { text: 'FFERRTAG', link: '/other/fferrtag' },
             { text: 'input.value', link: '/other/input' },
             { text: 'webGL', link: '/other/webgl' },
+          ],
+        },
+      ],
+      '/web3/': [
+        {
+          text: 'Web3',
+          items: [
+            { text: 'Account', link: '/web3/account.md' },
           ],
         },
       ],
