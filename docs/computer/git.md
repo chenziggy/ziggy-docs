@@ -82,11 +82,15 @@ git push origin --delete <remote-branch>
 
 添加工作区
 ```bash
-git worktree add ../project_main
+git worktree add <path> <branch>
+
+git worktree add ../project_main main
 ```
 
 删除工作区
 ```bash
+git worktree remove <worktree>
+
 git worktree remove D:/project/github/project_main
 ```
 
