@@ -78,7 +78,25 @@ git remote add <remote-name> <remote-url>
 git push origin --delete <remote-branch>
 ```
 
-## base
+## worktree
+
+添加工作区
+```bash
+git worktree add ../project_main
+```
+
+删除工作区
+```bash
+git worktree remove D:/project/github/project_main
+```
+
+修剪工作区
+```bash
+git worktree prune
+## 清理已经不存在的工作区，例如被 rm -rf 的工作区
+```
+
+## rebase
 
 ### 删除提交
 删除 b c
