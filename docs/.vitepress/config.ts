@@ -98,6 +98,7 @@ export default {
             { text: 'rxjs', link: '/frontend/rxjs' },
             { text: '防抖节流', link: '/frontend/debounceThrottle' },
             { text: '常用js', link: '/frontend/general' },
+            { text: 'for await', link: '/frontend/forAwait' },
           ],
         },
       ],
