@@ -100,6 +100,35 @@ git worktree prune
 ## 清理已经不存在的工作区，例如被 rm -rf 的工作区
 ```
 
+整理本地分支
+```bash
+git fetch origin --prune
+
+# 配置fetch时，自动删除本地已删除的远程分支
+git config --global fetch.prune true
+```
+
+
+##  tag
+
+新建 轻量标签 lightweight tag
+```bash
+git tag v0.1.0
+
+# 推送远程仓库
+git push origin v0.1.0
+```
+
+新建 附注标签 annotated tag
+```bash
+git tag -a v0.1.0 -m "message"
+```
+
+删除 tag
+```bash
+git tag --delete v0.1.0
+```
+
 ## rebase
 
 ### 删除提交
