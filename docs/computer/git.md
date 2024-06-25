@@ -78,28 +78,6 @@ git remote add <remote-name> <remote-url>
 git push origin --delete <remote-branch>
 ```
 
-## worktree
-
-添加工作区
-```bash
-git worktree add <path> <branch>
-
-git worktree add ../project_main main
-```
-
-删除工作区
-```bash
-git worktree remove <worktree>
-
-git worktree remove D:/project/github/project_main
-```
-
-修剪工作区
-```bash
-git worktree prune
-## 清理已经不存在的工作区，例如被 rm -rf 的工作区
-```
-
 整理本地分支
 ```bash
 git fetch origin --prune
@@ -127,6 +105,29 @@ git tag -a v0.1.0 -m "message"
 删除 tag
 ```bash
 git tag --delete v0.1.0
+```
+
+
+## worktree
+
+添加工作区
+```bash
+git worktree add <path> <branch>
+
+git worktree add ../project_main main
+```
+
+删除工作区
+```bash
+git worktree remove <worktree>
+
+git worktree remove D:/project/github/project_main
+```
+
+修剪工作区
+```bash
+git worktree prune
+## 清理已经不存在的工作区，例如被 rm -rf 的工作区
 ```
 
 ## rebase
