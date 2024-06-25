@@ -9,7 +9,7 @@ on:
     branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
-  # workflow_dispatch:
+  workflow_dispatch: {}
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -35,7 +35,7 @@ jobs:
       # - uses: pnpm/action-setup@v3 # Uncomment this if you're using pnpm
       # - uses: oven-sh/setup-bun@v1 # Uncomment this if you're using Bun
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: pnpm/action-setup@v3
         with:
           node-version: 20
           cache: pnpm
