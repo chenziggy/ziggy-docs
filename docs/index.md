@@ -23,7 +23,8 @@ features:
 
 <div class=" h-[300px] !lt-sm:h-[200px] relative">
   <VzFlipClock class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
- flex !lt-sm:(scale-80)"></VzFlipClock>
+ flex !lt-sm:(scale-80)
+"></VzFlipClock>
 </div>
 
 
@@ -32,3 +33,10 @@ import 'vz-components/theme-chalk/index.css'
 import 'vz-components/theme-chalk/dark/css-vars.css'
 import { VzFlipClock } from 'vz-components'
 </script>
+
+
+<style>
+  .vz-flip-number {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+  }
+</style>
