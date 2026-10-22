@@ -41,7 +41,7 @@ tcp 协议传输字节流，使用滑动窗口（Sliding Window）机制来实�
 ## http 3
 TTP/3 是基于 QUIC 协议的下一代 HTTP 协议。QUIC（Quick UDP Internet Connections）是一种基于 UDP 的传输协议
 
-QUIC 受到 HTTP/2 帧方式（framing-approach）的启发，还添加了自己的帧（frames）；在本例中是流帧（STREAM frame）。流id（stream id）以前在 HTTP/2 的数据帧（DATA frame）中，现在被下移到传输层的 QUIC 流帧（STREAM frame）中。（这也说明了如果我们想使用 QUIC，我们需要一个新版本的 HTTP 的原因之一）
+HTTP/3 用的 QUIC 改变了这一点：QUIC 在传输层就原生支持多路复用，并且能区分不同的流。当丢包发生时，QUIC 知道具体是哪个流的数据丢了，它只阻塞那一个流，其他流的数据可以照常交付给应用层。用你的场景来说：丢的是 stream2 的包，那么 stream1 的数据就可以正常继续往上走，不用再等 stream2 重传了。
 
 
 ![http3](/img/http3.jpg)
